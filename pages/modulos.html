@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulos | Listosoft ERP</title>
     <meta name="description"
-        content="Descubre todos los módulos del ERP Listosoft: Gestión Comercial, Compras, Inventarios, Finanzas, Nómina y Análisis Gerencial.">
+        content="Explora los módulos de Listosoft ERP organizados por operaciones comerciales, finanzas, operaciones avanzadas, gestión del talento y control y cumplimiento.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://listosoft.com/pages/modulos.html">
     <meta property="og:title" content="Módulos | Listosoft ERP">
     <meta property="og:description"
-        content="Descubre todos los módulos del ERP Listosoft: Gestión Comercial, Compras, Inventarios, Finanzas, Nómina y Análisis Gerencial.">
+        content="Explora los módulos de Listosoft ERP organizados por operaciones comerciales, finanzas, operaciones avanzadas, gestión del talento y control y cumplimiento.">
     <meta property="og:image" content="https://listosoft.com/assets/IsotipoListosoft.png">
 
     <!-- Twitter -->
@@ -21,7 +21,7 @@
     <meta property="twitter:url" content="https://listosoft.com/pages/modulos.html">
     <meta property="twitter:title" content="Módulos | Listosoft ERP">
     <meta property="twitter:description"
-        content="Descubre todos los módulos del ERP Listosoft: Gestión Comercial, Compras, Inventarios, Finanzas, Nómina y Análisis Gerencial.">
+        content="Explora los módulos de Listosoft ERP organizados por operaciones comerciales, finanzas, operaciones avanzadas, gestión del talento y control y cumplimiento.">
     <meta property="twitter:image" content="https://listosoft.com/assets/IsotipoListosoft.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -35,343 +35,144 @@
     <!-- Contenedor para el navbar (se carga dinámicamente) -->
     <div id="navbar-container"></div>
 
-    <!-- Módulo 1: Inventario -->
-    <section id="inventario" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="package"></i>
-                    </div>
-                    <h2>Inventario</h2>
+    <main class="modules-page">
+        <section class="modules-quicknav-wrap">
+            
+        <section class="modules-map">
+            <div class="container">
+                <div class="modules-map-header fade-in">
+                    <span class="modules-kicker">Arquitectura del sistema</span>
+                    <h2>Cada bloque responde a una necesidad específica del negocio.</h2>
+                    <p>La idea es que un gerente, contador o responsable operativo pueda recorrer la página y reconocer de inmediato qué parte del ERP le resuelve su trabajo.</p>
                 </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Ingresos/Egresos de Bodega</div>
-                    <div class="comprobante-tag">Transformaciones</div>
-                    <div class="comprobante-tag">Transferencias</div>
-                    <div class="comprobante-tag">Órdenes de egresos</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Módulo 2: Ventas -->
-    <section id="ventas" class="modulo-section-horizontal modulo-section--alt">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="shopping-cart"></i>
+                <article id="ciclo-comercial" class="module-stack module-stack--commercial fade-in">
+                    <div class="module-stack-aside">
+                        <span class="module-stack-kicker">Operaciones comerciales</span>
+                        <h3>El frente donde se mueve la operación diaria.</h3>
+                        <p>Integra el abastecimiento, la rotación de inventario, la ejecución comercial y el control de cartera con proveedores y clientes.</p>
                     </div>
-                    <h2>Ventas</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Pedidos</div>
-                    <div class="comprobante-tag">Proformas</div>
-                    <div class="comprobante-tag">Facturas</div>
-                    <div class="comprobante-tag">Notas de Crédito</div>
-                    <div class="comprobante-tag">Notas de Débito</div>
-                    <div class="comprobante-tag">Notas de Venta</div>
-                    <div class="comprobante-tag">Contratos de Servicios</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="module-stack-grid">
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="package"></i></div>
+                            <h4>Inventario</h4>
+                            <p>Control de existencias, movimientos y disponibilidad por bodega.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="shopping-cart"></i></div>
+                            <h4>Ventas</h4>
+                            <p>Seguimiento del proceso comercial desde pedidos hasta facturación.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="shopping-bag"></i></div>
+                            <h4>Compras</h4>
+                            <p>Gestión de abastecimiento, órdenes y recepción de productos.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="badge-dollar-sign"></i></div>
+                            <h4>Cuentas por cobrar</h4>
+                            <p>Monitoreo de cartera, vencimientos y recuperación de valores.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="receipt-text"></i></div>
+                            <h4>Cuentas por pagar</h4>
+                            <p>Planificación de obligaciones y control de pagos pendientes.</p>
+                        </article>
+                    </div>
+                </article>
 
-    <!-- Módulo 3: Compras -->
-    <section id="compras" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="shopping-bag"></i>
+                <article id="gestion-financiera" class="module-stack module-stack--finance fade-in">
+                    <div class="module-stack-aside">
+                        <span class="module-stack-kicker">Finanzas</span>
+                        <h3>Visibilidad real sobre liquidez, registro y obligaciones.</h3>
+                        <p>Consolida la gestión del efectivo, los movimientos bancarios, la contabilidad general y el cumplimiento tributario.</p>
                     </div>
-                    <h2>Compras</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Órdenes de Compra</div>
-                    <div class="comprobante-tag">Comprobantes de Compra</div>
-                    <div class="comprobante-tag">Notas de Débito</div>
-                    <div class="comprobante-tag">Notas de Crédito</div>
-                    <div class="comprobante-tag">Importaciones</div>
-                    <div class="comprobante-tag">Liquidación de transporte</div>
-                    <div class="comprobante-tag">Recepción de productos</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="module-stack-grid">
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="wallet"></i></div>
+                            <h4>Caja</h4>
+                            <p>Administración de ingresos, egresos y operaciones de tesorería.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="landmark"></i></div>
+                            <h4>Bancos</h4>
+                            <p>Conciliaciones, transferencias y control de cuentas bancarias.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="calculator"></i></div>
+                            <h4>Contabilidad</h4>
+                            <p>Base contable para reportes financieros y trazabilidad documental.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="file-text"></i></div>
+                            <h4>Tributario</h4>
+                            <p>Declaraciones, anexos y soporte para obligaciones fiscales.</p>
+                        </article>
+                    </div>
+                </article>
 
-    <!-- Módulo 4: Caja -->
-    <section id="caja" class="modulo-section-horizontal modulo-section--alt">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="wallet"></i>
+                <article id="produccion-operaciones" class="module-stack module-stack--advanced fade-in">
+                    <div class="module-stack-aside">
+                        <span class="module-stack-kicker">Operaciones avanzadas</span>
+                        <h3>Cuando el negocio necesita fabricar, ejecutar y coordinar.</h3>
+                        <p>Este bloque agrupa los procesos que requieren planificación técnica, control de costos y seguimiento operativo más detallado.</p>
                     </div>
-                    <h2>Caja</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Ingresos/Egresos</div>
-                    <div class="comprobante-tag">Cheques Recibidos</div>
-                    <div class="comprobante-tag">Ordenes de Pago</div>
-                    <div class="comprobante-tag">Garantía de cobros</div>
-                    <div class="comprobante-tag">Devolución de garantía de cobros</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="module-stack-grid">
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="factory"></i></div>
+                            <h4>Producción</h4>
+                            <p>Planificación, centros de producción y control de procesos.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="clipboard-list"></i></div>
+                            <h4>Órdenes de trabajo</h4>
+                            <p>Seguimiento de servicios, tareas y costos asociados por orden.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="blocks"></i></div>
+                            <h4>Proyectos</h4>
+                            <p>Coordinación de actividades, recursos y cumplimiento por proyecto.</p>
+                        </article>
+                    </div>
+                </article>
 
-    <!-- Módulo 5: Bancos -->
-    <section id="bancos" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="landmark"></i>
+                <article id="nomina-activos" class="module-stack module-stack--talent fade-in">
+                    <div class="module-stack-aside">
+                        <span class="module-stack-kicker">Gestión del talento</span>
+                        <h3>Una base laboral más ordenada para el día a día.</h3>
+                        <p>Organiza la información del personal, la operación de novedades y el procesamiento de nómina dentro del mismo sistema.</p>
                     </div>
-                    <h2>Bancos</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Depósitos</div>
-                    <div class="comprobante-tag">Cheques</div>
-                    <div class="comprobante-tag">Notas de Débito/Crédito</div>
-                    <div class="comprobante-tag">Transferencias interbancarias</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="module-stack-grid module-stack-grid--single">
+                        <article class="module-tile module-tile--feature">
+                            <div class="module-tile-icon"><i data-lucide="users-round"></i></div>
+                            <h4>Nómina</h4>
+                            <p>Roles, beneficios, novedades, vacaciones y gestión laboral en un solo módulo.</p>
+                        </article>
+                    </div>
+                </article>
 
-    <!-- Módulo 6: Cuentas por Cobrar -->
-    <section id="cuentas-cobrar" class="modulo-section-horizontal modulo-section--alt">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="arrow-down-circle"></i>
+                <article id="contabilidad-legal" class="module-stack module-stack--compliance fade-in">
+                    <div class="module-stack-aside">
+                        <span class="module-stack-kicker">Control y cumplimiento</span>
+                        <h3>Activos y documentos regulados con mejor trazabilidad.</h3>
+                        <p>Diseñado para mantener evidencia, control patrimonial y consistencia en procesos sensibles para auditoría y cumplimiento.</p>
                     </div>
-                    <h2>Cuentas por Cobrar</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Saldos iniciales</div>
-                    <div class="comprobante-tag">Notas de débito/crédito</div>
-                    <div class="comprobante-tag">Cruces de cuentas</div>
-                    <div class="comprobante-tag">Refinanciamientos</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 7: Cuentas por Pagar -->
-    <section id="cuentas-pagar" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="arrow-up-circle"></i>
+                    <div class="module-stack-grid">
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="archive"></i></div>
+                            <h4>Activos fijos</h4>
+                            <p>Registro, depreciación y seguimiento del patrimonio empresarial.</p>
+                        </article>
+                        <article class="module-tile">
+                            <div class="module-tile-icon"><i data-lucide="file-check"></i></div>
+                            <h4>Comprobantes electrónicos</h4>
+                            <p>Emisión y control de documentos electrónicos con respaldo normativo.</p>
+                        </article>
                     </div>
-                    <h2>Cuentas por Pagar</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Saldos Iniciales</div>
-                    <div class="comprobante-tag">Notas de Débito</div>
-                    <div class="comprobante-tag">Notas de Crédito</div>
-                    <div class="comprobante-tag">Refinanciamientos</div>
-                    <div class="comprobante-tag">Deudas de Terceros</div>
-                </div>
+                </article>
             </div>
-        </div>
-    </section>
-
-    <!-- Módulo 8: Contabilidad -->
-    <section id="contabilidad" class="modulo-section-horizontal modulo-section--alt">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="calculator"></i>
-                    </div>
-                    <h2>Contabilidad</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Comprobantes de Diario</div>
-                    <div class="comprobante-tag">Libro Mayor y Diario General</div>
-                    <div class="comprobante-tag">Balance de Comprobación</div>
-                    <div class="comprobante-tag">Estados Financieros</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 9: Tributario -->
-    <section id="tributario" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="file-text"></i>
-                    </div>
-                    <h2>Tributario</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Declaraciones de IVA</div>
-                    <div class="comprobante-tag">Declaraciones de Retenciones</div>
-                    <div class="comprobante-tag">Anexos Transaccionales</div>
-                    <div class="comprobante-tag">Anexo de Gastos Personales</div>
-                    <div class="comprobante-tag">Generar Archivo para la Dinardap</div>
-                    <div class="comprobante-tag">Ventas a Crédito Super de Cías</div>
-                    <div class="comprobante-tag">Declaración 101 y Anexo para Devolución de IVA</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 10: Comprobantes Electrónicos -->
-    <section id="comprobantes-electronicos" class="modulo-section-horizontal modulo-section--alt">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="file-check"></i>
-                    </div>
-                    <h2>Comprobantes Electrónicos</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Autorización de Comprobantes Electrónicos</div>
-                    <div class="comprobante-tag">Facturas Electrónicas</div>
-                    <div class="comprobante-tag">Retenciones Electrónicas</div>
-                    <div class="comprobante-tag">Guías de Remisión Electrónicas</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 11: Producción -->
-    <section id="produccion" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="settings"></i>
-                    </div>
-                    <h2>Producción</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Plantilla de producción</div>
-                    <div class="comprobante-tag">Ordenes de producción</div>
-                    <div class="comprobante-tag">Planificación de logística</div>
-                    <div class="comprobante-tag">Aplicación de costos</div>
-                    <div class="comprobante-tag">Centro de producción</div>
-                    <div class="comprobante-tag">Procesos de producción</div>
-                    <div class="comprobante-tag">Grupos de procesos de producción</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 12: Órdenes de Trabajo -->
-    <section id="ordenes-trabajo" class="modulo-section-horizontal modulo-section--alt">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="clipboard-list"></i>
-                    </div>
-                    <h2>Órdenes de Trabajo</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Presupuesto de órdenes de trabajo</div>
-                    <div class="comprobante-tag">Órdenes de trabajo</div>
-                    <div class="comprobante-tag">Aplicación de costos</div>
-                    <div class="comprobante-tag">Procesos de órdenes de trabajo</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 13: Nómina -->
-    <section id="nomina" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <h2>Nómina</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Registro de Saldos Iniciales</div>
-                    <div class="comprobante-tag">Definición de Labores</div>
-                    <div class="comprobante-tag">Definición de Otros Rubros</div>
-                    <div class="comprobante-tag">Reporte de Empleados</div>
-                    <div class="comprobante-tag">Registro de Novedades</div>
-                    <div class="comprobante-tag">Registro de vacaciones</div>
-                    <div class="comprobante-tag">Asignación de centros de costos</div>
-                    <div class="comprobante-tag">Cálculo de Rol de Pagos</div>
-                    <div class="comprobante-tag">Cálculo de Beneficios Sociales</div>
-                    <div class="comprobante-tag">Cálculo de Rol de Utilidades</div>
-                    <div class="comprobante-tag">Cálculo de Rol de Salario Digno</div>
-                    <div class="comprobante-tag">Consulta de Roles</div>
-                    <div class="comprobante-tag">Planilla de Rol</div>
-                    <div class="comprobante-tag">Comprobante Contable</div>
-                    <div class="comprobante-tag">Generación de Pagos en Lote</div>
-                    <div class="comprobante-tag">Anexo de Dependientes</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 14: Activos Fijos -->
-    <section id="activos-fijos" class="modulo-section-horizontal modulo-section--alt">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="archive"></i>
-                    </div>
-                    <h2>Activos Fijos</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Registro de Activos</div>
-                    <div class="comprobante-tag">Control de Depreciación</div>
-                    <div class="comprobante-tag">Mantenimiento de Bienes</div>
-                    <div class="comprobante-tag">Revalorización de Activos</div>
-                    <div class="comprobante-tag">Reportes de Activos Fijos</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Módulo 15: Gerencial -->
-    <section id="gerencial" class="modulo-section-horizontal">
-        <div class="container">
-            <div class="modulo-horizontal-layout fade-in">
-                <div class="modulo-title-side">
-                    <div class="modulo-icon-circle">
-                        <i data-lucide="trending-up"></i>
-                    </div>
-                    <h2>Gerencial</h2>
-                </div>
-                <div class="modulo-comprobantes-side">
-                    <div class="comprobante-tag">Presupuesto de Estado de Situación Financiera</div>
-                    <div class="comprobante-tag">Presupuesto de Estado de Resultados</div>
-                    <div class="comprobante-tag">Consultas Dinámicas de Inventarios</div>
-                    <div class="comprobante-tag">Consultas Dinámicas de Ventas</div>
-                    <div class="comprobante-tag">Consultas Dinámicas de Cuentas por Cobrar</div>
-                    <div class="comprobante-tag">Consultas Dinámicas de Compras</div>
-                    <div class="comprobante-tag">Consultas Dinámicas de Cuentas por Pagar</div>
-                    <div class="comprobante-tag">Consultas Dinámicas de Caja y Bancos</div>
-                    <div class="comprobante-tag">Estado de Situación Financiera comparativo</div>
-                    <div class="comprobante-tag">Estado de Resultados Integral Comparativo</div>
-                    <div class="comprobante-tag">Estado de Resultados Comparativo por Centros de Costos</div>
-                    <div class="comprobante-tag">Origen y Aplicación de Fondos Comparativo</div>
-                    <div class="comprobante-tag">Generador de Reportes Personalizados</div>
-                    <div class="comprobante-tag">Diseñador de Reportes</div>
-                    <div class="comprobante-tag">Programador de Reportes</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- CTA Final -->
     <section class="cta-section">
@@ -379,7 +180,7 @@
             <div class="cta-content fade-in">
                 <h2>¿Listo para transformar su gestión empresarial?</h2>
                 <p>Contáctenos y descubra cómo Listosoft puede optimizar cada área de su empresa.</p>
-                <a href=".#" class="btn btn-accent btn-large">Solicitar Información</a>
+                <a href="../index.html#contacto" class="btn btn-accent btn-large">Solicitar Información</a>
             </div>
         </div>
     </section>
