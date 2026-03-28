@@ -106,6 +106,8 @@
 .module-stack {
     --stack-accent: var(--accent-color);
     --stack-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.96));
+    --stack-accent-soft: rgba(59, 130, 246, 0.12);
+    --stack-border-soft: rgba(59, 130, 246, 0.18);
     display: grid;
     grid-template-columns: minmax(250px, 340px) minmax(0, 1fr);
     gap: 24px;
@@ -121,26 +123,36 @@
 .module-stack--commercial {
     --stack-accent: #334155;
     --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+    --stack-accent-soft: rgba(51, 65, 85, 0.08);
+    --stack-border-soft: rgba(51, 65, 85, 0.14);
 }
 
 .module-stack--finance {
     --stack-accent: #0f766e;
     --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+    --stack-accent-soft: rgba(15, 118, 110, 0.08);
+    --stack-border-soft: rgba(15, 118, 110, 0.16);
 }
 
 .module-stack--advanced {
     --stack-accent: #475569;
     --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+    --stack-accent-soft: rgba(71, 85, 105, 0.08);
+    --stack-border-soft: rgba(71, 85, 105, 0.14);
 }
 
 .module-stack--talent {
     --stack-accent: #1e40af;
     --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+    --stack-accent-soft: rgba(30, 64, 175, 0.08);
+    --stack-border-soft: rgba(30, 64, 175, 0.16);
 }
 
 .module-stack--compliance {
     --stack-accent: #0f172a;
     --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+    --stack-accent-soft: rgba(15, 23, 42, 0.08);
+    --stack-border-soft: rgba(15, 23, 42, 0.14);
 }
 
 .module-stack-aside {
@@ -186,7 +198,7 @@
 
 .module-tile:hover {
     transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--stack-accent) 22%, white);
+    border-color: var(--stack-border-soft);
     box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
 }
 
@@ -202,7 +214,7 @@
     justify-content: center;
     margin-bottom: 16px;
     border-radius: 17px;
-    background: color-mix(in srgb, var(--stack-accent) 10%, white);
+    background: var(--stack-accent-soft);
 }
 
 .module-tile-icon i {
