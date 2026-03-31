@@ -2133,7 +2133,6 @@ body.home-dark .btn {
 body.home-dark .btn-accent,
 body.home-dark .nav-cta,
 body.home-dark .btn-primary {
-    background: linear-gradient(135deg, var(--home-accent) 0%, #1f2f6b 100%);
     color: #ffffff;
     box-shadow: 0 10px 24px rgba(23, 144, 255, 0.24);
 }
@@ -2181,18 +2180,23 @@ body.home-dark #tsparticles {
 }
 
 body.home-dark .hero-container {
-    max-width: 1240px;
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 54px;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
 }
 
 body.home-dark .hero-copy {
     position: relative;
     z-index: 1;
     padding-top: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 body.home-dark .hero h1 {
@@ -2200,7 +2204,7 @@ body.home-dark .hero h1 {
     line-height: 1.14;
     letter-spacing: -0.04em;
     margin-bottom: 20px;
-    max-width: 12.5ch;
+    max-width: 100%;
 }
 
 body.home-dark .hero p {
@@ -2208,7 +2212,7 @@ body.home-dark .hero p {
     line-height: 1.8;
     color: var(--home-muted);
     max-width: 620px;
-    margin: 0 0 30px;
+    margin: 0 auto 30px;
 }
 
 body.home-dark .hero-buttons {
@@ -2272,7 +2276,7 @@ body.home-dark .dashboard-shell::after {
 body.home-dark .dashboard-topbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 18px 22px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
