@@ -401,23 +401,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 color: {
-                    value: "#ffffff" // Puntos blancos
+                        value: ["#5f7598", "#7892bd", "#8eaadc"] // Puntos azul gris con más contraste sobre fondo claro
                 },
                 shape: {
                     type: "circle"
                 },
                 opacity: {
-                    value: 0.3,
+                        value: 0.58,
                     random: true,
                     anim: {
                         enable: true,
                         speed: 1,
-                        opacity_min: 0.1,
+                            opacity_min: 0.26,
                         sync: false
                     }
                 },
                 size: {
-                    value: 3,
+                        value: 3.4,
                     random: true,
                     anim: {
                         enable: false,
@@ -429,8 +429,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 links: {
                     enable: true,
                     distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.2, // Líneas sutiles
+                    color: "#89a6d6",
+                    opacity: 0.45, // Líneas más visibles sobre fondo claro
                     width: 1
                 },
                 move: {
@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     grab: {
                         distance: 200,
                         line_linked: {
-                            opacity: 0.5
+                            opacity: 0.65
                         }
                     },
                     push: {
