@@ -86,6 +86,23 @@ ul {
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
+.btn-demo {
+    border-radius: 999px;
+    padding: 12px 30px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2fb6ff 0%, #2c7dff 55%, #5a6dff 100%);
+    border: 1px solid rgba(173, 224, 255, 0.55);
+    box-shadow: 0 10px 24px rgba(47, 182, 255, 0.4), 0 0 0 1px rgba(173, 224, 255, 0.2) inset;
+}
+
+.btn-demo:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #6ed9ff 0%, #49a8ff 52%, #7685ff 100%);
+    box-shadow: 0 16px 34px rgba(47, 182, 255, 0.5), 0 0 22px rgba(110, 217, 255, 0.45);
+}
+
 .btn-outline {
     border-color: var(--white);
     color: var(--white);
@@ -293,10 +310,9 @@ header.scrolled .logo-dark {
 /* Botón CTA del navbar - Más visible y llamativo */
 .nav-cta {
     font-weight: 700;
-    padding: 12px 24px;
-    font-size: 0.95rem;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-    animation: subtle-pulse 3s ease-in-out infinite;
+    padding: 10px 22px;
+    font-size: 0.92rem;
+    box-shadow: 0 10px 20px rgba(20, 93, 201, 0.24);
 }
 
 .nav-cta::after {
@@ -305,19 +321,7 @@ header.scrolled .logo-dark {
 }
 
 .nav-cta:hover {
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
-}
-
-@keyframes subtle-pulse {
-
-    0%,
-    100% {
-        box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 4px 18px rgba(59, 130, 246, 0.4);
-    }
+    box-shadow: 0 14px 28px rgba(20, 93, 201, 0.34);
 }
 
 @keyframes spin {
@@ -2135,6 +2139,17 @@ body.home-dark .nav-cta,
 body.home-dark .btn-primary {
     color: #ffffff;
     box-shadow: 0 10px 24px rgba(23, 144, 255, 0.24);
+}
+
+body.home-dark .btn-demo {
+    background: linear-gradient(135deg, #39beff 0%, #2f86ff 54%, #6473ff 100%);
+    border-color: rgba(205, 237, 255, 0.42);
+    box-shadow: 0 12px 28px rgba(47, 134, 255, 0.4), 0 0 0 1px rgba(205, 237, 255, 0.14) inset;
+}
+
+body.home-dark .btn-demo:hover {
+    background: linear-gradient(135deg, #79ddff 0%, #56b4ff 54%, #8f9aff 100%);
+    box-shadow: 0 18px 34px rgba(86, 180, 255, 0.5), 0 0 24px rgba(121, 221, 255, 0.44);
 }
 
 body.home-dark .btn-accent:hover,
