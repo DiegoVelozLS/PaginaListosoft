@@ -1,5 +1,14 @@
 // Función para inicializar cuando los componentes estén cargados
 function initializeCarousel() {
+    const clientTrack = document.querySelector('.carouselClientes-track');
+
+    if (clientTrack && !clientTrack.dataset.cloned) {
+        [...clientTrack.children].forEach((clientLogo) => {
+            clientTrack.appendChild(clientLogo.cloneNode(true));
+        });
+        clientTrack.dataset.cloned = 'true';
+    }
+
     const slides = document.querySelectorAll('.carousel-slide');
     const indicators = document.querySelectorAll('.carousel-indicator');
     const carouselContainer = document.querySelector('.carousel-container');
