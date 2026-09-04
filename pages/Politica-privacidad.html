@@ -8,8 +8,155 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        .privacy-page {
+            --privacy-ink: #111c3a;
+            --privacy-blue: #3b5b99;
+            --privacy-muted: #66748d;
+            --privacy-line: #dfe5ee;
+        }
+
+        .privacy-page .hero--legal {
+            min-height: 430px;
+            margin-bottom: 0;
+            padding: 154px 0 76px;
+            background: var(--privacy-ink);
+            background-image: none;
+        }
+
+        .privacy-page header.over-hero {
+            background: #fff !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 12px rgba(17, 28, 58, 0.08);
+        }
+
+        .privacy-page header.over-hero .logo {
+            color: var(--privacy-ink) !important;
+        }
+
+        .privacy-page header.over-hero .logo-dark {
+            display: block;
+        }
+
+        .privacy-page header.over-hero .logo-white {
+            display: none;
+        }
+
+        .privacy-page header.over-hero .nav-link {
+            color: var(--privacy-ink) !important;
+        }
+
+        .privacy-page header.over-hero .bar {
+            background: var(--privacy-ink) !important;
+        }
+
+        .privacy-page .hero--legal::before {
+            background-image: linear-gradient(90deg, transparent 0 72%, rgba(255, 255, 255, 0.045) 72% 72.1%, transparent 72.1%);
+        }
+
+        .privacy-page .hero--legal-content {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .privacy-page .hero--legal-content::before {
+            content: 'LISTOSOFT / DOCUMENTO LEGAL';
+            display: block;
+            margin-bottom: 22px;
+            color: #d7b354;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .privacy-page .hero--legal h1 {
+            margin-bottom: 18px;
+            font-size: clamp(2.8rem, 5vw, 5rem);
+            letter-spacing: -0.06em;
+            line-height: 1;
+        }
+
+        .privacy-page .hero--legal p {
+            color: #b9c3d5;
+            font-size: 1.08rem;
+            line-height: 1.6;
+        }
+
+        .privacy-page .legal-document-section {
+            padding: 88px 0 120px;
+            background: #f6f8fb;
+        }
+
+        .privacy-page .legal-content-card {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 32px;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .privacy-page .legal-content-card h2 {
+            margin: 54px 0 17px;
+            padding-top: 26px;
+            border-top: 1px solid var(--privacy-line);
+            color: var(--privacy-ink);
+            font-size: 1.35rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .privacy-page .legal-content-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .privacy-page .legal-content-card p,
+        .privacy-page .legal-content-card li {
+            color: var(--privacy-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .privacy-page .legal-content-card p {
+            margin-bottom: 18px;
+        }
+
+        .privacy-page .legal-content-card ul {
+            margin: 0 0 22px;
+            padding-left: 22px;
+        }
+
+        .privacy-page .legal-content-card li {
+            margin-bottom: 9px;
+            padding-left: 5px;
+        }
+
+        .privacy-page .legal-content-card li::marker {
+            color: var(--privacy-blue);
+        }
+
+        @media (max-width: 600px) {
+            .privacy-page .hero--legal {
+                min-height: 380px;
+                padding: 132px 0 58px;
+            }
+
+            .privacy-page .hero--legal-content,
+            .privacy-page .legal-content-card {
+                padding-right: 24px;
+                padding-left: 24px;
+            }
+
+            .privacy-page .legal-document-section {
+                padding: 60px 0 80px;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="privacy-page">
     <!-- Contenedor para el navbar (se carga dinámicamente) -->
     <div id="navbar-container"></div>
 
@@ -29,7 +176,7 @@
     </section>
 
     <!-- Contenido Legal en Card Superpuesta -->
-    <section style="background-color: #f8fafc; padding: 60px 0;">
+    <section class="legal-document-section">
         <div class="container legal-content-card">
                 
                 <h2>Alcance</h2>
