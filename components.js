@@ -36,10 +36,20 @@ function setHref(selector, href) {
     });
 }
 
+function getSiteBasePath() {
+    const pathname = window.location.pathname.replace(/\\/g, '/');
+    if (pathname.includes('/versiones/')) {
+        return '../';
+    }
+    return '';
+}
+
+// Mantener alineado con la primera entrada de versiones/versiones.js
+const LATEST_VERSION_PATH = 'versiones/2.1.59.html';
+
 // Función para configurar las rutas de los enlaces después de cargar los componentes
 function setupDynamicLinks() {
-    const isInPagesFolder = window.location.pathname.includes('/pages/');
-    const basePath = isInPagesFolder ? '../' : '';
+    const basePath = getSiteBasePath();
 
     const navLogoLink = document.querySelector('.nav-logo-link');
     const navLogoDark = document.querySelector('.nav-logo-dark');
@@ -50,12 +60,12 @@ function setupDynamicLinks() {
     if (navLogoWhite) navLogoWhite.src = `${basePath}assets/Logo-ListosoftBlanco.png`;
 
     setHref('.nav-erp-link', `${basePath}index.html`);
-    setHref('.nav-modulos-link', `${basePath}pages/modulos.html`);
-    setHref('.nav-modulos-ver-todos', `${basePath}pages/modulos.html`);
-    setHref('.nav-recursos-link', `${basePath}pages/recursos.html`);
-    setHref('.nav-descargas-link', `${basePath}pages/descargas.html`);
-    setHref('.nav-soporte-link', `${basePath}pages/soporte.html`);
-    setHref('.nav-empresa-link', `${basePath}pages/Sobre-nosotros.html`);
+    setHref('.nav-modulos-link', `${basePath}modulos.html`);
+    setHref('.nav-modulos-ver-todos', `${basePath}modulos.html`);
+    setHref('.nav-recursos-link', `${basePath}recursos.html`);
+    setHref('.nav-descargas-link', `${basePath}${LATEST_VERSION_PATH}`);
+    setHref('.nav-soporte-link', `${basePath}soporte.html`);
+    setHref('.nav-empresa-link', `${basePath}Sobre-nosotros.html`);
     setHref('.nav-contacto-link', `${basePath}index.html#contacto`);
 
     const footerLogoLink = document.querySelector('.footer-logo-link');
@@ -65,22 +75,21 @@ function setupDynamicLinks() {
     if (footerLogoImg) footerLogoImg.src = `${basePath}assets/Logo-Listosoft.png`;
 
     setHref('.footer-erp-link', `${basePath}index.html`);
-    setHref('.footer-modulos-link', `${basePath}pages/modulos.html`);
-    setHref('.footer-descargas-link', `${basePath}pages/descargas.html`);
-    setHref('.footer-recursos-link', `${basePath}pages/recursos.html`);
-    setHref('.footer-soporte-link', `${basePath}pages/soporte.html`);
-    setHref('.footer-sobre-nosotros-link', `${basePath}pages/Sobre-nosotros.html`);
+    setHref('.footer-modulos-link', `${basePath}modulos.html`);
+    setHref('.footer-descargas-link', `${basePath}${LATEST_VERSION_PATH}`);
+    setHref('.footer-recursos-link', `${basePath}recursos.html`);
+    setHref('.footer-soporte-link', `${basePath}soporte.html`);
+    setHref('.footer-sobre-nosotros-link', `${basePath}Sobre-nosotros.html`);
     setHref('.footer-clientes-link', `${basePath}index.html#Clientes`);
-    setHref('.footer-politica-link', `${basePath}pages/Politica-privacidad.html`);
+    setHref('.footer-politica-link', `${basePath}Politica-privacidad.html`);
 }
 
 // Cargar componentes cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    const isInPagesFolder = window.location.pathname.includes('/pages/');
-    const basePath = isInPagesFolder ? '../' : '';
+    const basePath = getSiteBasePath();
 
-    const navbarPath = `${basePath}components/navbar.html?v=20260907`;
-    const footerPath = `${basePath}components/footer.html?v=20260907`;
+    const navbarPath = `${basePath}components/navbar.html?v=20260914`;
+    const footerPath = `${basePath}components/footer.html?v=20260914`;
 
     Promise.all([
         fetchComponent(navbarPath, 'navbar-container'),

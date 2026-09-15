@@ -1,0 +1,13 @@
+---
+description: Cómo publicar páginas de notas de versión de Listosoft ERP
+globs: versiones/**
+alwaysApply: false
+---
+
+# Páginas de versiones
+
+Al crear o editar notas de versión, leer y seguir [versiones/README.md](versiones/README.md).
+
+- Copiar el HTML de la versión más reciente; no partir de cero.
+- No tocar `styles.css` salvo pedido explícito.
+- Actualizar juntos: HTML nuevo, entrada al inicio de `versiones.js`, y `LATEST_VERSION_PATH` en `components.js`.

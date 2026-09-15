@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSoft version 2.1.59 | Notas de versión</title>
+    <meta name="description"
+        content="Notas de la versión 2.1.59 de LSoft ERP: inventario, control, reportes y correcciones.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://listosoft.com/Inicio/versiones/2.1.59">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://listosoft.com/Inicio/versiones/2.1.59">
+    <meta property="og:title" content="Listosoft 2.1.59 | Notas de versión">
+    <meta property="og:description" content="Inventario, control, reportes y correcciones.">
+    <meta property="og:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://listosoft.com/Inicio/versiones/2.1.59">
+    <meta property="twitter:title" content="Listosoft 2.1.59 | Notas de versión">
+    <meta property="twitter:description" content="Inventario, control, reportes y correcciones.">
+    <meta property="twitter:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+
+    <link rel="stylesheet" href="../styles.css?v=20260915f">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../assets/IsotipoListosoft.ico" type="image/x-icon">
+    <style>
+        .version-notes .section-description {
+            margin: 12px 0 0;
+            color: var(--text-dark);
+            font-size: 1.14rem;
+            line-height: 1.7;
+        }
+
+        .version-notes .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .version-notes .highlight {
+            padding: 22px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: #fff;
+            transition: 160ms ease;
+        }
+
+        .version-notes .highlight:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+        }
+
+        .version-notes .icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: #eff6ff;
+            color: var(--accent-color);
+            font-size: 1.45rem;
+            margin-bottom: 14px;
+        }
+
+        .version-page .version-notes .version-change-group h2 i {
+            font-size: 0.9em;
+        }
+
+        .version-notes .highlight h3 {
+            margin: 0 0 8px;
+            color: var(--primary-color);
+            font-size: 1.14rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1.4;
+        }
+
+        .version-notes .highlight p {
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 1.14rem;
+            line-height: 1.7;
+        }
+
+        .version-notes .change {
+            display: grid;
+            grid-template-columns: 48px minmax(0, 1fr);
+            gap: 15px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .version-notes .change:first-of-type {
+            margin-top: 20px;
+        }
+
+        .version-notes .change-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: #eff6ff;
+            color: var(--accent-color);
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+        }
+
+        .version-notes .tag {
+            display: inline-block;
+            margin-bottom: 4px;
+            color: var(--text-light);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 650;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .version-notes .change h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.14rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1.4;
+        }
+
+        .version-notes .change p {
+            margin: 6px 0 0;
+            color: var(--text-dark);
+            font-size: 1.14rem;
+            line-height: 1.7;
+        }
+
+        .version-notes details {
+            margin-top: 10px;
+            color: var(--text-dark);
+            font-size: 1.14rem;
+        }
+
+        .version-notes summary {
+            cursor: pointer;
+            color: var(--secondary-color);
+            font-weight: 650;
+            list-style: none;
+        }
+
+        .version-notes summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .version-notes summary:after {
+            content: "  +";
+        }
+
+        .version-notes details[open] summary:after {
+            content: "  −";
+        }
+
+        .version-notes .details-body {
+            margin-top: 9px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--bg-light);
+            line-height: 1.7;
+        }
+
+        .version-notes .compact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 28px;
+            margin-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .version-notes .compact {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .version-notes .compact strong {
+            color: var(--primary-color);
+            font-size: 1.14rem;
+            font-weight: 650;
+        }
+
+        .version-notes .compact span {
+            display: block;
+            margin-top: 4px;
+            color: var(--text-dark);
+            font-size: 1.14rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .version-notes .highlights,
+            .version-notes .compact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="version-page" data-version="2.1.59">
+    <div id="navbar-container"></div>
+
+    <section class="version-release">
+        <div class="container version-layout">
+            <aside class="version-aside" id="version-aside"></aside>
+
+            <article class="version-main">
+                <nav class="versions-breadcrumb" aria-label="Ruta">
+                    <a href="2.1.59.html">Versiones</a>
+                    <span aria-hidden="true">/</span>
+                    <span>2.1.59</span>
+                </nav>
+
+                <h1 class="version-heading">LSoft <span class="version-heading-id">2.1.59</span></h1>
+
+                <div class="version-meta">
+                    <p class="version-date">Fecha de publicación: <time datetime="2026-09-15">15 de septiembre de
+                            2026</time></p>
+                    <span class="version-badge">Versión menor</span>
+                </div>
+
+                <p class="version-lead">Nuevas herramientas y mejoras para que tengas más control sobre tus procesos
+                    y trabajes de forma más sencilla.</p>
+
+                <div class="version-notes">
+                    <section class="version-change-group" id="sec-destacado">
+                        <h2><i class="fa-solid fa-star" aria-hidden="true"></i> Destacado</h2>
+                        <p class="section-description">Un vistazo rápido a los cambios más importantes de esta versión.</p>
+
+                        <div class="highlights">
+                            <article class="highlight">
+                                <div class="icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                                <h3>Transferencias de inventario</h3>
+                                <p>Ahora puedes cargar los detalles de una transferencia utilizando una plantilla de Excel.</p>
+                            </article>
+
+                            <article class="highlight">
+                                <div class="icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
+                                <h3>Más control y configuración</h3>
+                                <p>Nuevas opciones para configurar procesos, documentos y permisos según tus necesidades.</p>
+                            </article>
+
+                            <article class="highlight">
+                                <div class="icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
+                                <h3>Mejoras en reportes</h3>
+                                <p>Nuevas opciones de consulta y control para obtener información más útil de tus operaciones.</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="version-change-group version-change-group--nuevo" id="sec-nuevo">
+                        <h2><i class="fa-solid fa-plus" aria-hidden="true"></i> Nuevo</h2>
+                        <p class="section-description">Funciones que puedes comenzar a utilizar desde esta versión.</p>
+
+                        <article class="change">
+                            <div class="change-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
+                            <div>
+                                <span class="tag">Forma de pago</span>
+                                <h3>Más opciones para configurar tus pagos</h3>
+                                <p>Se agregó el campo <strong>Período Inicial</strong> que permite configurar un período distinto en el primer diferido y una frecuencia de períodos habitual.</p>
+                                <details>
+                                    <summary>Ver detalle</summary>
+                                    <div class="details-body">También se contemplan opciones relacionadas con períodos manuales y el manejo de cuotas.</div>
+                                </details>
+                            </div>
+                        </article>
+
+                        <article class="change">
+                            <div class="change-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                            <div>
+                                <span class="tag">Inventario</span>
+                                <h3>Carga transferencias desde Excel</h3>
+                                <p>Los detalles de una transferencia pueden cargarse utilizando una plantilla de Excel.</p>
+                                <details>
+                                    <summary>Ver detalle</summary>
+                                    <div class="details-body">La plantilla permite ingresar los productos y cantidades de la transferencia para facilitar la carga de información.</div>
+                                </details>
+                            </div>
+                        </article>
+
+                        <article class="change">
+                            <div class="change-icon"><i class="fa-solid fa-user-lock" aria-hidden="true"></i></div>
+                            <div>
+                                <span class="tag">Órdenes de trabajo</span>
+                                <h3>Nuevos permisos para controlar el acceso</h3>
+                                <p>Se incorporaron opciones para controlar qué usuarios pueden visualizar y modificar determinadas órdenes de trabajo.</p>
+                            </div>
+                        </article>
+
+                        <article class="change">
+                            <div class="change-icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
+                            <div>
+                                <span class="tag">Transferencias</span>
+                                <h3>Archivos de transferencia para bancos</h3>
+                                <p>Nuevas plantillas de pago para los bancos <strong>Austria</strong> y <strong>Multibank</strong>, según los formatos requeridos.</p>
+                            </div>
+                        </article>
+
+                        <article class="change">
+                            <div class="change-icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
+                            <div>
+                                <span class="tag">Parámetros</span>
+                                <h3>Más opciones para configurar el sistema</h3>
+                                <p>Nuevos parámetros permiten definir comportamientos de documentos, reportes, impuestos y otros procesos.</p>
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="version-change-group version-change-group--mejoras" id="sec-mejoras">
+                        <h2><i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Mejoras</h2>
+                        <p class="section-description">Cambios que hacen que Listosoft sea más cómodo y flexible.</p>
+
+                        <div class="compact-grid">
+                            <div class="compact">
+                                <strong>Depreciación de activos fijos</strong>
+                                <span>Ahora puedes eliminar un cálculo que contenga un ítem desde la hoja de trabajo.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Examinar ventanas</strong>
+                                <span>Se conserva el formato de las columnas definidas en los parámetros.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Lotes y series</strong>
+                                <span>Se agregan opciones de control para producción y validación.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Inicio de facturas</strong>
+                                <span>Ahora se pueden visualizar y consultar determinados comprobantes.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Reporte de estado de cuenta por compra</strong>
+                                <span>Se agrega el campo Motivo para identificar el tipo de crédito.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Reporte de retenciones</strong>
+                                <span>Nuevas opciones de consulta y filtros.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Registro de fechas</strong>
+                                <span>Se conserva correctamente la fecha actual del servidor.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Parámetros</strong>
+                                <span>Nuevas opciones de configuración para procesos posteriores.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Reporte de comisiones</strong>
+                                <span>Se puede seleccionar el formato de impresión.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Disponibilidad de créditos</strong>
+                                <span>Opción para indicar si un cliente tiene créditos registrados.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="version-change-group version-change-group--correcciones" id="sec-correcciones">
+                        <h2><i class="fa-solid fa-wrench" aria-hidden="true"></i> Correcciones</h2>
+                        <p class="section-description">Problemas corregidos en esta versión.</p>
+
+                        <div class="compact-grid">
+                            <div class="compact">
+                                <strong>Declaración de Impuesto a la Renta</strong>
+                                <span>Se corrige el valor retenido del casillero correspondiente.</span>
+                            </div>
+                            <div class="compact">
+                                <strong>Correcciones generales</strong>
+                                <span>Mejoras de estabilidad y comportamiento en procesos del sistema.</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+            <!-- <aside class="version-toc" id="version-toc" aria-label="En esta página">
+                <h2 class="version-aside-title">En esta página</h2>
+                <ul class="version-aside-list">
+                    <li><a href="#sec-destacado" class="version-aside-link toc-link is-active">Destacado</a></li>
+                    <li><a href="#sec-nuevo" class="version-aside-link toc-link">Nuevo</a></li>
+                    <li><a href="#sec-mejoras" class="version-aside-link toc-link">Mejoras</a></li>
+                    <li><a href="#sec-correcciones" class="version-aside-link toc-link">Correcciones</a></li>
+                </ul>
+            </aside> -->
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="versiones.js?v=20260915j"></script>
+    <script src="../components.js?v=20260915j"></script>
+    <script src="../script.js?v=20260914"></script>
+</body>
+
+</html>

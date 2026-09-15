@@ -16,6 +16,10 @@ RewriteBase /Inicio/
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# 301: antiguas URLs en /pages/ → raíz
+RewriteRule ^pages/versiones/(.*)$ /Inicio/versiones/$1 [R=301,L]
+RewriteRule ^pages/(.*)$ /Inicio/$1 [R=301,L]
+
 # 301: /Inicio/index.html → /Inicio/
 RewriteCond %{THE_REQUEST} \s/Inicio/index\.html[\s?] [NC]
 RewriteRule ^index\.html$ /Inicio/ [R=301,L]

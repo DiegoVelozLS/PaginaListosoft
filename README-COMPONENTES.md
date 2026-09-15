@@ -9,12 +9,15 @@ LSoftPage/
 ├── components/
 │   ├── navbar.html      # Componente del navbar
 │   └── footer.html      # Componente del footer
-├── pages/
-│   └── ejemplo.html     # Ejemplo de página usando componentes
+├── versiones/           # Notas de versión del ERP
 ├── components.js         # Script para cargar componentes
 ├── script.js             # Funcionalidad del sitio
 ├── styles.css            # Estilos globales
-└── index.html            # Página principal
+├── index.html            # Página principal
+├── modulos.html
+├── recursos.html
+├── soporte.html
+└── Sobre-nosotros.html
 ```
 
 ## Cómo usar los componentes en una nueva página
@@ -53,7 +56,7 @@ LSoftPage/
 
 ### 2. Si la página está en una subcarpeta
 
-Si creas páginas en la carpeta `pages/`, ajusta las rutas:
+Si creas páginas en `versiones/`, ajusta las rutas:
 
 ```html
 <link rel="stylesheet" href="../styles.css">
