@@ -4,8 +4,8 @@
 const LISTOSOFT_VERSIONS = [
     {
         id: '2.1.59',
-        date: '2026-09-15',
-        dateLabel: '15 de septiembre de 2026',
+        date: '2026-09-17',
+        dateLabel: '17 de septiembre de 2026',
         type: 'Menor',
         title: 'Inventario, control y reportes',
         file: '2.1.59.html'
