@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSoft versión 2.1.61 | Notas de versión</title>
+    <meta name="description"
+        content="Notas de la versión 2.1.61 de LSoft ERP: novedades en nómina, transferencias con empleado, autenticación OAuth2, optimizaciones y mejoras operativas.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://listosoft.com/Inicio/versiones/2.1.61">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://listosoft.com/Inicio/versiones/2.1.61">
+    <meta property="og:title" content="Listosoft 2.1.61 | Notas de versión">
+    <meta property="og:description" content="Novedades en nómina, transferencias con empleado, autenticación OAuth2, optimizaciones y mejoras operativas.">
+    <meta property="og:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://listosoft.com/Inicio/versiones/2.1.61">
+    <meta property="twitter:title" content="Listosoft 2.1.61 | Notas de versión">
+    <meta property="twitter:description" content="Novedades en nómina, transferencias con empleado, autenticación OAuth2, optimizaciones y mejoras operativas.">
+    <meta property="twitter:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+
+    <link rel="stylesheet" href="../styles.css?v=20261008">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../assets/IsotipoListosoft.ico" type="image/x-icon">
+    <style>
+        .version-notes .version-tabs {
+            margin-top: 36px;
+        }
+
+        .version-notes .version-tablist {
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-light);
+            scrollbar-width: thin;
+        }
+
+        .version-notes .version-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1 0 auto;
+            min-height: 68px;
+            margin: 0;
+            padding: 18px 24px;
+            border: none;
+            border-bottom: 3px solid transparent;
+            background: transparent;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1.12rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+        }
+
+        .version-notes .version-tab-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+            background: #fff;
+            color: inherit;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .version-notes .version-tab:hover {
+            color: var(--primary-color);
+            background: #fff;
+        }
+
+        .version-notes .version-tab[aria-selected="true"] {
+            color: var(--primary-color);
+            background: #fff;
+            border-bottom-color: var(--accent-color);
+        }
+
+        .version-notes .version-tab[aria-selected="true"] .version-tab-icon {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent-color);
+        }
+
+        .version-notes .version-tab:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: -2px;
+        }
+
+        .version-notes .version-tab-count {
+            display: inline-grid;
+            place-items: center;
+            min-width: 26px;
+            height: 26px;
+            margin-left: auto;
+            padding: 0 7px;
+            border-radius: 6px;
+            background: #fff;
+            color: var(--accent-color);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .version-notes .version-tab[aria-selected="true"] .version-tab-count {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .version-notes .version-tab--correcciones .version-tab-count {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .version-notes .version-tab--correcciones[aria-selected="true"] .version-tab-count {
+            background: #64748b;
+            color: #fff;
+        }
+
+        .version-notes .version-tab-panels {
+            margin-top: 24px;
+            padding: 0;
+            background: transparent;
+        }
+
+        .version-notes .version-tab-panel.version-change-group {
+            margin-top: 0;
+        }
+
+        .version-notes .version-tab-panel[hidden] {
+            display: none;
+        }
+
+        /* --- Badge de Módulo --- */
+        .version-notes .module-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 9px;
+            border-radius: 4px;
+            background: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #dbeafe;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        /* --- Feed vertical unificado para todas las tabs --- */
+        .version-notes .change-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .version-notes .change-row {
+            display: grid;
+            grid-template-columns: 48px minmax(0, 1fr);
+            gap: 18px;
+            padding: 20px 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #fff;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        .version-notes .change-row:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
+        }
+
+        .version-notes .change-row-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--accent-color);
+            font-size: 1.25rem;
+        }
+
+        .version-notes .change-row-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .version-notes .change-row h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.18rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1.35;
+        }
+
+        .version-notes .change-row p {
+            margin: 8px 0 0;
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .version-notes .change-row p strong {
+            color: var(--primary-color);
+            font-weight: 650;
+        }
+
+        .version-notes .version-tab-panels,
+        .version-notes .version-tab-panel {
+            min-width: 0;
+        }
+
+        .version-page .version-heading {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 14px 18px;
+        }
+
+        .version-page .version-heading .version-date {
+            margin: 0;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            font-weight: 400;
+            font-style: normal;
+            color: var(--text-light);
+            letter-spacing: normal;
+            line-height: 1.5;
+        }
+
+        .version-page .version-meta {
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .version-page .version-heading {
+                font-size: 2.2rem;
+            }
+
+            .version-notes .version-tablist {
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .version-notes .version-tab {
+                flex: 0 0 auto;
+                min-height: 52px;
+                padding: 12px 14px;
+                font-size: 0.95rem;
+                gap: 8px;
+            }
+
+            .version-notes .version-tab-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 0.75rem;
+            }
+
+            .version-notes .version-tab-count {
+                min-width: 22px;
+                height: 22px;
+                margin-left: 4px;
+                font-size: 0.7rem;
+            }
+
+            .version-notes .change-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .version-notes .change-row-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .version-page .version-main {
+                min-width: 0;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "yjal8l54dp");
+    </script>
+</head>
+
+<body class="version-page" data-version="2.1.61">
+    <div id="navbar-container"></div>
+
+    <section class="version-release">
+        <div class="container version-layout">
+            <aside class="version-aside" id="version-aside"></aside>
+
+            <article class="version-main">
+                <nav class="versions-breadcrumb" aria-label="Ruta">
+                    <a href="2.1.61.html">Versiones</a>
+                    <span aria-hidden="true">/</span>
+                    <span>2.1.61</span>
+                </nav>
+
+                <h1 class="version-heading">LSoft <span class="version-heading-id">2.1.61</span> <span class="version-date">Publicado el <time datetime="2026-10-05">5 de octubre de 2026</time></span></h1>
+
+                <div class="version-notes">
+                    <div class="version-tabs">
+                        <div class="version-tablist" role="tablist" aria-label="Notas de la versión">
+                            <button type="button" class="version-tab" role="tab" id="tab-destacado"
+                                aria-controls="panel-destacado" aria-selected="true" tabindex="0"
+                                aria-label="Destacado, 4 cambios">
+                                <span class="version-tab-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
+                                Destacado
+                                <span class="version-tab-count" aria-hidden="true">4</span>
+                            </button>
+                            <button type="button" class="version-tab" role="tab" id="tab-nuevo"
+                                aria-controls="panel-nuevo" aria-selected="false" tabindex="-1"
+                                aria-label="Nuevo, 15 cambios">
+                                <span class="version-tab-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+                                Nuevo
+                                <span class="version-tab-count" aria-hidden="true">15</span>
+                            </button>
+                            <button type="button" class="version-tab" role="tab" id="tab-mejoras"
+                                aria-controls="panel-mejoras" aria-selected="false" tabindex="-1"
+                                aria-label="Mejoras, 15 cambios">
+                                <span class="version-tab-icon"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></span>
+                                Mejoras
+                                <span class="version-tab-count" aria-hidden="true">15</span>
+                            </button>
+                            <button type="button" class="version-tab version-tab--correcciones" role="tab"
+                                id="tab-correcciones" aria-controls="panel-correcciones" aria-selected="false"
+                                tabindex="-1" aria-label="Correcciones, 3 cambios">
+                                <span class="version-tab-icon"><i class="fa-solid fa-wrench" aria-hidden="true"></i></span>
+                                Correcciones
+                                <span class="version-tab-count" aria-hidden="true">3</span>
+                            </button>
+                        </div>
+
+                        <div class="version-tab-panels">
+                            <!-- PANEL DESTACADO: 4 cambios -->
+                            <section class="version-change-group version-tab-panel" id="panel-destacado"
+                                role="tabpanel" aria-labelledby="tab-destacado">
+                                <div class="change-feed">
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-people-arrows" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Nómina</span>
+                                            </div>
+                                            <h3>Traslados interdepartamentales y cálculo proporcional</h3>
+                                            <p>Gestión integral de traslados de empleados entre departamentos, registrando fechas de cambio y calculando los rubros de nómina en base a los <strong>días efectivos trabajados</strong> en cada área.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Inventario</span>
+                                            </div>
+                                            <h3>Asignación de empleados en transferencias</h3>
+                                            <p>Permite asociar un empleado responsable a cada ítem en transferencias de inventario, con nuevas opciones de impresión para <strong>actas generales</strong> y <strong>actas individuales por empleado</strong>.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Configuración</span>
+                                            </div>
+                                            <h3>Autenticación OAuth2 para envío de correos</h3>
+                                            <p>Soporte para <strong>OAuth2</strong> en el envío de correos con compatibilidad para <strong>Microsoft 365</strong> y herramientas de prueba de conexión directa desde Parámetros.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Rendimiento</span>
+                                            </div>
+                                            <h3>Optimización general y recálculo ágil</h3>
+                                            <p>Aceleración en la carga inicial del sistema y mejoras sustanciales en la regeneración de diarios y saldos contables durante el recálculo de stocks y costos.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+
+                            <!-- PANEL NUEVO: 15 cambios -->
+                            <section class="version-change-group version-change-group--nuevo version-tab-panel"
+                                id="panel-nuevo" role="tabpanel" aria-labelledby="tab-nuevo" hidden>
+                                <div class="change-feed">
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-file-code" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Compras</span>
+                                            </div>
+                                            <h3>Carga de XML del SRI en Nota de Débito de Compras</h3>
+                                            <p>Ahora es posible cargar un archivo <strong>XML del SRI</strong> directamente desde la Nota de Débito de Compras.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Configuración</span>
+                                            </div>
+                                            <h3>Auditoría de parámetros de tipo check</h3>
+                                            <p>Ahora es posible consultar la <strong>auditoría de los parámetros de tipo check</strong> haciendo clic derecho sobre el texto del parámetro cuyo historial de cambios se desea revisar.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Cuentas por Cobrar</span>
+                                            </div>
+                                            <h3>Cruces de cuenta entre diferentes personas</h3>
+                                            <p>Se agrega el nuevo parámetro <strong>«Permitir generar cruces de cuenta sin especificar una persona en las cuentas por pagar»</strong>, que permite realizar abonos a documentos correspondientes a diferentes personas.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Compras</span>
+                                            </div>
+                                            <h3>Distribución del costo de compra por centros de costo</h3>
+                                            <p>Se agrega el nuevo parámetro <strong>«Permitir distribuir el costo de compra por centros de costo»</strong>, que habilita una opción para distribuir el costo de los ítems o cuentas entre diferentes centros de costos hasta completar el <strong>100%</strong> del valor.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Inventario</span>
+                                            </div>
+                                            <h3>Asignación de empleados en transferencias</h3>
+                                            <p>Se agrega el parámetro <strong>«Pedir empleado en el detalle de las Transferencias»</strong> para asignar un empleado responsable a cada ítem transferido y emitir actas generales e individuales por empleado.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-people-arrows" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Nómina</span>
+                                            </div>
+                                            <h3>Parámetros para traslados departamentales</h3>
+                                            <p>Se agrega un parámetro que permite incluir empleados de otros departamentos para registrar <strong>traslados departamentales</strong> con fechas específicas de vigencia.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-calculator" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Nómina</span>
+                                            </div>
+                                            <h3>Cálculo proporcional de nómina por departamento</h3>
+                                            <p>Cuando un empleado registra varios traslados entre departamentos, los rubros se calculan considerando los <strong>días efectivos trabajados en cada departamento</strong>.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Seguridad</span>
+                                            </div>
+                                            <h3>Nuevos permisos para Vendedor y Proveedor</h3>
+                                            <p>Se agregan nuevos permisos para <strong>Vendedor</strong> y <strong>Proveedor</strong>, permitiendo controlar la visualización y modificación de esta información en la ficha de la persona.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Bancos y Tesorería</span>
+                                            </div>
+                                            <h3>Conciliación bancaria con Excel para Rumiñahui y Austro</h3>
+                                            <p>Ahora es posible marcar los documentos mediante una <strong>plantilla de Excel</strong> para los bancos <strong>Rumiñahui</strong> y <strong>Austro</strong>, de acuerdo con la plantilla especificada por cada institución financiera.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-filter" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Reportes</span>
+                                            </div>
+                                            <h3>Búsqueda jerárquica en Documentos Pendientes</h3>
+                                            <p>Se actualiza el criterio de búsqueda por <strong>Centro y Subcentro de Costo</strong>: al consultar por un centro de costo se incluyen automáticamente los comprobantes asociados a sus respectivos subcentros.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Configuración</span>
+                                            </div>
+                                            <h3>Envío de correos con autenticación OAuth2</h3>
+                                            <p>Se incorporó soporte para autenticación <strong>OAuth2</strong> en el envío de correos, mejorando la compatibilidad con cuentas de <strong>Microsoft 365</strong> y otros servicios con autenticación moderna.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Configuración</span>
+                                            </div>
+                                            <h3>Prueba de configuración de correo</h3>
+                                            <p>Se agregó la opción de probar directamente la configuración del correo desde la ventana de Parámetros, permitiendo validar servidor, puerto, seguridad y autenticación antes de utilizarla en el sistema.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Compras</span>
+                                            </div>
+                                            <h3>Validación de autorización de 49 dígitos</h3>
+                                            <p>El sistema valida que no se repita el <strong>número de autorización de 49 dígitos</strong> al registrar Comprobantes de Compra.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-user-check" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Configuración</span>
+                                            </div>
+                                            <h3>Punto para Liquidaciones de Compra</h3>
+                                            <p>Ahora se puede especificar un <strong>Punto de emisión para Liquidaciones de Compra</strong> en la configuración de usuarios.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Nómina</span>
+                                            </div>
+                                            <h3>Anticipo de Vacación en liquidaciones</h3>
+                                            <p>En el registro de vacaciones y liquidaciones se habilita la generación de una <strong>Orden de Pago con motivo Anticipo de Vacación</strong>.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+
+                            <!-- PANEL MEJORAS: 15 cambios -->
+                            <section class="version-change-group version-change-group--mejoras version-tab-panel"
+                                id="panel-mejoras" role="tabpanel" aria-labelledby="tab-mejoras" hidden>
+                                <div class="change-feed">
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-money-bill-transfer" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Abonos</span>
+                                            </div>
+                                            <h3>Carga de abonos desde Excel y Órdenes de Pago</h3>
+                                            <p>Ahora es posible cargar detalles de abonos desde una plantilla de Excel. Además, al eliminar o anular documentos, el sistema indica las <strong>Órdenes de Pago</strong> en las que se encuentra referenciado o abonado.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Contratos</span>
+                                            </div>
+                                            <h3>Variables de periodo en notas de contratos</h3>
+                                            <p>Ahora es posible incluir las variables <strong>«[PERIODO]»</strong> y <strong>«[TOTALPERIODO]»</strong> en la nota de los detalles generados para mostrar el periodo correspondiente y su total.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Personas</span>
+                                            </div>
+                                            <h3>Pestañas y permisos según el tipo de persona</h3>
+                                            <p>Se consideran los permisos de <strong>Cliente</strong>, <strong>Empleado</strong>, <strong>Vendedor</strong> y <strong>Proveedor</strong> para mostrar las pestañas de información correspondientes y restringir la edición de datos.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Facturación</span>
+                                            </div>
+                                            <h3>Forma de Pago libre en generación de comprobantes</h3>
+                                            <p>Ahora es posible especificar una <strong>Forma de Pago</strong> desde la ventana del proceso cuando esta no se encuentre definida en los parámetros.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-list-check" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Compras</span>
+                                            </div>
+                                            <h3>Subcentro de costo en Consulta de Compras</h3>
+                                            <p>Se agrega el campo <strong>«Código del Sub centro de costo»</strong> al reporte de consulta de compras.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-user-gear" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Configuración</span>
+                                            </div>
+                                            <h3>Campo Grupo en consulta de usuarios</h3>
+                                            <p>Al examinar los usuarios, se muestra el campo <strong>Grupo</strong> cuando el perfil tiene habilitado el permiso para cambiar de grupo.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Contratos</span>
+                                            </div>
+                                            <h3>Aplicación automática de anticipos recibidos</h3>
+                                            <p>Opción <strong>«Aplicar anticipos recibidos automáticamente»</strong> para aplicar anticipos disponibles como abonos durante la generación en lote de Notas de Venta.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Inventario</span>
+                                            </div>
+                                            <h3>Protección de unidad alterna con movimientos</h3>
+                                            <p>En modalidades de unidad alterna, no se podrá modificar la <strong>unidad alterna</strong> ni el <strong>factor de conversión</strong> de los ítems que ya tengan movimientos registrados.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-truck-ramp-box" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Compras</span>
+                                            </div>
+                                            <h3>Cantidad recibida en Órdenes de Compra</h3>
+                                            <p>En la consulta de ingresos a bodega de una orden de compra, se agrega la columna <strong>«Cantidad Recibida»</strong> y su total acumulado.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-table-list" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Ventas</span>
+                                            </div>
+                                            <h3>Campo Referencia en Diario de Ventas</h3>
+                                            <p>Se incorpora el campo <strong>Referencia</strong> en el Diario de Ventas.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Compras</span>
+                                            </div>
+                                            <h3>Centros de Costo en Compras con Retenciones</h3>
+                                            <p>Se agregan los campos <strong>Centro de Costo</strong> y <strong>Subcentro de Costo</strong> en las compras con retención en la fuente.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Inventario</span>
+                                            </div>
+                                            <h3>Optimización en recálculo de stocks y costos</h3>
+                                            <p>Se optimizó el proceso de regeneración de diarios y saldos contables, logrando una ejecución más rápida y estable en empresas con gran volumen de información.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Sistema</span>
+                                            </div>
+                                            <h3>Optimización en carga inicial del sistema</h3>
+                                            <p>Se optimizó la carga inicial del sistema, reduciendo los tiempos de inicio y mejorando la respuesta del aplicativo.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Reportes</span>
+                                            </div>
+                                            <h3>Campos adicionales en Reporte de Ventas</h3>
+                                            <p>Se agregan al reporte los campos de la factura: <strong>Orden de Compra</strong>, <strong>Remisión</strong>, <strong>Código Cliente</strong>, <strong>Nombre Vendedor</strong> y <strong>Hoja Entrega</strong>.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Compras</span>
+                                            </div>
+                                            <h3>Campos de compra relacionada en Diario de Compras</h3>
+                                            <p>Se agregan los campos correspondientes a la compra relacionada con notas de crédito: comprobante de compra relacionado, número de comprobante de venta, fecha, autorización y clave SRI de retención.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+
+                            <!-- PANEL CORRECCIONES: 3 cambios -->
+                            <section class="version-change-group version-change-group--correcciones version-tab-panel"
+                                id="panel-correcciones" role="tabpanel" aria-labelledby="tab-correcciones" hidden>
+                                <div class="change-feed">
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-calculator" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Activos Fijos</span>
+                                            </div>
+                                            <h3>Recálculo de depreciación con activos dados de baja</h3>
+                                            <p>Al recalcular un periodo previamente eliminado, se consideran los activos que fueron dados de baja y que constaban en el periodo de depreciación anterior.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Nómina</span>
+                                            </div>
+                                            <h3>Concepto en nota contable de roles semanales</h3>
+                                            <p>Se corrige el concepto utilizado en la nota de la contabilidad de <strong>roles semanales</strong>.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-file-excel" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Importaciones</span>
+                                            </div>
+                                            <h3>Persistencia de detalles al recargar Excel en importaciones</h3>
+                                            <p>Se corrige un inconveniente que ocasionaba que, al modificar una importación y volver a cargar un archivo de Excel, el comprobante quedara sin detalles.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="versiones.js?v=20261008"></script>
+    <script src="../components.js?v=20261008"></script>
+    <script src="../script.js?v=20260914"></script>
+    <script>
+        (function () {
+            var root = document.querySelector('.version-tabs');
+            if (!root) return;
+
+            var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+            var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+
+            function activate(tab) {
+                tabs.forEach(function (item) {
+                    var selected = item === tab;
+                    item.setAttribute('aria-selected', selected ? 'true' : 'false');
+                    item.tabIndex = selected ? 0 : -1;
+                });
+
+                panels.forEach(function (panel) {
+                    panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+                });
+
+                tab.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+            }
+
+            root.addEventListener('click', function (event) {
+                var tab = event.target.closest('[role="tab"]');
+                if (!tab || !root.contains(tab)) return;
+                activate(tab);
+            });
+
+            root.addEventListener('keydown', function (event) {
+                var tab = event.target.closest('[role="tab"]');
+                if (!tab) return;
+
+                var index = tabs.indexOf(tab);
+                var next = index;
+
+                if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+                else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+                else if (event.key === 'Home') next = 0;
+                else if (event.key === 'End') next = tabs.length - 1;
+                else return;
+
+                event.preventDefault();
+                tabs[next].focus();
+                activate(tabs[next]);
+            });
+        })();
+    </script>
+</body>
+
+</html>

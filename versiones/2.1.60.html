@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSoft versión 2.1.60 | Notas de versión</title>
+    <meta name="description"
+        content="Notas de la versión 2.1.60 de LSoft ERP: recálculo de stocks y costos, pedidos y campos adicionales de facturación.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://listosoft.com/Inicio/versiones/2.1.60">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://listosoft.com/Inicio/versiones/2.1.60">
+    <meta property="og:title" content="Listosoft 2.1.60 | Notas de versión">
+    <meta property="og:description" content="Recálculo de stocks y costos, pedidos y campos adicionales de facturación.">
+    <meta property="og:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://listosoft.com/Inicio/versiones/2.1.60">
+    <meta property="twitter:title" content="Listosoft 2.1.60 | Notas de versión">
+    <meta property="twitter:description" content="Recálculo de stocks y costos, pedidos y campos adicionales de facturación.">
+    <meta property="twitter:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+
+    <link rel="stylesheet" href="../styles.css?v=20261008">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../assets/IsotipoListosoft.ico" type="image/x-icon">
+    <style>
+        .version-notes .version-tabs {
+            margin-top: 36px;
+        }
+
+        .version-notes .version-tablist {
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-light);
+            scrollbar-width: thin;
+        }
+
+        .version-notes .version-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1 0 auto;
+            min-height: 68px;
+            margin: 0;
+            padding: 18px 24px;
+            border: none;
+            border-bottom: 3px solid transparent;
+            background: transparent;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1.12rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+        }
+
+        .version-notes .version-tab-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+            background: #fff;
+            color: inherit;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .version-notes .version-tab:hover {
+            color: var(--primary-color);
+            background: #fff;
+        }
+
+        .version-notes .version-tab[aria-selected="true"] {
+            color: var(--primary-color);
+            background: #fff;
+            border-bottom-color: var(--accent-color);
+        }
+
+        .version-notes .version-tab[aria-selected="true"] .version-tab-icon {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent-color);
+        }
+
+        .version-notes .version-tab:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: -2px;
+        }
+
+        .version-notes .version-tab-count {
+            display: inline-grid;
+            place-items: center;
+            min-width: 26px;
+            height: 26px;
+            margin-left: auto;
+            padding: 0 7px;
+            border-radius: 6px;
+            background: #fff;
+            color: var(--accent-color);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .version-notes .version-tab[aria-selected="true"] .version-tab-count {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .version-notes .version-tab--correcciones .version-tab-count {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .version-notes .version-tab--correcciones[aria-selected="true"] .version-tab-count {
+            background: #64748b;
+            color: #fff;
+        }
+
+        .version-notes .version-tab-panels {
+            margin-top: 24px;
+            padding: 0;
+            background: transparent;
+        }
+
+        .version-notes .version-tab-panel.version-change-group {
+            margin-top: 0;
+        }
+
+        .version-notes .version-tab-panel[hidden] {
+            display: none;
+        }
+
+        /* --- Badge de Módulo --- */
+        .version-notes .module-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 9px;
+            border-radius: 4px;
+            background: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #dbeafe;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        /* --- Feed vertical unificado para todas las tabs --- */
+        .version-notes .change-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .version-notes .change-row {
+            display: grid;
+            grid-template-columns: 48px minmax(0, 1fr);
+            gap: 18px;
+            padding: 20px 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #fff;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        .version-notes .change-row:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
+        }
+
+        .version-notes .change-row-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--accent-color);
+            font-size: 1.25rem;
+        }
+
+        .version-notes .change-row-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .version-notes .change-row h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.18rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1.35;
+        }
+
+        .version-notes .change-row p {
+            margin: 8px 0 0;
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .version-notes .change-row p strong {
+            color: var(--primary-color);
+            font-weight: 650;
+        }
+
+        .version-notes .version-tab-panels,
+        .version-notes .version-tab-panel {
+            min-width: 0;
+        }
+
+        .version-page .version-heading {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 14px 18px;
+        }
+
+        .version-page .version-heading .version-date {
+            margin: 0;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            font-weight: 400;
+            font-style: normal;
+            color: var(--text-light);
+            letter-spacing: normal;
+            line-height: 1.5;
+        }
+
+        .version-page .version-meta {
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .version-page .version-heading {
+                font-size: 2.2rem;
+            }
+
+            .version-notes .version-tablist {
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .version-notes .version-tab {
+                flex: 0 0 auto;
+                min-height: 52px;
+                padding: 12px 14px;
+                font-size: 0.95rem;
+                gap: 8px;
+            }
+
+            .version-notes .version-tab-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 0.75rem;
+            }
+
+            .version-notes .version-tab-count {
+                min-width: 22px;
+                height: 22px;
+                margin-left: 4px;
+                font-size: 0.7rem;
+            }
+
+            .version-notes .change-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .version-notes .change-row-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .version-page .version-main {
+                min-width: 0;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "yjal8l54dp");
+    </script>
+</head>
+
+<body class="version-page" data-version="2.1.60">
+    <div id="navbar-container"></div>
+
+    <section class="version-release">
+        <div class="container version-layout">
+            <aside class="version-aside" id="version-aside"></aside>
+
+            <article class="version-main">
+                <nav class="versions-breadcrumb" aria-label="Ruta">
+                    <a href="2.1.60.html">Versiones</a>
+                    <span aria-hidden="true">/</span>
+                    <span>2.1.60</span>
+                </nav>
+
+                <h1 class="version-heading">LSoft <span class="version-heading-id">2.1.60</span> <span class="version-date">Publicado el <time datetime="2026-09-22">22 de septiembre de 2026</time></span></h1>
+
+                <div class="version-notes">
+                    <div class="version-tabs">
+                        <div class="version-tablist" role="tablist" aria-label="Notas de la versión">
+                            <button type="button" class="version-tab" role="tab" id="tab-destacado"
+                                aria-controls="panel-destacado" aria-selected="true" tabindex="0"
+                                aria-label="Destacado, 3 cambios">
+                                <span class="version-tab-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
+                                Destacado
+                                <span class="version-tab-count" aria-hidden="true">3</span>
+                            </button>
+                            <button type="button" class="version-tab" role="tab" id="tab-nuevo"
+                                aria-controls="panel-nuevo" aria-selected="false" tabindex="-1"
+                                aria-label="Nuevo, 1 cambio">
+                                <span class="version-tab-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+                                Nuevo
+                                <span class="version-tab-count" aria-hidden="true">1</span>
+                            </button>
+                            <button type="button" class="version-tab" role="tab" id="tab-mejoras"
+                                aria-controls="panel-mejoras" aria-selected="false" tabindex="-1"
+                                aria-label="Mejoras, 2 cambios">
+                                <span class="version-tab-icon"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></span>
+                                Mejoras
+                                <span class="version-tab-count" aria-hidden="true">2</span>
+                            </button>
+                        </div>
+
+                        <div class="version-tab-panels">
+                            <!-- PANEL DESTACADO: 3 cambios -->
+                            <section class="version-change-group version-tab-panel" id="panel-destacado"
+                                role="tabpanel" aria-labelledby="tab-destacado">
+                                <div class="change-feed">
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Inventario</span>
+                                            </div>
+                                            <h3>Recálculo de stocks y costos</h3>
+                                            <p>Optimización del proceso, reduciendo significativamente los tiempos de procesamiento y agilizando la actualización de la información de inventario y de su contabilización.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Pedidos</span>
+                                            </div>
+                                            <h3>Control de ítems repetidos y notas</h3>
+                                            <p>Generación automática de notas tomando como referencia el <strong>PVP</strong> o el <strong>porcentaje de descuento</strong> aplicado al repetir ítems, validando que no existan duplicados con las mismas características.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Facturación</span>
+                                            </div>
+                                            <h3>Campos adicionales de facturación</h3>
+                                            <p>Mejoras en los campos adicionales de facturación, con nuevas opciones de configuración y validación.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+
+                            <!-- PANEL NUEVO: 1 cambio -->
+                            <section class="version-change-group version-change-group--nuevo version-tab-panel"
+                                id="panel-nuevo" role="tabpanel" aria-labelledby="tab-nuevo" hidden>
+                                <div class="change-feed">
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Pedidos</span>
+                                            </div>
+                                            <h3>Notas automáticas y validación en ítems repetidos</h3>
+                                            <p>Ahora, al repetir un ítem, se genera automáticamente una nota tomando como referencia el <strong>PVP</strong> o el <strong>porcentaje de descuento</strong> aplicado. Se valida que no existan ítems repetidos con las mismas características de <strong>PVP</strong> y <strong>descuento</strong>.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+
+                            <!-- PANEL MEJORAS: 2 cambios -->
+                            <section class="version-change-group version-change-group--mejoras version-tab-panel"
+                                id="panel-mejoras" role="tabpanel" aria-labelledby="tab-mejoras" hidden>
+                                <div class="change-feed">
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Inventario</span>
+                                            </div>
+                                            <h3>Optimización en recálculo de stocks y costos</h3>
+                                            <p>Optimización del proceso, reduciendo significativamente los tiempos de procesamiento y agilizando la actualización de la información de inventario y de su contabilización.</p>
+                                        </div>
+                                    </article>
+                                    <article class="change-row">
+                                        <div class="change-row-icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></div>
+                                        <div class="change-row-body">
+                                            <div class="change-row-meta">
+                                                <span class="module-badge">Facturación</span>
+                                            </div>
+                                            <h3>Mejoras en campos adicionales de facturación</h3>
+                                            <p>Mejoras en los campos adicionales de facturación, con nuevas opciones de configuración y validación.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="versiones.js?v=20261008"></script>
+    <script src="../components.js?v=20261008"></script>
+    <script src="../script.js?v=20260914"></script>
+    <script>
+        (function () {
+            var root = document.querySelector('.version-tabs');
+            if (!root) return;
+
+            var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+            var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+
+            function activate(tab) {
+                tabs.forEach(function (item) {
+                    var selected = item === tab;
+                    item.setAttribute('aria-selected', selected ? 'true' : 'false');
+                    item.tabIndex = selected ? 0 : -1;
+                });
+
+                panels.forEach(function (panel) {
+                    panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+                });
+
+                tab.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+            }
+
+            root.addEventListener('click', function (event) {
+                var tab = event.target.closest('[role="tab"]');
+                if (!tab || !root.contains(tab)) return;
+                activate(tab);
+            });
+
+            root.addEventListener('keydown', function (event) {
+                var tab = event.target.closest('[role="tab"]');
+                if (!tab) return;
+
+                var index = tabs.indexOf(tab);
+                var next = index;
+
+                if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+                else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+                else if (event.key === 'Home') next = 0;
+                else if (event.key === 'End') next = tabs.length - 1;
+                else return;
+
+                event.preventDefault();
+                tabs[next].focus();
+                activate(tabs[next]);
+            });
+        })();
+    </script>
+</body>
+
+</html>

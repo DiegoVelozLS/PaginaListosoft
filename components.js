@@ -45,7 +45,7 @@ function getSiteBasePath() {
 }
 
 // Mantener alineado con la primera entrada de versiones/versiones.js
-const LATEST_VERSION_PATH = 'versiones/2.1.59.html';
+const LATEST_VERSION_PATH = 'versiones/2.1.61.html';
 
 // Función para configurar las rutas de los enlaces después de cargar los componentes
 function setupDynamicLinks() {

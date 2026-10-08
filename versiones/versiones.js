@@ -3,6 +3,22 @@
 // en components.js.
 const LISTOSOFT_VERSIONS = [
     {
+        id: '2.1.61',
+        date: '2026-10-05',
+        dateLabel: '5 de octubre de 2026',
+        type: 'Menor',
+        title: 'Nómina, transferencias con empleado, OAuth2 y optimización',
+        file: '2.1.61.html'
+    },
+    {
+        id: '2.1.60',
+        date: '2026-09-22',
+        dateLabel: '22 de septiembre de 2026',
+        type: 'Menor',
+        title: 'Recálculo de stocks y costos, pedidos y campos adicionales',
+        file: '2.1.60.html'
+    },
+    {
         id: '2.1.59',
         date: '2026-09-17',
         dateLabel: '17 de septiembre de 2026',
