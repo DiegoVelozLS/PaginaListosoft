@@ -8,6 +8,8 @@ alwaysApply: false
 
 Al crear o editar notas de versión, leer y seguir [versiones/README.md](versiones/README.md).
 
-- Copiar el HTML de la versión más reciente; no partir de cero.
+- Copiar el HTML de la versión más reciente (`2.1.61.html` o la última disponible); no partir de cero.
+- Usar `<section class="version-hero-header">` para el hero azul marino/dorado (nunca `<header>`).
+- Mantener las tarjetas de cambios limpias sin iconos laterales.
 - No tocar `styles.css` salvo pedido explícito.
 - Actualizar juntos: HTML nuevo, entrada al inicio de `versiones.js`, y `LATEST_VERSION_PATH` en `components.js`.

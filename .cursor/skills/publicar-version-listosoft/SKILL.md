@@ -7,9 +7,11 @@ description: Publica una página de notas de versión de Listosoft ERP. Usar cua
 
 Leer [versiones/README.md](../../../versiones/README.md) y seguirlo al pie.
 
-1. Copiar el HTML de la versión más reciente en `versiones/`.
-2. Sustituir número, fechas, meta, lead y cuerpo de cards (destacado, nuevo, mejoras, correcciones).
-3. Insertar la entrada al inicio de `LISTOSOFT_VERSIONS` en `versiones.js`.
-4. Poner `LATEST_VERSION_PATH` en `components.js` al archivo nuevo.
-5. Omitir secciones vacías (y su link en «En esta página»).
-6. No editar `styles.css` ni añadir capturas salvo que el usuario lo pida.
+1. Copiar el HTML de la versión más reciente en `versiones/` (ej. `2.1.61.html`).
+2. Sustituir número de versión, fechas, meta tags, canonical, breadcrumb y encabezado `H1` (con fecha no negrita al lado).
+3. Distribuir cambios en las pestañas (`Destacado`, `Nuevo`, `Mejoras`, `Correcciones`) usando tarjetas directas sin iconos laterales (`.change-row`).
+4. Actualizar contadores numéricos de cada pestaña (`.version-tab-count` y `aria-label`).
+5. Insertar la entrada al inicio de `LISTOSOFT_VERSIONS` en `versiones.js`.
+6. Poner `LATEST_VERSION_PATH` en `components.js` al archivo nuevo.
+7. Omitir pestañas vacías.
+8. No editar `styles.css` salvo que el usuario lo pida.

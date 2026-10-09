@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSoft version 2.1.59 | Notas de versión</title>
+    <title>LSoft versión 2.1.59 | Notas de versión</title>
     <meta name="description"
         content="Notas de la versión 2.1.59 de LSoft ERP: inventario, control, reportes y correcciones.">
     <meta name="robots" content="noindex, nofollow">
@@ -12,13 +12,13 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://listosoft.com/Inicio/versiones/2.1.59">
-    <meta property="og:title" content="Listosoft 2.1.59 | Notas de versión">
+    <meta property="og:title" content="LSoft ERP 2.1.59 | Notas de versión">
     <meta property="og:description" content="Inventario, control, reportes y correcciones.">
     <meta property="og:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://listosoft.com/Inicio/versiones/2.1.59">
-    <meta property="twitter:title" content="Listosoft 2.1.59 | Notas de versión">
+    <meta property="twitter:title" content="LSoft ERP 2.1.59 | Notas de versión">
     <meta property="twitter:description" content="Inventario, control, reportes y correcciones.">
     <meta property="twitter:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
 
@@ -26,192 +26,314 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="../assets/IsotipoListosoft.ico" type="image/x-icon">
     <style>
+        /* ==========================================================================
+           Hero Superior y Estilos Corporativos Listosoft (Azul Marino & Dorado)
+           ========================================================================== */
+
+        /* --- Hero Superior de Ancho Completo --- */
+        .version-hero-header {
+            background-color: #111c3a;
+            background-image: linear-gradient(135deg, #111c3a 0%, #0c142a 60%, #172554 100%);
+            color: #ffffff;
+            padding-top: 135px;
+            padding-bottom: 45px;
+            border-bottom: 3px solid #d7b354;
+            position: relative;
+            z-index: 1;
+        }
+
+        .version-hero-header .container {
+            max-width: var(--max-width, 1200px);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .version-hero-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 0.88rem;
+            color: #94a3b8;
+        }
+
+        .version-hero-breadcrumb a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 140ms ease;
+        }
+
+        .version-hero-breadcrumb a:hover {
+            color: #d7b354;
+        }
+
+        .version-hero-breadcrumb .sep {
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+
+        .version-hero-breadcrumb .current {
+            color: #d7b354;
+            font-weight: 600;
+        }
+
+        .version-hero-header h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            color: #ffffff;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 14px 18px;
+        }
+
+        .version-hero-header h1 .version-hero-id {
+            font-family: var(--font-mono, monospace);
+            color: #d7b354;
+            font-weight: 700;
+        }
+
+        .version-hero-header h1 .version-hero-date {
+            font-family: var(--font-main, sans-serif);
+            font-size: 1rem;
+            font-weight: 400;
+            color: #cbd5e1;
+            letter-spacing: normal;
+        }
+
+        /* --- Reajuste de la Sección de Contenido --- */
+        .version-page .version-release {
+            padding-top: 40px !important;
+            padding-bottom: 80px !important;
+            background-color: #f8fafc;
+        }
+
+        .version-page .version-layout {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 1fr);
+            gap: 36px;
+            align-items: start;
+        }
+
+        /* --- Sidebar Aside --- */
+        .version-page .version-aside {
+            position: sticky;
+            top: 120px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px 16px;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+        }
+
+        .version-page .version-aside-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .version-page .version-aside-title i {
+            color: #d7b354;
+        }
+
+        .version-page .version-aside-year {
+            margin: 12px 0 6px;
+            padding-left: 6px;
+            color: var(--text-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .version-page .version-aside-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .version-page .version-aside-link {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #475569;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 140ms ease;
+            border-left: 3px solid transparent;
+        }
+
+        .version-page .version-aside-link:hover {
+            color: var(--primary-color);
+            background: #f1f5f9;
+        }
+
+        .version-page .version-aside-link.is-active {
+            color: var(--primary-color);
+            background: #fdfbf3;
+            border-left-color: #d7b354;
+            font-weight: 700;
+        }
+
+        /* --- Pestañas Interactivas Corporativas --- */
         .version-notes .version-tabs {
-            margin-top: 36px;
+            margin-top: 0;
         }
 
         .version-notes .version-tablist {
             display: flex;
             gap: 4px;
-            overflow-x: auto;
+            padding: 6px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            background: var(--bg-light);
+            background: #ffffff;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+            overflow-x: auto;
             scrollbar-width: thin;
+            margin-bottom: 24px;
         }
 
         .version-notes .version-tab {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 10px;
             flex: 1 0 auto;
-            min-height: 68px;
+            min-height: 48px;
             margin: 0;
-            padding: 18px 24px;
-            border: none;
-            border-bottom: 3px solid transparent;
+            padding: 10px 18px;
+            border: 1px solid transparent;
+            border-radius: 6px;
             background: transparent;
-            color: var(--text-light);
+            color: #64748b;
             font-family: inherit;
-            font-size: 1.12rem;
-            font-weight: 650;
-            letter-spacing: -0.02em;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
             white-space: nowrap;
             cursor: pointer;
-            transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
-        }
-
-        .version-notes .version-tab-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 6px;
-            display: grid;
-            place-items: center;
-            background: #fff;
-            color: inherit;
-            font-size: 0.95rem;
-            flex-shrink: 0;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: all 150ms ease;
         }
 
         .version-notes .version-tab:hover {
             color: var(--primary-color);
-            background: #fff;
+            background: #f8fafc;
         }
 
         .version-notes .version-tab[aria-selected="true"] {
             color: var(--primary-color);
-            background: #fff;
-            border-bottom-color: var(--accent-color);
-        }
-
-        .version-notes .version-tab[aria-selected="true"] .version-tab-icon {
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--accent-color);
-        }
-
-        .version-notes .version-tab:focus-visible {
-            outline: 2px solid var(--accent-color);
-            outline-offset: -2px;
+            background: #f8fafc;
+            border-color: var(--border-color);
+            border-bottom: 2px solid #d7b354;
+            font-weight: 650;
         }
 
         .version-notes .version-tab-count {
             display: inline-grid;
             place-items: center;
-            min-width: 26px;
-            height: 26px;
-            margin-left: auto;
-            padding: 0 7px;
-            border-radius: 6px;
-            background: #fff;
-            color: var(--accent-color);
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
+            min-width: 22px;
+            height: 22px;
+            padding: 0 6px;
+            border-radius: 999px;
+            background: #e2e8f0;
+            color: #475569;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
             font-weight: 700;
             line-height: 1;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         }
 
         .version-notes .version-tab[aria-selected="true"] .version-tab-count {
-            background: var(--accent-color);
-            color: #fff;
-        }
-
-        .version-notes .version-tab--correcciones .version-tab-count {
-            background: #e2e8f0;
-            color: #64748b;
+            background: #111c3a;
+            color: #d7b354;
         }
 
         .version-notes .version-tab--correcciones[aria-selected="true"] .version-tab-count {
-            background: #64748b;
-            color: #fff;
+            background: #475569;
+            color: #ffffff;
         }
 
         .version-notes .version-tab-panels {
-            margin-top: 24px;
-            padding: 0;
-            background: transparent;
-        }
-
-        .version-notes .version-tab-panel.version-change-group {
             margin-top: 0;
         }
 
         .version-notes .version-tab-panel[hidden] {
-            display: none;
+            display: none !important;
         }
 
-        /* --- Badge de Módulo --- */
-        .version-notes .module-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 3px 9px;
-            border-radius: 4px;
-            background: #eff6ff;
-            color: #2563eb;
-            border: 1px solid #dbeafe;
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            width: fit-content;
-        }
-
-        /* --- Feed vertical unificado para todas las tabs --- */
+        /* --- Tarjetas de Cambio (SIN ICONOS) --- */
         .version-notes .change-feed {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
 
         .version-notes .change-row {
-            display: grid;
-            grid-template-columns: 48px minmax(0, 1fr);
-            gap: 18px;
+            display: block;
             padding: 20px 24px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            background: #fff;
-            transition: border-color 160ms ease, box-shadow 160ms ease;
+            background: #ffffff;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+            transition: border-color 140ms ease, box-shadow 140ms ease;
         }
 
         .version-notes .change-row:hover {
-            border-color: var(--accent-color);
-            box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
-        }
-
-        .version-notes .change-row-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            display: grid;
-            place-items: center;
-            background: rgba(59, 130, 246, 0.08);
-            color: var(--accent-color);
-            font-size: 1.25rem;
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 16px rgba(17, 28, 58, 0.04);
         }
 
         .version-notes .change-row-meta {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .version-notes .module-badge {
+            display: inline-block;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: #fdf8eb;
+            color: #8f650b;
+            border: 1px solid #f6e3a9;
         }
 
         .version-notes .change-row h3 {
-            margin: 0;
+            margin: 0 0 8px;
             color: var(--primary-color);
-            font-size: 1.18rem;
+            font-size: 1.1rem;
             font-weight: 650;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.015em;
             line-height: 1.35;
         }
 
         .version-notes .change-row p {
-            margin: 8px 0 0;
+            margin: 0;
             color: var(--text-dark);
-            font-size: 1rem;
+            font-size: 0.96rem;
             line-height: 1.65;
         }
 
@@ -220,77 +342,42 @@
             font-weight: 650;
         }
 
-        .version-notes .version-tab-panels,
-        .version-notes .version-tab-panel {
-            min-width: 0;
-        }
+        /* --- Media Queries --- */
+        @media (max-width: 900px) {
+            .version-page .version-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
 
-        .version-page .version-heading {
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 14px 18px;
-        }
-
-        .version-page .version-heading .version-date {
-            margin: 0;
-            font-family: var(--font-main);
-            font-size: 0.95rem;
-            font-weight: 400;
-            font-style: normal;
-            color: var(--text-light);
-            letter-spacing: normal;
-            line-height: 1.5;
-        }
-
-        .version-page .version-meta {
-            margin-top: 16px;
+            .version-page .version-aside {
+                position: static;
+            }
         }
 
         @media (max-width: 768px) {
-            .version-page .version-heading {
-                font-size: 2.2rem;
+            .version-hero-header {
+                padding-top: 110px;
+                padding-bottom: 36px;
             }
 
-            .version-notes .version-tablist {
-                -webkit-overflow-scrolling: touch;
+            .version-hero-header h1 {
+                font-size: 2rem;
             }
 
-            .version-notes .version-tab {
-                flex: 0 0 auto;
-                min-height: 52px;
-                padding: 12px 14px;
-                font-size: 0.95rem;
-                gap: 8px;
-            }
-
-            .version-notes .version-tab-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 0.75rem;
-            }
-
-            .version-notes .version-tab-count {
-                min-width: 22px;
-                height: 22px;
-                margin-left: 4px;
-                font-size: 0.7rem;
+            .version-page .version-release {
+                padding-top: 24px !important;
+                padding-bottom: 60px !important;
             }
 
             .version-notes .change-row {
-                grid-template-columns: 1fr;
-                gap: 12px;
                 padding: 16px;
             }
 
-            .version-notes .change-row-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-
-            .version-page .version-main {
-                min-width: 0;
+            .version-notes .version-tab {
+                min-height: 42px;
+                padding: 8px 12px;
+                font-size: 0.88rem;
+                gap: 6px;
             }
         }
     </style>
@@ -304,49 +391,59 @@
 </head>
 
 <body class="version-page" data-version="2.1.59">
+    <!-- Contenedor del navbar global -->
     <div id="navbar-container"></div>
 
+    <!-- HERO SUPERIOR FIJO (Azul Marino y Dorado) -->
+    <section class="version-hero-header">
+        <div class="container">
+            <nav class="version-hero-breadcrumb" aria-label="Ruta de navegación">
+                <a href="../index.html">Inicio</a>
+                <span class="sep">/</span>
+                <a href="2.1.59.html">Versiones</a>
+                <span class="sep">/</span>
+                <span class="current">2.1.59</span>
+            </nav>
+
+            <h1>
+                LSoft <span class="version-hero-id">2.1.59</span>
+                <span class="version-hero-date">Publicado el <time datetime="2026-09-17">21 de septiembre de 2026</time></span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL CON SIDEBAR Y TABS -->
     <section class="version-release">
         <div class="container version-layout">
+            <!-- Barra lateral dinámica de versiones -->
             <aside class="version-aside" id="version-aside"></aside>
 
+            <!-- Área principal de notas -->
             <article class="version-main">
-                <nav class="versions-breadcrumb" aria-label="Ruta">
-                    <a href="2.1.59.html">Versiones</a>
-                    <span aria-hidden="true">/</span>
-                    <span>2.1.59</span>
-                </nav>
-
-                <h1 class="version-heading">LSoft <span class="version-heading-id">2.1.59</span> <span class="version-date">Publicado el <time datetime="2026-09-17">21 de septiembre de 2026</time></span></h1>
-
                 <div class="version-notes">
                     <div class="version-tabs">
                         <div class="version-tablist" role="tablist" aria-label="Notas de la versión">
                             <button type="button" class="version-tab" role="tab" id="tab-destacado"
                                 aria-controls="panel-destacado" aria-selected="true" tabindex="0"
                                 aria-label="Destacado, 3 cambios">
-                                <span class="version-tab-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
                                 Destacado
                                 <span class="version-tab-count" aria-hidden="true">3</span>
                             </button>
                             <button type="button" class="version-tab" role="tab" id="tab-nuevo"
                                 aria-controls="panel-nuevo" aria-selected="false" tabindex="-1"
                                 aria-label="Nuevo, 5 cambios">
-                                <span class="version-tab-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
                                 Nuevo
                                 <span class="version-tab-count" aria-hidden="true">5</span>
                             </button>
                             <button type="button" class="version-tab" role="tab" id="tab-mejoras"
                                 aria-controls="panel-mejoras" aria-selected="false" tabindex="-1"
                                 aria-label="Mejoras, 10 cambios">
-                                <span class="version-tab-icon"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></span>
                                 Mejoras
                                 <span class="version-tab-count" aria-hidden="true">10</span>
                             </button>
                             <button type="button" class="version-tab version-tab--correcciones" role="tab"
                                 id="tab-correcciones" aria-controls="panel-correcciones" aria-selected="false"
                                 tabindex="-1" aria-label="Correcciones, 2 cambios">
-                                <span class="version-tab-icon"><i class="fa-solid fa-wrench" aria-hidden="true"></i></span>
                                 Correcciones
                                 <span class="version-tab-count" aria-hidden="true">2</span>
                             </button>
@@ -358,34 +455,27 @@
                                 role="tabpanel" aria-labelledby="tab-destacado">
                                 <div class="change-feed">
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Inventario</span>
-                                            </div>
-                                            <h3>Transferencias de inventario</h3>
-                                            <p>Carga masiva de productos y cantidades en transferencias mediante plantilla de Excel.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Inventario</span>
                                         </div>
+                                        <h3>Transferencias de inventario</h3>
+                                        <p>Carga masiva de productos y cantidades en transferencias mediante plantilla de Excel.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Configuración</span>
-                                            </div>
-                                            <h3>Más control y configuración</h3>
-                                            <p>Nuevas opciones para parametrizar procesos, comportamiento de comprobantes y permisos de usuario.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Configuración</span>
                                         </div>
+                                        <h3>Más control y configuración</h3>
+                                        <p>Nuevas opciones para parametrizar procesos, comportamiento de comprobantes y permisos de usuario.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Reportes</span>
-                                            </div>
-                                            <h3>Mejoras en reportes</h3>
-                                            <p>Nuevas opciones de consulta, filtros y formatos de impresión para un análisis operativo más ágil.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Reportes</span>
                                         </div>
+                                        <h3>Mejoras en reportes</h3>
+                                        <p>Nuevas opciones de consulta, filtros y formatos de impresión para un análisis operativo más ágil.</p>
                                     </article>
                                 </div>
                             </section>
@@ -395,54 +485,43 @@
                                 id="panel-nuevo" role="tabpanel" aria-labelledby="tab-nuevo" hidden>
                                 <div class="change-feed">
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Forma de pago</span>
-                                            </div>
-                                            <h3>Más opciones para configurar tus pagos</h3>
-                                            <p>Se agrega el campo <strong>Período Inicial</strong> para definir un período diferente en el primer diferido manteniendo la frecuencia habitual. También se habilitan períodos manuales y cálculo de cuotas personalizadas.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Forma de pago</span>
                                         </div>
+                                        <h3>Más opciones para configurar tus pagos</h3>
+                                        <p>Se agrega el campo <strong>Período Inicial</strong> para definir un período diferente en el primer diferido manteniendo la frecuencia habitual. También se habilitan períodos manuales y cálculo de cuotas personalizadas.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Inventario</span>
-                                            </div>
-                                            <h3>Carga transferencias desde Excel</h3>
-                                            <p>Los detalles de una transferencia ahora se pueden importar ágilmente desde una plantilla de Excel con los ítems y cantidades correspondientes.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Inventario</span>
                                         </div>
+                                        <h3>Carga transferencias desde Excel</h3>
+                                        <p>Los detalles de una transferencia ahora se pueden importar ágilmente desde una plantilla de Excel con los ítems y cantidades correspondientes.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Órdenes de trabajo</span>
-                                            </div>
-                                            <h3>Nuevos permisos para controlar el acceso</h3>
-                                            <p>Se incorporan permisos granulares para definir qué usuarios pueden visualizar y modificar órdenes de trabajo específicas, aumentando la seguridad operativa.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Órdenes de trabajo</span>
                                         </div>
+                                        <h3>Nuevos permisos para controlar el acceso</h3>
+                                        <p>Se incorporan permisos granulares para definir qué usuarios pueden visualizar y modificar órdenes de trabajo específicas, aumentando la seguridad operativa.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Bancos y Tesorería</span>
-                                            </div>
-                                            <h3>Archivos de transferencia para bancos</h3>
-                                            <p>Se integran nuevas plantillas de pago bancario compatibles con <strong>Austria</strong> y <strong>Multibank</strong> para procesar transferencias sin fricción.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Bancos y Tesorería</span>
                                         </div>
+                                        <h3>Archivos de transferencia para bancos</h3>
+                                        <p>Se integran nuevas plantillas de pago bancario compatibles con <strong>Austria</strong> y <strong>Multibank</strong> para procesar transferencias sin fricción.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Parámetros</span>
-                                            </div>
-                                            <h3>Más opciones para configurar el sistema</h3>
-                                            <p>Nuevos parámetros para definir el comportamiento de comprobantes, reportes, tratamientos de impuestos y flujos de trabajo posteriores.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Parámetros</span>
                                         </div>
+                                        <h3>Más opciones para configurar el sistema</h3>
+                                        <p>Nuevos parámetros para definir el comportamiento de comprobantes, reportes, tratamientos de impuestos y flujos de trabajo posteriores.</p>
                                     </article>
                                 </div>
                             </section>
@@ -452,104 +531,83 @@
                                 id="panel-mejoras" role="tabpanel" aria-labelledby="tab-mejoras" hidden>
                                 <div class="change-feed">
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-calculator" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Activos fijos</span>
-                                            </div>
-                                            <h3>Depreciación de activos fijos</h3>
-                                            <p>Se puede eliminar un cálculo que contenga un ítem directamente desde la hoja de trabajo.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Activos fijos</span>
                                         </div>
+                                        <h3>Depreciación de activos fijos</h3>
+                                        <p>Se puede eliminar un cálculo que contenga un ítem directamente desde la hoja de trabajo.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-table-columns" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Vistas y Tablas</span>
-                                            </div>
-                                            <h3>Examinar ventanas</h3>
-                                            <p>Se conserva el formato y orden de las columnas personalizadas en los parámetros del usuario.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Vistas y Tablas</span>
                                         </div>
+                                        <h3>Examinar ventanas</h3>
+                                        <p>Se conserva el formato y orden de las columnas personalizadas en los parámetros del usuario.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-barcode" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Producción</span>
-                                            </div>
-                                            <h3>Lotes y series</h3>
-                                            <p>Se agregan opciones de control para producción y validación más precisa de existencias.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Producción</span>
                                         </div>
+                                        <h3>Lotes y series</h3>
+                                        <p>Se agregan opciones de control para producción y validación más precisa de existencias.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Facturación</span>
-                                            </div>
-                                            <h3>Inicio de facturas</h3>
-                                            <p>Se optimiza la consulta y visualización de determinados comprobantes comerciales.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Facturación</span>
                                         </div>
+                                        <h3>Inicio de facturas</h3>
+                                        <p>Se optimiza la consulta y visualización de determinados comprobantes comerciales.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Compras</span>
-                                            </div>
-                                            <h3>Estado de cuenta por compra</h3>
-                                            <p>Se agrega el campo <strong>Motivo</strong> para identificar y clasificar con claridad el tipo de crédito.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Compras</span>
                                         </div>
+                                        <h3>Estado de cuenta por compra</h3>
+                                        <p>Se agrega el campo <strong>Motivo</strong> para identificar y clasificar con claridad el tipo de crédito.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Retenciones</span>
-                                            </div>
-                                            <h3>Reporte de retenciones</h3>
-                                            <p>Nuevas opciones de consulta y filtros avanzados para una conciliación tributaria más rápida.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Retenciones</span>
                                         </div>
+                                        <h3>Reporte de retenciones</h3>
+                                        <p>Nuevas opciones de consulta y filtros avanzados para una conciliación tributaria más rápida.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Servidor</span>
-                                            </div>
-                                            <h3>Registro de fechas</h3>
-                                            <p>Se conserva correctamente la fecha y hora oficial del servidor en todas las transacciones registradas.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Servidor</span>
                                         </div>
+                                        <h3>Registro de fechas</h3>
+                                        <p>Se conserva correctamente la fecha y hora oficial del servidor en todas las transacciones registradas.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-gear" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Parámetros</span>
-                                            </div>
-                                            <h3>Configuración general</h3>
-                                            <p>Nuevas opciones de configuración técnica para flujos y procesos operativos posteriores.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Parámetros</span>
                                         </div>
+                                        <h3>Configuración general</h3>
+                                        <p>Nuevas opciones de configuración técnica para flujos y procesos operativos posteriores.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-percent" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Ventas</span>
-                                            </div>
-                                            <h3>Reporte de comisiones</h3>
-                                            <p>Ahora es posible seleccionar el formato de impresión deseado según la necesidad de liquidación.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Ventas</span>
                                         </div>
+                                        <h3>Reporte de comisiones</h3>
+                                        <p>Ahora es posible seleccionar el formato de impresión deseado según la necesidad de liquidación.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-wallet" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Cartera</span>
-                                            </div>
-                                            <h3>Disponibilidad de créditos</h3>
-                                            <p>Opción para indicar visualmente si un cliente tiene créditos vigentes registrados.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Cartera</span>
                                         </div>
+                                        <h3>Disponibilidad de créditos</h3>
+                                        <p>Opción para indicar visualmente si un cliente tiene créditos vigentes registrados.</p>
                                     </article>
                                 </div>
                             </section>
@@ -559,24 +617,19 @@
                                 id="panel-correcciones" role="tabpanel" aria-labelledby="tab-correcciones" hidden>
                                 <div class="change-feed">
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Tributación / SRI</span>
-                                            </div>
-                                            <h3>Declaración de Impuesto a la Renta</h3>
-                                            <p>Se corrige el valor retenido del casillero correspondiente para garantizar cuadres fiscales sin discrepancias.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Tributación / SRI</span>
                                         </div>
+                                        <h3>Declaración de Impuesto a la Renta</h3>
+                                        <p>Se corrige el valor retenido del casillero correspondiente para garantizar cuadres fiscales sin discrepancias.</p>
                                     </article>
+
                                     <article class="change-row">
-                                        <div class="change-row-icon"><i class="fa-solid fa-wrench" aria-hidden="true"></i></div>
-                                        <div class="change-row-body">
-                                            <div class="change-row-meta">
-                                                <span class="module-badge">Sistema</span>
-                                            </div>
-                                            <h3>Estabilidad y correcciones generales</h3>
-                                            <p>Se optimizan procesos en segundo plano y se mejora la consistencia operativa en transacciones del sistema.</p>
+                                        <div class="change-row-meta">
+                                            <span class="module-badge">Sistema</span>
                                         </div>
+                                        <h3>Estabilidad y correcciones generales</h3>
+                                        <p>Se optimizan procesos en segundo plano y se mejora la consistencia operativa en transacciones del sistema.</p>
                                     </article>
                                 </div>
                             </section>
@@ -587,13 +640,14 @@
         </div>
     </section>
 
+    <!-- Contenedor del footer global -->
     <div id="footer-container"></div>
 
-    <script src="versiones.js?v=20261008"></script>
+    <script src="versiones.js?v=20261009"></script>
     <script src="../components.js?v=20261008"></script>
     <script src="../script.js?v=20260914"></script>
     <script>
-        (function () {
+        document.addEventListener('DOMContentLoaded', function () {
             var root = document.querySelector('.version-tabs');
             if (!root) return;
 
@@ -601,22 +655,30 @@
             var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
 
             function activate(tab) {
+                if (!tab) return;
+                var targetId = tab.getAttribute('aria-controls');
+
                 tabs.forEach(function (item) {
-                    var selected = item === tab;
+                    var selected = (item === tab);
                     item.setAttribute('aria-selected', selected ? 'true' : 'false');
                     item.tabIndex = selected ? 0 : -1;
                 });
 
                 panels.forEach(function (panel) {
-                    panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+                    if (panel.id === targetId) {
+                        panel.removeAttribute('hidden');
+                        panel.style.display = 'block';
+                    } else {
+                        panel.setAttribute('hidden', '');
+                        panel.style.display = 'none';
+                    }
                 });
-
-                tab.scrollIntoView({ inline: 'nearest', block: 'nearest' });
             }
 
             root.addEventListener('click', function (event) {
                 var tab = event.target.closest('[role="tab"]');
                 if (!tab || !root.contains(tab)) return;
+                event.preventDefault();
                 activate(tab);
             });
 
@@ -637,7 +699,13 @@
                 tabs[next].focus();
                 activate(tabs[next]);
             });
-        })();
+
+            // Asegurar activación inicial
+            var initialTab = root.querySelector('[role="tab"][aria-selected="true"]') || tabs[0];
+            if (initialTab) {
+                activate(initialTab);
+            }
+        });
     </script>
 </body>
 
