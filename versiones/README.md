@@ -5,8 +5,9 @@ Plantilla viva: copiar [`2.1.61.html`](2.1.61.html). No crear el archivo desde c
 Esa página es el estándar oficial:
 1. **Hero superior fijo de ancho completo** (`<section class="version-hero-header">`): Fondo azul marino institucional (`#111c3a`), borde inferior dorado (`#d7b354`), breadcrumb corporativo y encabezado `H1` con el número de versión y la fecha de publicación integrada al lado en texto regular (sin negrita).
 2. **Cuerpo principal con layout de dos columnas** (`<section class="version-release">`): Barra lateral dinámica izquierda (`#version-aside`) y área de notas derecha.
-3. **Pestañas interactivas corporativas** (`.version-tabs`): Destacado, Nuevo, Mejoras, Correcciones, con contadores numéricos y borde activo dorado.
-4. **Detalle limpio de cambios sin iconos** (`.change-row`): Tarjetas directas con badge formal de módulo en tono dorado/ámbar, título en azul marino y redacción clara.
+3. **Buscador de cambios instantáneo** (`.version-search-container`): Campo de búsqueda con filtrado en tiempo real y botón de limpiar.
+4. **Pestañas interactivas corporativas** (`.version-tabs`): Destacado, Nuevo, Mejoras, Correcciones, con contadores numéricos reactivos y borde activo dorado.
+5. **Detalle limpio de cambios sin iconos** (`.change-row`): Tarjetas directas con badge formal de módulo en tono dorado/ámbar, título en azul marino y redacción clara.
 
 ---
 
@@ -72,7 +73,23 @@ No editar páginas de versiones anteriores salvo petición expresa. El listado l
 </section>
 ```
 
-### 2. Sistema de Pestañas (`.version-tabs`)
+### 2. Buscador Instantáneo (`.version-search-container`)
+```html
+<div class="version-search-container">
+    <div class="version-search-box">
+        <i class="fa-solid fa-magnifying-glass version-search-icon" aria-hidden="true"></i>
+        <input type="search" id="version-search-input" class="version-search-input"
+            placeholder="Buscar cambios por módulo o palabra clave..."
+            aria-label="Buscar en las notas de versión" autocomplete="off">
+        <button type="button" id="version-search-clear" class="version-search-clear"
+            aria-label="Limpiar búsqueda" hidden>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+```
+
+### 3. Sistema de Pestañas (`.version-tabs`)
 La navegación por pestañas es accesible con teclado (flechas, Home, End):
 - Cuatro pestañas posibles:
   - **Destacado** (`id="tab-destacado"`, `aria-controls="panel-destacado"`)
@@ -84,7 +101,7 @@ La navegación por pestañas es accesible con teclado (flechas, Home, End):
   <span class="version-tab-count" aria-hidden="true">3</span>
   ```
 
-### 3. Detalle de cambios sin iconos (`.change-feed` y `.change-row`)
+### 4. Detalle de cambios sin iconos (`.change-feed` y `.change-row`)
 Cada cambio se maqueta como un bloque limpio sin contenedor de icono lateral:
 
 ```html
