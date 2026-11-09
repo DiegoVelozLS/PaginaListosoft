@@ -1,0 +1,59 @@
+# Publica el sitio en el servidor cada vez que cambia la rama main.
+# Copia los archivos por SSH (rsync) a la carpeta /Inicio/ del servidor.
+#
+# Secretos que deben existir en GitHub (Settings > Secrets and variables > Actions):
+#   DEPLOY_HOST  servidor, por ejemplo: listosoft.com
+#   DEPLOY_USER  usuario SSH, por ejemplo: julio
+#   DEPLOY_PATH  carpeta del sitio en el servidor, terminada en /: /var/www/html/Inicio/
+#   DEPLOY_KEY   llave privada SSH de despliegue (texto completo, con las lineas BEGIN y END)
+#
+# Tambien se puede lanzar a mano desde la pestana Actions con el boton "Run workflow".
+
+name: Desplegar sitio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Si llegan dos cambios seguidos, el segundo espera a que termine el primero.
+concurrency:
+  group: desplegar-sitio
+  cancel-in-progress: false
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener el codigo
+        uses: actions/checkout@v4
+
+      - name: Preparar la conexion SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Copiar los archivos al servidor
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        # Solo agrega y actualiza archivos; no borra nada del servidor.
+        # --checksum copia unicamente los archivos cuyo contenido cambio.
+        # Los archivos quedan editables por el grupo www-data (D2775/F664), para que
+        # tambien se puedan actualizar a mano desde el servidor si hace falta.
+        run: |
+          rsync -rlvz --checksum --no-perms --no-owner --no-group --chmod=D2775,F664 \
+            --exclude='.git/' --exclude='.github/' --exclude='.vscode/' --exclude='.cursor/' \
+            --exclude='.gitignore' --exclude='README-COMPONENTES.md' \
+            -e "ssh -i ~/.ssh/deploy_key -o BatchMode=yes" \
+            ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH"
+
+      - name: Borrar la llave del equipo de GitHub
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
