@@ -3807,3 +3807,39 @@ header.over-hero .nav-flyout-item {
         padding-bottom: 0;
     }
 }
+
+/* ===== Aviso de despedida de FSoft en el hero (08/11/2026) ===== */
+.hero-announcement {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    margin-bottom: 1.5rem;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.hero-announcement span {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.hero-announcement:hover,
+.hero-announcement:focus-visible {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+    .hero-announcement {
+        font-size: 0.85rem;
+        border-radius: 14px;
+    }
+}

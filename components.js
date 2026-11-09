@@ -82,6 +82,7 @@ function setupDynamicLinks() {
     setHref('.footer-sobre-nosotros-link', `${basePath}Sobre-nosotros.html`);
     setHref('.footer-clientes-link', `${basePath}index.html#Clientes`);
     setHref('.footer-politica-link', `${basePath}Politica-privacidad.html`);
+    setHref('.footer-fsoft-link', `${basePath}fsoft.html`);
 }
 
 // Cargar componentes cuando el DOM esté listo
@@ -89,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const basePath = getSiteBasePath();
 
     const navbarPath = `${basePath}components/navbar.html?v=20260914`;
-    const footerPath = `${basePath}components/footer.html?v=20260914`;
+    const footerPath = `${basePath}components/footer.html?v=20261108`;
 
     Promise.all([
         fetchComponent(navbarPath, 'navbar-container'),
