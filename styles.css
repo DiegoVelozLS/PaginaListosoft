@@ -1194,6 +1194,17 @@ footer {
     font-size: 0.9rem;
 }
 
+.contact-info p a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    overflow-wrap: anywhere;
+}
+
+.contact-info p a:hover {
+    color: #fff;
+}
+
 .contact-info i {
     color: var(--accent-color);
 }
