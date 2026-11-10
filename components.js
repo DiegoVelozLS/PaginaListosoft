@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const basePath = getSiteBasePath();
 
     const navbarPath = `${basePath}components/navbar.html?v=20260914`;
-    const footerPath = `${basePath}components/footer.html?v=20261108`;
+    const footerPath = `${basePath}components/footer.html?v=20261110`;
 
     Promise.all([
         fetchComponent(navbarPath, 'navbar-container'),
