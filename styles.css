@@ -2551,7 +2551,7 @@ body {
     font-size: 0.9rem;
 }
 
-#Clientes .section-header {
+#clientes .section-header {
     margin-bottom: 44px;
 }
 
@@ -2703,18 +2703,18 @@ body {
         padding: 28px 22px;
     }
 
-    #Clientes .carouselClientes {
+    #clientes .carouselClientes {
         width: calc(100% - 32px);
         margin-right: auto;
         margin-left: auto;
     }
 
-    #Clientes {
+    #clientes {
         padding-right: 16px;
         padding-left: 16px;
     }
 
-    #Clientes .section-header {
+    #clientes .section-header {
         margin-right: 8px;
         margin-left: 8px;
     }

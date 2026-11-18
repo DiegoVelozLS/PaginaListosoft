@@ -84,7 +84,7 @@ function setupDynamicLinks() {
     setHref('.footer-recursos-link', `${basePath}recursos.html`);
     setHref('.footer-soporte-link', `${basePath}soporte.html`);
     setHref('.footer-sobre-nosotros-link', `${basePath}Sobre-nosotros.html`);
-    setHref('.footer-clientes-link', `${basePath}index.html#Clientes`);
+    setHref('.footer-clientes-link', `${basePath}index.html#clientes`);
     setHref('.footer-politica-link', `${basePath}Politica-privacidad.html`);
     setHref('.footer-fsoft-link', `${basePath}fsoft.html`);
 }
