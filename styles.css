@@ -3854,3 +3854,33 @@ header.over-hero .nav-flyout-item {
         border-radius: 14px;
     }
 }
+
+/* --- Fase 2: formulario con telefono opcional y checkbox WhatsApp --- */
+.form-optional {
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 0.82rem;
+}
+
+.form-group-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--secondary-color);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.form-group-check label {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.92rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}

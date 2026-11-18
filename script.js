@@ -259,6 +259,8 @@ function initializeApp() {
             const name = document.getElementById('name').value;
             const company = document.getElementById('company').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone') ? document.getElementById('phone').value : '';
+            const preferWhatsapp = document.getElementById('prefer-whatsapp') ? document.getElementById('prefer-whatsapp').checked : false;
             const message = document.getElementById('message').value;
 
             // Validación básica
@@ -286,6 +288,8 @@ function initializeApp() {
                 from_name: name,
                 from_company: company,
                 from_email: email,
+                from_phone: phone || 'No proporcionado',
+                prefer_whatsapp: preferWhatsapp ? 'Sí, prefiere contacto por WhatsApp' : 'No',
                 message: message || 'Sin mensaje adicional',
                 to_email: 'contacto@listosoft.com' // Email donde recibirás los mensajes
             };
