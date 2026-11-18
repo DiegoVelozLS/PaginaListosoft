@@ -3886,142 +3886,39 @@ header.over-hero .nav-flyout-item {
 }
 
 /* ============================================================
-   Fase 3: Hero con escaparate de modulos flotantes (desktop)
+   Fase 3 (v2): ajustar hero para que todo quepa en laptop 16"
+   - Permite que el hero crezca con su contenido (sin cap a 780px)
+   - Fija padding-top por debajo del navbar para que el pill no se corte
+   - Reduce ligeramente el tope del h1 y margenes para dejar aire al hero-proof
    ============================================================ */
 
-/* Escaparate oculto por defecto (movil, tablet) */
-.hero-showcase {
-    display: none;
+.hero {
+    height: auto;
+    min-height: 100vh;
+    padding-top: calc(var(--header-height) + 32px);
+    padding-bottom: 48px;
 }
 
-/* Layout de 2 columnas a partir de 901px */
-@media (min-width: 901px) {
-    .hero-container {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 48px;
-        max-width: 1200px;
-    }
-
-    .hero-content {
-        max-width: 560px;
-        flex: 1 1 560px;
-    }
-
-    .hero-showcase {
-        display: block;
-        flex: 0 1 460px;
-        max-width: 480px;
-        position: relative;
-        z-index: 1;
-    }
+.hero-container {
+    justify-content: flex-start;
+    padding-top: 0;
 }
 
-.hero-showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+.hero h1 {
+    font-size: clamp(2.6rem, 4.8vw, 4.6rem);
+    line-height: 1.02;
+    margin-bottom: 20px;
 }
 
-/* Tarjetas del escaparate */
-.hero-showcase-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 20px 20px 22px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(215, 179, 84, 0.22);
-    border-radius: 12px;
-    color: #e8ecf3;
-    text-decoration: none;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    transition: transform 240ms ease, border-color 240ms ease, background 240ms ease, box-shadow 240ms ease;
-    animation: heroCardFloat 6s ease-in-out infinite;
-    animation-delay: var(--float-delay, 0s);
-    will-change: transform;
+.hero p:not(.hero-eyebrow):not(.hero-note) {
+    margin-bottom: 28px;
+    font-size: 1.02rem;
 }
 
-/* Alternancia visual: cards impares un poco mas bajas para sensacion flotante */
-.hero-showcase-card:nth-child(even) {
-    transform: translateY(14px);
+.hero-announcement {
+    margin-bottom: 20px;
 }
 
-.hero-showcase-card:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(215, 179, 84, 0.55);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-    transform: translateY(-4px);
-}
-
-.hero-showcase-card:nth-child(even):hover {
-    transform: translateY(10px);
-}
-
-.hero-showcase-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: rgba(215, 179, 84, 0.14);
-    border: 1px solid rgba(215, 179, 84, 0.32);
-}
-
-.hero-showcase-icon i {
-    width: 20px;
-    height: 20px;
-    color: #d7b354;
-    stroke-width: 2;
-}
-
-.hero-showcase-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: #ffffff;
-    line-height: 1.2;
-}
-
-/* Animacion flotante sutil */
-@keyframes heroCardFloat {
-    0%, 100% {
-        animation-timing-function: ease-in-out;
-    }
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
-/* Las tarjetas pares flotan desde su posicion base desplazada */
-.hero-showcase-card:nth-child(even) {
-    animation-name: heroCardFloatEven;
-}
-
-@keyframes heroCardFloatEven {
-    0%, 100% {
-        transform: translateY(14px);
-    }
-    50% {
-        transform: translateY(8px);
-    }
-}
-
-/* Reducir impacto de las particulas para que no compitan con las cards */
-@media (min-width: 901px) {
-    #tsparticles {
-        opacity: 0.55;
-    }
-}
-
-/* Respetar prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-    .hero-showcase-card,
-    .hero-showcase-card:nth-child(even) {
-        animation: none;
-    }
+.hero-proof {
+    margin-top: 36px;
 }
