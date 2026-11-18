@@ -59,9 +59,24 @@ function renderVersionsAside() {
         return `<p class="version-aside-year">${group.year}</p><ul class="version-aside-list">${items}</ul>`;
     }).join('');
 
+    const isMobile = window.innerWidth <= 900;
+    const openAttr = isMobile ? '' : ' open';
+
     aside.innerHTML = `
-        <h2 class="version-aside-title">Versiones</h2>
-        ${groups}
+        <details class="version-aside-details"${openAttr}>
+            <summary class="version-aside-summary">
+                <span class="version-aside-summary-label">
+                    <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                    <span>Historial de versiones</span>
+                </span>
+                <span class="version-aside-summary-badge">${current ? 'v' + current : ''}</span>
+                <i class="fa-solid fa-chevron-down version-aside-summary-arrow" aria-hidden="true"></i>
+            </summary>
+            <div class="version-aside-content">
+                <h2 class="version-aside-title">Versiones</h2>
+                ${groups}
+            </div>
+        </details>
     `;
 }
 

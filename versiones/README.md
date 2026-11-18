@@ -145,5 +145,6 @@ Cada versión publicada requiere una entrada al inicio de `LISTOSOFT_VERSIONS`:
 - **No usar la etiqueta `<header>` para el hero**: `styles.css` reserva `<header>` para el navbar fijo de la página; usar siempre `<section class="version-hero-header">`.
 - **No añadir iconos laterales en las tarjetas**: Mantener las filas directas con `.module-badge`, `<h3>` y `<p>`.
 - **No poner la fecha en negrita en el título**: Va con `font-weight: 400` y color suave.
-- **No crear CSS global en `styles.css`** para una versión puntual; se mantiene en el `<style>` de la página.
-- **No olvidar sincronizar `components.js`** con `LATEST_VERSION_PATH`.
+- **No dejar el listado de versiones expandido en móvil**: En pantallas ≤ 900px debe permanecer colapsado en el `<details class="version-aside-details">` para no empujar el contenido principal hacia abajo.
+- **No olvidar sincronizar `components.js`** con `LATEST_VERSION_FILE` y `LATEST_VERSION_PATH`, actualizando el query string `?v=` en todo el sitio.
+- **No enlazar versiones viejas en el breadcrumb**: En `versiones/X.Y.Z.html`, el enlace de retorno a «Notas de Versión» debe apuntar a la versión más reciente activa.

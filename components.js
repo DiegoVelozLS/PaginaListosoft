@@ -38,18 +38,22 @@ function setHref(selector, href) {
 
 function getSiteBasePath() {
     const pathname = window.location.pathname.replace(/\\/g, '/');
-    if (pathname.includes('/versiones/')) {
+    if (pathname.includes('/versiones/') || pathname.endsWith('/versiones')) {
         return '../';
     }
     return '';
 }
 
 // Mantener alineado con la primera entrada de versiones/versiones.js
-const LATEST_VERSION_PATH = 'versiones/2.1.61.html';
+const LATEST_VERSION_FILE = '2.1.61.html';
+const LATEST_VERSION_PATH = 'versiones/' + LATEST_VERSION_FILE;
 
 // Función para configurar las rutas de los enlaces después de cargar los componentes
 function setupDynamicLinks() {
+    const pathname = window.location.pathname.replace(/\\/g, '/');
+    const isInsideVersiones = pathname.includes('/versiones/') || pathname.endsWith('/versiones');
     const basePath = getSiteBasePath();
+    const latestVersionHref = isInsideVersiones ? LATEST_VERSION_FILE : `${basePath}${LATEST_VERSION_PATH}`;
 
     const navLogoLink = document.querySelector('.nav-logo-link');
     const navLogoDark = document.querySelector('.nav-logo-dark');
@@ -63,7 +67,7 @@ function setupDynamicLinks() {
     setHref('.nav-modulos-link', `${basePath}modulos.html`);
     setHref('.nav-modulos-ver-todos', `${basePath}modulos.html`);
     setHref('.nav-recursos-link', `${basePath}recursos.html`);
-    setHref('.nav-descargas-link', `${basePath}${LATEST_VERSION_PATH}`);
+    setHref('.nav-descargas-link', latestVersionHref);
     setHref('.nav-soporte-link', `${basePath}soporte.html`);
     setHref('.nav-empresa-link', `${basePath}Sobre-nosotros.html`);
     setHref('.nav-contacto-link', `${basePath}index.html#contacto`);
@@ -76,7 +80,7 @@ function setupDynamicLinks() {
 
     setHref('.footer-erp-link', `${basePath}index.html`);
     setHref('.footer-modulos-link', `${basePath}modulos.html`);
-    setHref('.footer-descargas-link', `${basePath}${LATEST_VERSION_PATH}`);
+    setHref('.footer-descargas-link', latestVersionHref);
     setHref('.footer-recursos-link', `${basePath}recursos.html`);
     setHref('.footer-soporte-link', `${basePath}soporte.html`);
     setHref('.footer-sobre-nosotros-link', `${basePath}Sobre-nosotros.html`);
@@ -89,7 +93,7 @@ function setupDynamicLinks() {
 document.addEventListener('DOMContentLoaded', () => {
     const basePath = getSiteBasePath();
 
-    const navbarPath = `${basePath}components/navbar.html?v=20260914`;
+    const navbarPath = `${basePath}components/navbar.html?v=20261110`;
     const footerPath = `${basePath}components/footer.html?v=20261110`;
 
     Promise.all([
