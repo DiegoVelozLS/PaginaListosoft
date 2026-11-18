@@ -95,6 +95,53 @@
                 </div>
                 <div class="hero-proof"><span>24+ años de experiencia</span><span>Soporte especializado</span><span>Facturación electrónica SRI</span><span>Guayaquil, Ecuador</span></div>
             </div>
+            <div class="hero-visual" aria-hidden="true">
+                <svg class="hero-chart" viewBox="0 0 440 320" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                    <defs>
+                        <linearGradient id="heroChartFill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#d7b354" stop-opacity="0.35"/>
+                            <stop offset="60%" stop-color="#d7b354" stop-opacity="0.08"/>
+                            <stop offset="100%" stop-color="#d7b354" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="heroChartLine" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#b78f2c"/>
+                            <stop offset="100%" stop-color="#e3c67c"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Rejilla sutil -->
+                    <g class="hero-chart-grid" stroke="rgba(255,255,255,0.06)" stroke-width="1">
+                        <line x1="0" y1="80" x2="440" y2="80"/>
+                        <line x1="0" y1="150" x2="440" y2="150"/>
+                        <line x1="0" y1="220" x2="440" y2="220"/>
+                        <line x1="0" y1="290" x2="440" y2="290"/>
+                    </g>
+
+                    <!-- Barras decorativas de fondo -->
+                    <g class="hero-chart-bars" fill="rgba(255,255,255,0.05)">
+                        <rect x="30"  y="240" width="18" height="50" rx="2"/>
+                        <rect x="85"  y="215" width="18" height="75" rx="2"/>
+                        <rect x="140" y="230" width="18" height="60" rx="2"/>
+                        <rect x="195" y="200" width="18" height="90" rx="2"/>
+                        <rect x="250" y="180" width="18" height="110" rx="2"/>
+                        <rect x="305" y="160" width="18" height="130" rx="2"/>
+                        <rect x="360" y="130" width="18" height="160" rx="2"/>
+                    </g>
+
+                    <!-- Area bajo la curva -->
+                    <path class="hero-chart-area" d="M20,240 C70,220 110,210 160,170 S260,130 300,110 360,70 420,55 L420,290 L20,290 Z" fill="url(#heroChartFill)"/>
+
+                    <!-- Linea principal -->
+                    <path class="hero-chart-line" d="M20,240 C70,220 110,210 160,170 S260,130 300,110 360,70 420,55" fill="none" stroke="url(#heroChartLine)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <!-- Puntos clave -->
+                    <g class="hero-chart-dots">
+                        <circle cx="160" cy="170" r="4" fill="#0f172a" stroke="#d7b354" stroke-width="2"/>
+                        <circle cx="300" cy="110" r="4" fill="#0f172a" stroke="#d7b354" stroke-width="2"/>
+                        <circle cx="420" cy="55"  r="5" fill="#d7b354" stroke="#0f172a" stroke-width="2"/>
+                    </g>
+                </svg>
+            </div>
         </div>
     </section>
     <section id="modulos" class="section bg-light">

@@ -3922,3 +3922,110 @@ header.over-hero .nav-flyout-item {
 .hero-proof {
     margin-top: 36px;
 }
+
+/* ============================================================
+   Fase 3 (v3): Hero con grafico decorativo a la derecha
+   - Layout 2 columnas en desktop (>=1024px)
+   - Grafico SVG puro, decorativo, sin numeros
+   - Oculto en movil/tablet
+   ============================================================ */
+
+.hero-visual {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .hero-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 56px;
+        max-width: 1200px;
+    }
+
+    .hero-content {
+        max-width: 580px;
+        flex: 1 1 580px;
+    }
+
+    .hero-visual {
+        display: block;
+        flex: 0 1 460px;
+        max-width: 460px;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.hero-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+}
+
+/* Animacion: la linea se dibuja sola al cargar */
+.hero-chart-line {
+    stroke-dasharray: 720;
+    stroke-dashoffset: 720;
+    animation: heroChartDraw 1.8s ease-out 0.4s forwards;
+}
+
+.hero-chart-area {
+    opacity: 0;
+    animation: heroChartFade 1s ease-out 1.6s forwards;
+}
+
+.hero-chart-dots circle {
+    opacity: 0;
+    animation: heroChartFade 0.4s ease-out forwards;
+}
+
+.hero-chart-dots circle:nth-child(1) { animation-delay: 1.2s; }
+.hero-chart-dots circle:nth-child(2) { animation-delay: 1.6s; }
+.hero-chart-dots circle:nth-child(3) { animation-delay: 2.0s; }
+
+.hero-chart-bars rect {
+    opacity: 0;
+    animation: heroBarRise 0.6s ease-out forwards;
+    transform-origin: bottom;
+}
+
+.hero-chart-bars rect:nth-child(1) { animation-delay: 0.1s; }
+.hero-chart-bars rect:nth-child(2) { animation-delay: 0.2s; }
+.hero-chart-bars rect:nth-child(3) { animation-delay: 0.3s; }
+.hero-chart-bars rect:nth-child(4) { animation-delay: 0.4s; }
+.hero-chart-bars rect:nth-child(5) { animation-delay: 0.5s; }
+.hero-chart-bars rect:nth-child(6) { animation-delay: 0.6s; }
+.hero-chart-bars rect:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes heroChartDraw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes heroChartFade {
+    to { opacity: 1; }
+}
+
+@keyframes heroBarRise {
+    from { opacity: 0; transform: scaleY(0.4); }
+    to   { opacity: 1; transform: scaleY(1); }
+}
+
+/* Particulas mas tenues cuando esta el grafico para no competir */
+@media (min-width: 1024px) {
+    #tsparticles { opacity: 0.6; }
+}
+
+/* Respeta prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-chart-line,
+    .hero-chart-area,
+    .hero-chart-dots circle,
+    .hero-chart-bars rect {
+        animation: none;
+        opacity: 1;
+        stroke-dashoffset: 0;
+        transform: none;
+    }
+}
