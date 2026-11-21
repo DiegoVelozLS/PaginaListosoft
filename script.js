@@ -213,16 +213,29 @@ function initializeApp() {
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Dejar de observar una vez animado
-            }
+        // Solo los elementos que entran juntos hacen cascada (40 ms c/u, máx. 160 ms)
+        entries.filter(entry => entry.isIntersecting).forEach((entry, i) => {
+            entry.target.style.setProperty('--reveal-delay', Math.min(i * 40, 160) + 'ms');
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Dejar de observar una vez animado
         });
     }, observerOptions);
 
     const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => observer.observe(el));
+    // El contenido solo se oculta para animarlo si el script corre y no se pidió movimiento reducido.
+    // Lo que ya está en pantalla se marca visible antes, para que no parpadee ni repita su entrada.
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+        fadeElements.forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                el.classList.add('visible');
+            }
+        });
+        document.documentElement.classList.add('js-reveal');
+    }
+    fadeElements.forEach(el => {
+        if (!el.classList.contains('visible')) observer.observe(el);
+    });
 
     // 3.5. Video de YouTube - Reproducción automática cuando aparece
     const videoContainer = document.getElementById('video-container');
@@ -410,21 +423,21 @@ document.addEventListener('DOMContentLoaded', () => {
             fullScreen: { enable: false },
             pauseOnOutsideViewport: true,
             particles: {
-                number: { value: 34, density: { enable: true, area: 900 } },
-                color: { value: "#ffffff" },
+                number: { value: 46, density: { enable: true, area: 900 } },
+                color: { value: ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#d7b354"] },
                 shape: { type: "circle" },
-                opacity: { value: { min: 0.12, max: 0.28 } },
-                size: { value: { min: 1, max: 2.2 } },
+                opacity: { value: { min: 0.3, max: 0.6 } },
+                size: { value: { min: 1.2, max: 2.8 } },
                 links: {
                     enable: true,
-                    distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.1,
+                    distance: 160,
+                    color: "#c9d5ec",
+                    opacity: 0.2,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 0.35,
+                    speed: 0.4,
                     direction: "none",
                     random: false,
                     straight: false,
