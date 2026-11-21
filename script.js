@@ -265,7 +265,7 @@ function initializeApp() {
 
             // Validación básica
             if (!name || !company || !email) {
-                alert('Por favor complete todos los campos obligatorios.');
+                alert('Completa todos los campos obligatorios.');
                 return;
             }
 
@@ -300,7 +300,7 @@ function initializeApp() {
                     console.log('Email enviado exitosamente!', response.status, response.text);
 
                     // Mensaje de éxito
-                    alert('¡Gracias por su interés!\n\nSu mensaje ha sido enviado exitosamente. Un asesor de Listosoft se comunicará con usted en breve.');
+                    alert('¡Gracias por tu interés!\n\nTu mensaje se envió correctamente. Un asesor de Listosoft se comunicará contigo en breve.');
 
                     // Limpiar formulario
                     contactForm.reset();
@@ -318,7 +318,7 @@ function initializeApp() {
                     console.error('Error al enviar email:', error);
 
                     // Mensaje de error
-                    alert('Lo sentimos, hubo un error al enviar su mensaje.\n\nPor favor intente nuevamente o contáctenos directamente por WhatsApp o teléfono.');
+                    alert('No pudimos enviar tu mensaje.\n\nIntenta de nuevo o escríbenos directamente por WhatsApp o llámanos.');
 
                     // Restaurar botón
                     submitBtn.innerHTML = originalText;
@@ -401,90 +401,41 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Verificar si existe el contenedor y la librería
     const particlesContainer = document.getElementById('tsparticles');
-    if (particlesContainer && window.tsParticles) {
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isDesktop = window.matchMedia && window.matchMedia('(min-width: 1024px)').matches;
+    // Red discreta: solo escritorio, sin interacción y respetando movimiento reducido
+    if (particlesContainer && window.tsParticles && isDesktop && !reduceMotion) {
         tsParticles.load("tsparticles", {
-            fpsLimit: 60,
-            fullScreen: { enable: false }, // Importante: no pantalla completa, solo contenedor
+            fpsLimit: 30,
+            fullScreen: { enable: false },
+            pauseOnOutsideViewport: true,
             particles: {
-                number: {
-                    value: 60, // Cantidad de puntos
-                    density: {
-                        enable: true,
-                        area: 800
-                    }
-                },
-                color: {
-                    value: "#ffffff" // Puntos blancos
-                },
-                shape: {
-                    type: "circle"
-                },
-                opacity: {
-                    value: 0.3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
+                number: { value: 34, density: { enable: true, area: 900 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: { min: 0.12, max: 0.28 } },
+                size: { value: { min: 1, max: 2.2 } },
                 links: {
                     enable: true,
                     distance: 150,
                     color: "#ffffff",
-                    opacity: 0.2, // Líneas sutiles
+                    opacity: 0.1,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 1.5, // Movimiento lento y tech
+                    speed: 0.35,
                     direction: "none",
                     random: false,
                     straight: false,
-                    outModes: {
-                        default: "bounce"
-                    },
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
+                    outModes: { default: "bounce" }
                 }
             },
             interactivity: {
-                detectsOn: "canvas",
                 events: {
-                    onHover: {
-                        enable: true,
-                        mode: "grab" // Las líneas se conectan al mouse
-                    },
-                    onClick: {
-                        enable: true,
-                        mode: "push"
-                    },
+                    onHover: { enable: false },
+                    onClick: { enable: false },
                     resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 200,
-                        line_linked: {
-                            opacity: 0.5
-                        }
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
                 }
             },
             detectRetina: true,

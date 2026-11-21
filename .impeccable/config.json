@@ -1,0 +1,29 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "components/footer.html"
+        ],
+        "createdAt": "2026-11-21T01:08:25.047Z",
+        "reason": "Claude: footer logo src is a '#' placeholder that components.js sets to assets/Logo-Listosoft.png at runtime"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-11-21T01:40:09.773Z",
+        "reason": "Claude: Geist is the site-wide incumbent face (styles.css --font-main); user asked the hero to stay consistent with the rest of the page"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-11-21T01:40:09.981Z",
+        "reason": "Claude: Geist Mono is the site-wide incumbent mono (styles.css --font-mono); kept for consistency per user's brief"
+      }
+    ]
+  }
+}
