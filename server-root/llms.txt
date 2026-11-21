@@ -1,0 +1,21 @@
+# Listosoft S.A. — LSoft ERP
+
+> LSoft ERP es un software contable, tributario, de nómina y gestión administrativa desarrollado en Ecuador por Listosoft S.A. (Guayaquil, desde 2001). Diseñado para PyMEs y empresas ecuatorianas con cumplimiento normativo del SRI y del IESS.
+
+## Páginas principales
+
+- [Inicio — LSoft ERP](https://listosoft.com/Inicio/): Presentación general de LSoft ERP, beneficios, clientes y formulario de demostración.
+- [Módulos de LSoft ERP](https://listosoft.com/Inicio/modulos): Detalle de módulos disponibles: Contabilidad, Facturación Electrónica y SRI (ATS, retenciones, comprobantes), Ventas, Compras, Inventario, Caja y Bancos, Nómina con IESS, Activos Fijos y Producción.
+- [Centro de Soporte Técnico](https://listosoft.com/Inicio/soporte): Canales de asistencia técnica y acompañamiento contable/operativo para clientes.
+- [Recursos y Manuales](https://listosoft.com/Inicio/recursos): Documentación, guías y tutoriales del sistema LSoft ERP.
+- [Sobre Nosotros](https://listosoft.com/Inicio/Sobre-nosotros): Historia de Listosoft S.A., más de 25 años de trayectoria en Ecuador, misión, visión y valores.
+- [Historia de FSoft](https://listosoft.com/Inicio/fsoft): Homenaje a FSoft (2001–2026), antecesor de LSoft ERP, creado por Julio Veloz.
+
+## Datos clave
+
+- **Empresa:** Listosoft S.A.
+- **Ubicación:** Guayaquil, Ecuador (cobertura nacional en Ecuador)
+- **Trayectoria:** Desde 2001 (+25 años)
+- **Producto principal:** LSoft ERP (software contable y ERP modular para Windows)
+- **Cumplimiento local:** Facturación electrónica SRI, anexos transaccionales (ATS), impuestos IVA/retenciones, nómina e IESS.
+- **Contacto comercial y soporte:** soporte@listosoft.com | +593 99 326 7418

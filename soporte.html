@@ -4,33 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro de Soporte | LSoft ERP</title>
+    <title>Centro de Soporte Técnico LSoft ERP en Ecuador | Listosoft</title>
     <meta name="description"
-        content="Centro de ayuda y soporte técnico de LSoft. Contacta a nuestro equipo y accede a manuales y recursos para optimizar tu gestión.">
+        content="Centro de ayuda y soporte técnico de LSoft ERP en Ecuador. Abre un ticket, contacta a nuestros consultores y accede a manuales y recursos.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://listosoft.com/Inicio/soporte">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://listosoft.com/Inicio/soporte">
-    <meta property="og:title" content="Centro de Soporte | LSoft ERP">
+    <meta property="og:site_name" content="Listosoft">
+    <meta property="og:locale" content="es_EC">
+    <meta property="og:title" content="Centro de Soporte Técnico LSoft ERP en Ecuador | Listosoft">
     <meta property="og:description"
-        content="Asistencia técnica especializada y recursos para usuarios de LSoft ERP.">
-    <meta property="og:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+        content="Asistencia técnica especializada, sistema de tickets y recursos para usuarios de LSoft ERP en Ecuador.">
+    <meta property="og:image" content="https://listosoft.com/Inicio/assets/og-listosoft.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://listosoft.com/Inicio/soporte">
-    <meta property="twitter:title" content="Centro de Soporte | LSoft ERP">
-    <meta property="twitter:description"
-        content="Asistencia técnica especializada y recursos para usuarios de LSoft ERP.">
-    <meta property="twitter:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://listosoft.com/Inicio/soporte">
+    <meta name="twitter:title" content="Centro de Soporte Técnico LSoft ERP en Ecuador | Listosoft">
+    <meta name="twitter:description"
+        content="Asistencia técnica especializada, sistema de tickets y recursos para usuarios de LSoft ERP en Ecuador.">
+    <meta name="twitter:image" content="https://listosoft.com/Inicio/assets/og-listosoft.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="styles.css?v=20261110">
+    <link rel="stylesheet" href="styles.css?v=20261121j">
     <link rel="stylesheet" href="Estilos/mockup.css">
     <!-- Reutilizamos estilos de módulos para consistencia en grids y headers -->
     <link rel="stylesheet" href="Estilos/modulos.css">
@@ -163,19 +167,42 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Inicio",
-          "item": "https://listosoft.com/Inicio/"
+          "@type": "ContactPage",
+          "name": "Centro de Soporte Técnico LSoft ERP",
+          "url": "https://listosoft.com/Inicio/soporte",
+          "inLanguage": "es-EC",
+          "mainEntity": {
+            "@type": "Organization",
+            "@id": "https://listosoft.com/Inicio/#organization",
+            "name": "Listosoft S.A.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+593993267418",
+              "email": "soporte@listosoft.com",
+              "contactType": "technical support",
+              "areaServed": "EC",
+              "availableLanguage": "Spanish"
+            }
+          }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Soporte",
-          "item": "https://listosoft.com/Inicio/soporte"
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": "https://listosoft.com/Inicio/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Soporte",
+              "item": "https://listosoft.com/Inicio/soporte"
+            }
+          ]
         }
       ]
     }
@@ -191,7 +218,68 @@
 
 <body>
     <!-- Contenedor para el navbar (se carga dinámicamente) -->
-    <div id="navbar-container"></div>
+    <div id="navbar-container">
+<!-- @component:navbar-container -->
+<header id="navbar">
+    <div class="container nav-container">
+        <a href="./" class="logo nav-logo-link">
+            <img src="assets/Logo-Listosoft.png" alt="Listosoft" width="482" height="176" class="logo-img logo-dark nav-logo-dark">
+            <img src="assets/Logo-ListosoftBlanco.png" alt="Listosoft" width="482" height="148" class="logo-img logo-white nav-logo-white">
+        </a>
+
+        <nav class="nav-menu" id="nav-menu" aria-label="Navegación principal">
+            <ul>
+                <li class="nav-item dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Productos
+                        <i class="fas fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-flyout">
+                        <a href="./" class="nav-flyout-item nav-erp-link">
+                            <span class="nav-flyout-title">LSoft ERP</span>
+                            <span class="nav-flyout-desc">Gestión contable, financiera y administrativa.</span>
+                        </a>
+                        <a href="https://listosoft.com/landing-page-asistencias/" target="_blank" rel="noopener noreferrer" class="nav-flyout-item nav-asistencias-link">
+                            <span class="nav-flyout-title">Control de Asistencias <span class="nav-badge">Beta</span></span>
+                            <span class="nav-flyout-desc">Registro y control de personal.</span>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="modulos" class="nav-link nav-modulos-link">Módulos</a></li>
+                <li class="nav-item dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Recursos
+                        <i class="fas fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-flyout nav-flyout--end">
+                        <a href="soporte" class="nav-flyout-item nav-soporte-link">
+                            <span class="nav-flyout-title">Soporte</span>
+                            <span class="nav-flyout-desc">Ayuda técnica y acompañamiento.</span>
+                        </a>
+                        <a href="versiones/2.1.61" class="nav-flyout-item nav-descargas-link">
+                            <span class="nav-flyout-title">Versiones</span>
+                            <span class="nav-flyout-desc">Historial de cambios del ERP.</span>
+                        </a>
+                        <a href="recursos" class="nav-flyout-item nav-recursos-link">
+                            <span class="nav-flyout-title">Manuales</span>
+                            <span class="nav-flyout-desc">Guías y documentación del sistema.</span>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="Sobre-nosotros" class="nav-link nav-empresa-link">Empresa</a></li>
+                <li><a href="./#contacto" class="btn btn-accent nav-cta nav-contacto-link">Agendar demostración</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</header>
+<!-- /@component:navbar-container -->
+</div>
 
     <!-- Sistema de Tickets -->
     <section class="section content-page-section">
@@ -211,6 +299,7 @@
             </div>
 
             <!-- Beneficios del sistema de tickets -->
+            <h2 class="sr-only">Beneficios del sistema de tickets</h2>
             <div class="cards-grid support-benefits-grid fade-in">
                 <div class="contact-method-card">
                     <div class="contact-icon-large">
@@ -339,20 +428,83 @@
     </section>
 
     <!-- Contenedor para el footer (se carga dinámicamente) -->
-    <div id="footer-container"></div>
+    <div id="footer-container">
+<!-- @component:footer-container -->
+<footer>
+    <div class="container footer-content">
+        <div class="footer-col brand-col">
+            <a href="./" class="logo footer-logo footer-logo-link"><img src="assets/Logo-Listosoft.png" alt="Listosoft"
+                    width="482" height="176" loading="lazy" decoding="async" class="logo-img footer-logo-img"></a>
+            <p>Impulsando el crecimiento empresarial con tecnología ERP de vanguardia. Gestión inteligente para
+                decisiones estratégicas.</p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@Listosoft" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon"><i
+                        class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/listosoft" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon"><i
+                        class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://ec.linkedin.com/company/listosoft" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    class="social-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.tiktok.com/@listosoft" target="_blank" rel="noopener noreferrer"
+                    aria-label="TikTok" class="social-icon"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col links-col">
+            <h4>Productos</h4>
+            <ul>
+                <li><a href="./" class="footer-erp-link">LSoft ERP</a></li>
+                <li><a href="https://listosoft.com/landing-page-asistencias/" target="_blank" rel="noopener noreferrer">Control de Asistencias <span class="footer-badge">Beta</span></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col links-col">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="soporte" class="footer-soporte-link">Soporte</a></li>
+                <li><a href="versiones/2.1.61" class="footer-descargas-link">Versiones</a></li>
+                <li><a href="recursos" class="footer-recursos-link">Manuales</a></li>
+                <li><a href="modulos" class="footer-modulos-link">Módulos</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col links-col">
+            <h4>Empresa</h4>
+            <ul>
+                <li><a href="Sobre-nosotros" class="footer-sobre-nosotros-link">Sobre Nosotros</a></li>
+                <li><a href="./#clientes" class="footer-clientes-link">Clientes</a></li>
+                <li><a href="Politica-privacidad" class="footer-politica-link">Política de Privacidad</a></li>
+                <li><a href="fsoft" class="footer-fsoft-link">Gracias, FSoft</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col contact-col">
+            <h4>Contacto</h4>
+            <div class="contact-info">
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> soporte@listosoft.com</p>
+                <p><i class="fa-solid fa-user-shield" aria-hidden="true"></i> <span>Protección de datos:<br><a href="mailto:protecciondedatos@listosoft.com">protecciondedatos@listosoft.com</a></span></p>
+                <p><i class="fa-solid fa-phone" aria-hidden="true"></i> +593 99 326 7418</p>
+                <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Guayaquil, Ecuador</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Listosoft S.A. Todos los derechos reservados.</p>
+    </div>
+</footer>
+<!-- /@component:footer-container -->
+</div>
 
     <!-- Scripts -->
-    <script src="components.js?v=20261110"></script>
-    <script src="script.js?v=20260907"></script>
+    <script src="components.js?v=20261121" defer></script>
+    <script src="script.js?v=20261121d" defer></script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@0.460.0"></script>
+    <script src="https://unpkg.com/lucide@0.460.0" defer></script>
     <script>
-        lucide.createIcons();
-
-        // Escuchar carga de componentes para reinicializar si hace falta
-        document.addEventListener('componentsLoaded', () => {
-            lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         });
     </script>
 </body>

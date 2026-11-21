@@ -1,0 +1,5 @@
+# Copiar o fusionar en /var/www/html/.htaccess (raíz del dominio)
+# Redirige ÚNICAMENTE la raíz exacta https://listosoft.com/ hacia https://listosoft.com/Inicio/ con 301.
+# No afecta a /api/, /landing-page-asistencias/, /robots.txt, /llms.txt ni a ninguna otra carpeta.
+
+RedirectMatch 301 ^/$ https://listosoft.com/Inicio/

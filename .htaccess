@@ -2,13 +2,13 @@
 RewriteEngine On
 RewriteBase /Inicio/
 
-# Permitir CORS para archivos HTML (necesario para fetch de componentes)
+# Cabeceras de seguridad HTTP
 <IfModule mod_headers.c>
-    <FilesMatch "\.(html|htm)$">
-        Header set Access-Control-Allow-Origin "*"
-        Header set Access-Control-Allow-Methods "GET, OPTIONS"
-        Header set Access-Control-Allow-Headers "Content-Type"
-    </FilesMatch>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 
 # Forzar HTTPS — el hosting ya redirige HTTP→HTTPS (301). No activar aquí
@@ -18,6 +18,9 @@ RewriteBase /Inicio/
 
 # Prevenir listado de directorios
 Options -Indexes
+
+# Bloquear acceso público a directorios internos del repositorio
+RewriteRule ^(server-root|scripts|listosoft\.com-audit)(/|$) - [F,L]
 
 # 301: /Inicio/versiones o /Inicio/versiones/ → última versión
 RewriteRule ^versiones/?$ /Inicio/versiones/2.1.61 [R=301,L]
@@ -30,7 +33,7 @@ RewriteRule ^pages/(.*)$ /Inicio/$1 [R=301,L]
 RewriteCond %{THE_REQUEST} \s/Inicio/index\.html[\s?] [NC]
 RewriteRule ^index\.html$ /Inicio/ [R=301,L]
 
-# 301: URLs con .html → URL limpia (excepto /Inicio/components/ por el fetch)
+# 301: URLs con .html → URL limpia (excepto /Inicio/components/ por compatibilidad)
 RewriteCond %{THE_REQUEST} \s/Inicio/(.+?)\.html[\s?] [NC]
 RewriteCond %{REQUEST_URI} !/components/ [NC]
 RewriteRule ^.+\.html$ /Inicio/%1 [R=301,L,QSA]
@@ -46,15 +49,15 @@ RewriteRule ^(.*)$ $1.html [L]
     Deny from all
 </FilesMatch>
 
-# Proteger readme y licencias si no son públicos
-<FilesMatch "^(README|LICENSE|CHANGELOG)\.md$">
+# Proteger documentación interna y manifiestos
+<FilesMatch "^(README|README-COMPONENTES|LICENSE|CHANGELOG|PRODUCT)\.md$">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
 # Habilitar compresión Gzip
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
 </IfModule>
 
 # Caching de Archivos Estáticos (Browser Caching)
@@ -65,6 +68,7 @@ RewriteRule ^(.*)$ $1.html [L]
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/pdf "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
@@ -74,5 +78,5 @@ RewriteRule ^(.*)$ $1.html [L]
     ExpiresDefault "access plus 2 days"
 </IfModule>
 
-# Páginas de Error Personalizadas
-# ErrorDocument 404 /404.html
+# Página de Error 404 Personalizada
+ErrorDocument 404 /Inicio/404.html

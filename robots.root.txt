@@ -1,12 +1,23 @@
 # IMPORTANTE: copiar este archivo a /var/www/html/robots.txt
-# (debe quedar como https://listosoft.com/robots.txt — NO dentro de /Inicio/)
+# (debe quedar como https://listosoft.com/robots.txt — NO solo dentro de /Inicio/)
 #
-# Google y los SEO checkers solo leen robots.txt en la raíz del dominio.
-# El archivo dentro de /Inicio/robots.txt lo ignoran.
+# Google, Bing y los crawlers de IA solo leen robots.txt en la raíz del dominio.
 
 User-agent: *
 Allow: /
-
 Disallow: /Inicio/components/
+Disallow: /Inicio/server-root/
+
+User-agent: OAI-SearchBot
+Allow: /Inicio/
+
+User-agent: GPTBot
+Allow: /Inicio/
+
+User-agent: ClaudeBot
+Allow: /Inicio/
+
+User-agent: PerplexityBot
+Allow: /Inicio/
 
 Sitemap: https://listosoft.com/Inicio/sitemap.xml

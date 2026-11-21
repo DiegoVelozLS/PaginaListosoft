@@ -1791,7 +1791,8 @@ footer {
     margin-top: -30px;
 }
 
-.legal-content-card h2 {
+.legal-content-card h2,
+.legal-content-card h1.error404-title {
     font-size: 1.8rem;
     color: var(--primary-color);
     margin-top: 40px;
@@ -4779,3 +4780,16 @@ input[type="checkbox"] {
     transition: border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
 }
 
+
+/* Utilidad accesible solo para lectores de pantalla y semántica */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

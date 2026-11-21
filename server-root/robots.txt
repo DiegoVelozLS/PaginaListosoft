@@ -1,0 +1,22 @@
+# Copiar este archivo a /var/www/html/robots.txt
+# Google, Bing y los crawlers de IA solo leen https://listosoft.com/robots.txt (raíz del dominio).
+
+User-agent: *
+Allow: /
+Disallow: /Inicio/components/
+Disallow: /Inicio/server-root/
+
+# Permitir explícitamente buscadores y asistentes de IA sobre el sitio público
+User-agent: OAI-SearchBot
+Allow: /Inicio/
+
+User-agent: GPTBot
+Allow: /Inicio/
+
+User-agent: ClaudeBot
+Allow: /Inicio/
+
+User-agent: PerplexityBot
+Allow: /Inicio/
+
+Sitemap: https://listosoft.com/Inicio/sitemap.xml

@@ -400,14 +400,11 @@ setTimeout(() => {
     }
 }, 500);
 
-// Fallback adicional para DOMContentLoaded
+// Fallback adicional para DOMContentLoaded (inmediato si el navbar ya está pre-renderizado)
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        if (!appInitialized) {
-            console.log('Intentando inicializar con DOMContentLoaded...');
-            safeInitializeApp();
-        }
-    }, 100);
+    if (!appInitialized) {
+        safeInitializeApp();
+    }
 });
 
 // --- Configuración de Partículas (Network Effect) ---
