@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulos | LSoft ERP</title>
     <meta name="description"
-        content="Explora los módulos de LSoft ERP organizados por operaciones comerciales, finanzas, operaciones avanzadas, gestión del talento y control y cumplimiento.">
+        content="Módulos de LSoft ERP para empresas ecuatorianas: facturación electrónica y SRI, contabilidad, ventas, inventario, nómina con IESS y producción. Empieza con lo que necesitas y suma módulos cuando crezcas.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://listosoft.com/Inicio/modulos">
 
@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://listosoft.com/Inicio/modulos">
     <meta property="og:title" content="Módulos | LSoft ERP">
     <meta property="og:description"
-        content="Explora los módulos de LSoft ERP organizados por operaciones comerciales, finanzas, operaciones avanzadas, gestión del talento y control y cumplimiento.">
+        content="Módulos de LSoft ERP para empresas ecuatorianas: facturación electrónica y SRI, contabilidad, ventas, inventario, nómina con IESS y producción. Empieza con lo que necesitas y suma módulos cuando crezcas.">
     <meta property="og:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
 
     <!-- Twitter -->
@@ -23,7 +23,7 @@
     <meta property="twitter:url" content="https://listosoft.com/Inicio/modulos">
     <meta property="twitter:title" content="Módulos | LSoft ERP">
     <meta property="twitter:description"
-        content="Explora los módulos de LSoft ERP organizados por operaciones comerciales, finanzas, operaciones avanzadas, gestión del talento y control y cumplimiento.">
+        content="Módulos de LSoft ERP para empresas ecuatorianas: facturación electrónica y SRI, contabilidad, ventas, inventario, nómina con IESS y producción. Empieza con lo que necesitas y suma módulos cuando crezcas.">
     <meta property="twitter:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -35,38 +35,331 @@
     <link rel="stylesheet" href="Estilos/modulos.css?v=20260328">
     <style>
         .modules-page {
-            --modules-ink: var(--primary-color);
-            --modules-soft: var(--text-dark);
-            --modules-line: rgba(226, 232, 240, 0.95);
-            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            --m-ink: #111c3a;
+            --m-blue: #3b5b99;
+            --m-gold: #c69a2d;
+            --m-gold-deep: #8a6a17;
+            --m-text: #334155;
+            --m-muted: #55627a;
+            --m-line: #dfe5ee;
+            --m-tint: #f6f8fb;
+            --m-ease: cubic-bezier(0.16, 1, 0.3, 1);
+            background: #ffffff;
+            color: var(--m-text);
+        }
+
+        .modules-page ::selection {
+            background: rgba(198, 154, 45, 0.28);
+            color: var(--m-ink);
         }
 
         .modules-page h1,
         .modules-page h2,
-        .modules-page h3,
-        .modules-page h4,
-        .modules-kicker,
-        .module-stack-kicker,
-        .modules-panel-label {
+        .modules-page h3 {
             font-family: var(--font-main);
+            color: var(--m-ink);
+            letter-spacing: -0.02em;
+            text-wrap: balance;
         }
 
-        .modules-kicker,
-        .module-stack-kicker,
-        .modules-panel-label {
+        .modules-page p {
+            text-wrap: pretty;
+        }
+
+        /* ---------- Intro ---------- */
+        .modules-intro {
+            padding: 132px 0 56px;
+            background: var(--m-tint);
+            border-bottom: 1px solid var(--m-line);
+        }
+
+        .modules-intro-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+            gap: 64px;
+            align-items: start;
+        }
+
+        .modules-intro h1 {
+            margin: 0 0 20px;
+            font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+            line-height: 1.04;
+            letter-spacing: -0.035em;
+        }
+
+        .modules-intro h1 em {
+            font-style: normal;
+            color: var(--m-blue);
+        }
+
+        .modules-lede {
+            max-width: 58ch;
+            margin: 0 0 28px;
+            font-size: 1.08rem;
+            line-height: 1.65;
+        }
+
+        .modules-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .modules-actions .btn-accent {
+            color: var(--m-ink);
+        }
+
+        .btn-line-dark {
+            border-color: #b9c3d5;
+            background: #ffffff;
+            color: var(--m-ink);
+        }
+
+        .btn-line-dark:hover,
+        .btn-line-dark:focus-visible {
+            border-color: var(--m-ink);
+            color: var(--m-ink);
+        }
+
+        .btn i,
+        .modules-wa i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
         }
 
-        .modules-kicker {
-            color: var(--accent-color);
+        .modules-support {
+            margin: 22px 0 0;
+            font-size: 0.92rem;
+            color: var(--m-muted);
         }
 
+        .modules-support strong {
+            color: var(--m-ink);
+            font-weight: 600;
+        }
+
+        /* Índice de áreas */
+        .modules-toc h2 {
+            margin: 0 0 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0;
+            color: var(--m-muted);
+        }
+
+        .modules-toc ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid var(--m-line);
+        }
+
+        .modules-toc li {
+            border-bottom: 1px solid var(--m-line);
+        }
+
+        .modules-toc a {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 14px;
+            align-items: center;
+            padding: 14px 4px;
+            color: var(--m-ink);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 200ms var(--m-ease), padding 300ms var(--m-ease);
+        }
+
+        .modules-toc a span {
+            font-weight: 400;
+            font-size: 0.88rem;
+            color: var(--m-muted);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .modules-toc a i {
+            width: 18px;
+            height: 18px;
+            color: var(--m-blue);
+            transition: transform 300ms var(--m-ease);
+        }
+
+        .modules-toc a:hover,
+        .modules-toc a:focus-visible {
+            color: var(--m-blue);
+            padding-left: 10px;
+        }
+
+        .modules-toc a:hover i,
+        .modules-toc a:focus-visible i {
+            transform: translateY(2px);
+        }
+
+        .modules-toc a:focus-visible,
+        .modules-wa:focus-visible {
+            outline: 2px solid var(--m-gold);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* ---------- Áreas ---------- */
+        .modules-anchor {
+            display: block;
+            height: 0;
+            scroll-margin-top: 96px;
+        }
+
+        .modules-areas {
+            padding: 24px 0 88px;
+        }
+
+        .module-area {
+            display: grid;
+            grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+            gap: 56px;
+            padding: 64px 0;
+            border-bottom: 1px solid var(--m-line);
+            scroll-margin-top: 96px;
+        }
+
+        .module-area:last-child {
+            border-bottom: 0;
+        }
+
+        .module-area-head {
+            position: sticky;
+            top: 112px;
+            align-self: start;
+        }
+
+        .module-area-head h2 {
+            margin: 0 0 14px;
+            font-size: clamp(1.6rem, 2.4vw, 2rem);
+            line-height: 1.1;
+        }
+
+        .module-area-head p {
+            margin: 0 0 20px;
+            line-height: 1.6;
+        }
+
+        .modules-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--m-blue);
+            text-decoration: underline;
+            text-decoration-color: rgba(59, 91, 153, 0.35);
+            text-underline-offset: 4px;
+            transition: text-decoration-color 200ms var(--m-ease), color 200ms var(--m-ease);
+        }
+
+        .modules-wa:hover {
+            color: var(--m-ink);
+            text-decoration-color: currentColor;
+        }
+
+        .module-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 40px;
+        }
+
+        .module-item {
+            padding: 22px 0 24px;
+            border-top: 1px solid var(--m-line);
+        }
+
+        .module-item--wide {
+            grid-column: 1 / -1;
+        }
+
+        .module-item h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 8px;
+            font-size: 1.15rem;
+            line-height: 1.25;
+        }
+
+        .module-item h3 i {
+            flex: none;
+            width: 20px;
+            height: 20px;
+            color: var(--m-blue);
+            stroke-width: 2;
+        }
+
+        .module-item p {
+            margin: 0;
+            max-width: 62ch;
+            line-height: 1.6;
+        }
+
+        /* Módulo destacado */
+        .module-item--feature {
+            grid-column: 1 / -1;
+            padding: 28px 30px 30px;
+            margin-bottom: 8px;
+            border: 1px solid var(--m-line);
+            border-radius: 12px;
+            background: var(--m-tint);
+        }
+
+        .module-item--feature h3 {
+            font-size: 1.45rem;
+            margin-bottom: 10px;
+        }
+
+        .module-item--feature h3 i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .module-item--feature + .module-item {
+            border-top: 0;
+        }
+
+        .module-points {
+            list-style: none;
+            margin: 20px 0 0;
+            padding: 18px 0 0;
+            border-top: 1px solid var(--m-line);
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 28px;
+        }
+
+        .module-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.96rem;
+            color: var(--m-ink);
+        }
+
+        .module-points i {
+            flex: none;
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            color: var(--m-gold-deep);
+        }
+
+        /* ---------- CTA final ---------- */
         .cta-section {
             background: #111c3a;
             border-top: 1px solid #2b3b63;
@@ -78,211 +371,89 @@
 
         .cta-content h2 {
             color: #f8fafc;
+            text-wrap: balance;
         }
 
         .cta-content p {
             color: #b9c3d5;
+            text-wrap: pretty;
+        }
+
+        .cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
         }
 
         .cta-content .btn-accent {
-            background: #d7b354;
+            background: var(--m-gold, #c69a2d);
             color: #111c3a;
         }
 
         .cta-content .btn-accent:hover,
         .cta-content .btn-accent:focus-visible {
-            background: #e3c67c;
+            background: #d7b354;
             color: #111c3a;
         }
 
-        .modules-map {
-            padding: 138px 0 96px;
+        .cta-fsoft {
+            margin: 26px 0 0;
+            font-size: 0.94rem;
         }
 
-        .modules-map-header {
-            max-width: 760px;
-            margin-bottom: 28px;
+        .cta-fsoft a {
+            color: #e3c67c;
+            text-underline-offset: 4px;
         }
 
-        .modules-map-header h1 {
-            margin: 14px 0 16px;
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
-            line-height: 1.02;
-            color: var(--modules-ink);
+        @media (max-width: 1080px) {
+            .modules-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 44px;
+            }
+
+            .modules-toc {
+                max-width: 560px;
+            }
+
+            .module-area {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding: 52px 0;
+            }
+
+            .module-area-head {
+                position: static;
+                max-width: 640px;
+            }
         }
 
-        .modules-map-header p {
-            color: var(--modules-soft);
-            font-size: 1.02rem;
-        }
+        @media (max-width: 680px) {
+            .modules-intro {
+                padding: 136px 0 44px;
+            }
 
-        .module-stack {
-            --stack-accent: var(--accent-color);
-            --stack-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.96));
-            --stack-accent-soft: rgba(59, 130, 246, 0.12);
-            --stack-border-soft: rgba(59, 130, 246, 0.18);
-            display: grid;
-            grid-template-columns: minmax(250px, 340px) minmax(0, 1fr);
-            gap: 24px;
-            padding: 26px;
-            margin-bottom: 22px;
-            border-radius: 32px;
-            background: var(--stack-bg);
-            border: 1px solid var(--modules-line);
-            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
-            scroll-margin-top: 160px;
-        }
-
-        .module-stack--commercial {
-            --stack-accent: #334155;
-            --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
-            --stack-accent-soft: rgba(51, 65, 85, 0.08);
-            --stack-border-soft: rgba(51, 65, 85, 0.14);
-        }
-
-        .module-stack--finance {
-            --stack-accent: #0f766e;
-            --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
-            --stack-accent-soft: rgba(15, 118, 110, 0.08);
-            --stack-border-soft: rgba(15, 118, 110, 0.16);
-        }
-
-        .module-stack--advanced {
-            --stack-accent: #475569;
-            --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
-            --stack-accent-soft: rgba(71, 85, 105, 0.08);
-            --stack-border-soft: rgba(71, 85, 105, 0.14);
-        }
-
-        .module-stack--talent {
-            --stack-accent: #1e40af;
-            --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
-            --stack-accent-soft: rgba(30, 64, 175, 0.08);
-            --stack-border-soft: rgba(30, 64, 175, 0.16);
-        }
-
-        .module-stack--compliance {
-            --stack-accent: #0f172a;
-            --stack-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
-            --stack-accent-soft: rgba(15, 23, 42, 0.08);
-            --stack-border-soft: rgba(15, 23, 42, 0.14);
-        }
-
-        .module-stack-aside {
-            position: relative;
-            padding: 4px 8px 8px 4px;
-        }
-
-        .module-stack-kicker {
-            color: var(--stack-accent);
-        }
-
-        .module-stack-aside h3 {
-            margin: 12px 0 14px;
-            font-size: 1.8rem;
-            line-height: 1.05;
-            color: var(--modules-ink);
-        }
-
-        .module-stack-aside p {
-            color: var(--modules-soft);
-        }
-
-        .module-stack-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .module-stack-grid--single {
-            grid-template-columns: 1fr;
-        }
-
-        .module-tile {
-            position: relative;
-            min-height: 178px;
-            padding: 22px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.98);
-            border: 1px solid var(--modules-line);
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
-            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-        }
-
-        .module-tile:hover {
-            transform: translateY(-4px);
-            border-color: var(--stack-border-soft);
-            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
-        }
-
-        .module-tile--feature {
-            min-height: 200px;
-        }
-
-        .module-tile-icon {
-            width: 54px;
-            height: 54px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            border-radius: 17px;
-            background: var(--stack-accent-soft);
-        }
-
-        .module-tile-icon i {
-            width: 26px;
-            height: 26px;
-            color: var(--stack-accent);
-            stroke-width: 2.3;
-        }
-
-        .module-tile h4 {
-            margin-bottom: 10px;
-            font-size: 1.24rem;
-            line-height: 1.1;
-            color: var(--modules-ink);
-        }
-
-        .module-tile p {
-            color: var(--modules-soft);
-            font-size: 0.96rem;
-        }
-
-        .modules-anchor {
-            position: absolute;
-            top: -150px;
-        }
-
-        @media (max-width: 1180px) {
-            .module-stack {
+            .module-list,
+            .module-points {
                 grid-template-columns: 1fr;
             }
+
+            .module-item--feature {
+                padding: 22px 20px 24px;
+            }
+
+            .modules-actions .btn,
+            .cta-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
-        @media (max-width: 820px) {
-            .module-stack {
-                padding: 22px;
-                border-radius: 26px;
-            }
-
-            .module-stack-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .modules-map {
-                padding-top: 124px;
-            }
-
-            .modules-map-header h1,
-            .module-stack-aside h3 {
-                font-size: 1.7rem;
-            }
-
-            .module-tile {
-                min-height: auto;
+        @media (prefers-reduced-motion: reduce) {
+            .modules-toc a,
+            .modules-toc a i {
+                transition: none;
             }
         }
     </style>
@@ -321,151 +492,168 @@
     <div id="navbar-container"></div>
 
     <main class="modules-page">
-        <section class="modules-map">
-            <div class="container">
-                <span id="inteligencia-negocios" class="modules-anchor"></span>
-                <div class="modules-map-header fade-in">
-                    <span class="modules-kicker">Arquitectura del sistema</span>
-                    <h1>Módulos de LSoft</h1>
-                    <p>Cada bloque responde a una necesidad específica del negocio.</p>
-                    <p>La idea es que un gerente, contador o responsable operativo pueda recorrer la página y reconocer de inmediato qué parte del ERP le resuelve su trabajo.</p>
+        <section class="modules-intro">
+            <div class="container modules-intro-grid">
+                <div class="modules-intro-copy fade-in">
+                    <h1>Módulos de LSoft: empieza con lo que necesitas, <em>suma el resto cuando crezcas.</em></h1>
+                    <p class="modules-lede">Facturación electrónica, contabilidad, inventario, nómina y declaraciones al SRI en un solo sistema. Activa hoy los módulos que tu empresa usa y agrega los demás después, sin cambiar de sistema ni volver a ingresar tus datos.</p>
+                    <div class="modules-actions">
+                        <a href="index.html#contacto" class="btn btn-accent btn-large">Agendar demostración</a>
+                        <a href="https://wa.me/593993267418?text=Hola%2C%20quiero%20saber%20qu%C3%A9%20m%C3%B3dulos%20de%20LSoft%20necesita%20mi%20empresa" target="_blank" rel="noopener" class="btn btn-line-dark btn-large"><i data-lucide="message-circle" aria-hidden="true"></i>Escribir por WhatsApp</a>
+                    </div>
+                    <p class="modules-support"><strong>25 años</strong> haciendo software contable para empresas ecuatorianas. Te atienden desarrolladores y especialistas contables de Listosoft.</p>
                 </div>
 
-                <article id="ciclo-comercial" class="module-stack module-stack--commercial fade-in">
-                    <div class="module-stack-aside">
-                        <span class="module-stack-kicker">Operaciones comerciales</span>
-                        <h3>El frente donde se mueve la operación diaria.</h3>
-                        <p>Integra el abastecimiento, la rotación de inventario, la ejecución comercial y el control de cartera con proveedores y clientes.</p>
-                    </div>
-                    <div class="module-stack-grid">
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="package"></i></div>
-                            <h4>Inventario</h4>
-                            <p>Control de existencias, movimientos y disponibilidad por bodega.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="shopping-cart"></i></div>
-                            <h4>Ventas</h4>
-                            <p>Seguimiento del proceso comercial desde pedidos hasta facturación.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="shopping-bag"></i></div>
-                            <h4>Compras</h4>
-                            <p>Gestión de abastecimiento, órdenes y recepción de productos.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="badge-dollar-sign"></i></div>
-                            <h4>Cuentas por cobrar</h4>
-                            <p>Monitoreo de cartera, vencimientos y recuperación de valores.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="receipt-text"></i></div>
-                            <h4>Cuentas por pagar</h4>
-                            <p>Planificación de obligaciones y control de pagos pendientes.</p>
-                        </article>
-                    </div>
-                </article>
-
-                <article id="gestion-financiera" class="module-stack module-stack--finance fade-in">
-                    <div class="module-stack-aside">
-                        <span class="module-stack-kicker">Finanzas</span>
-                        <h3>Visibilidad real sobre liquidez, registro y obligaciones.</h3>
-                        <p>Consolida la gestión del efectivo, los movimientos bancarios, la contabilidad general y el cumplimiento tributario.</p>
-                    </div>
-                    <div class="module-stack-grid">
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="wallet"></i></div>
-                            <h4>Caja</h4>
-                            <p>Administración de ingresos, egresos y operaciones de tesorería.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="landmark"></i></div>
-                            <h4>Bancos</h4>
-                            <p>Conciliaciones, transferencias y control de cuentas bancarias.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="calculator"></i></div>
-                            <h4>Contabilidad</h4>
-                            <p>Base contable para reportes financieros y trazabilidad documental.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="file-text"></i></div>
-                            <h4>Tributario</h4>
-                            <p>Declaraciones, anexos y soporte para obligaciones fiscales.</p>
-                        </article>
-                    </div>
-                </article>
-
-                <article id="produccion-operaciones" class="module-stack module-stack--advanced fade-in">
-                    <div class="module-stack-aside">
-                        <span class="module-stack-kicker">Operaciones avanzadas</span>
-                        <h3>Cuando el negocio necesita fabricar, ejecutar y coordinar.</h3>
-                        <p>Este bloque agrupa los procesos que requieren planificación técnica, control de costos y seguimiento operativo más detallado.</p>
-                    </div>
-                    <div class="module-stack-grid">
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="factory"></i></div>
-                            <h4>Producción</h4>
-                            <p>Planificación, centros de producción y control de procesos.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="clipboard-list"></i></div>
-                            <h4>Órdenes de trabajo</h4>
-                            <p>Seguimiento de servicios, tareas y costos asociados por orden.</p>
-                        </article>
-                        <!-- <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="blocks"></i></div>
-                            <h4>Proyectos</h4>
-                            <p>Coordinación de actividades, recursos y cumplimiento por proyecto.</p>
-                        </article> -->
-                    </div>
-                </article>
-
-                <article id="nomina-activos" class="module-stack module-stack--talent fade-in">
-                    <div class="module-stack-aside">
-                        <span class="module-stack-kicker">Gestión del talento</span>
-                        <h3>Una base laboral más ordenada para el día a día.</h3>
-                        <p>Organiza la información del personal, la operación de novedades y el procesamiento de nómina dentro del mismo sistema.</p>
-                    </div>
-                    <div class="module-stack-grid module-stack-grid--single">
-                        <article class="module-tile module-tile--feature">
-                            <div class="module-tile-icon"><i data-lucide="users-round"></i></div>
-                            <h4>Nómina</h4>
-                            <p>Roles, beneficios, novedades, vacaciones y gestión laboral en un solo módulo.</p>
-                        </article>
-                    </div>
-                </article>
-
-                <article id="contabilidad-legal" class="module-stack module-stack--compliance fade-in">
-                    <div class="module-stack-aside">
-                        <span class="module-stack-kicker">Control y cumplimiento</span>
-                        <h3>Activos y documentos regulados con mejor trazabilidad.</h3>
-                        <p>Diseñado para mantener evidencia, control patrimonial y consistencia en procesos sensibles para auditoría y cumplimiento.</p>
-                    </div>
-                    <div class="module-stack-grid">
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="archive"></i></div>
-                            <h4>Activos fijos</h4>
-                            <p>Registro, depreciación y seguimiento del patrimonio empresarial.</p>
-                        </article>
-                        <article class="module-tile">
-                            <div class="module-tile-icon"><i data-lucide="file-check"></i></div>
-                            <h4>Comprobantes electrónicos</h4>
-                            <p>Emisión y control de documentos electrónicos con respaldo normativo.</p>
-                        </article>
-                    </div>
-                </article>
+                <nav class="modules-toc fade-in" aria-label="Áreas de LSoft">
+                    <h2>Áreas del sistema</h2>
+                    <ol>
+                        <li><a href="#sri">SRI y facturación electrónica <span>2 módulos</span><i data-lucide="arrow-down" aria-hidden="true"></i></a></li>
+                        <li><a href="#gestion-financiera">Contabilidad y finanzas <span>4 módulos</span><i data-lucide="arrow-down" aria-hidden="true"></i></a></li>
+                        <li><a href="#ciclo-comercial">Ventas, compras e inventario <span>5 módulos</span><i data-lucide="arrow-down" aria-hidden="true"></i></a></li>
+                        <li><a href="#nomina-activos">Nómina <span>1 módulo</span><i data-lucide="arrow-down" aria-hidden="true"></i></a></li>
+                        <li><a href="#produccion-operaciones">Producción y servicios <span>2 módulos</span><i data-lucide="arrow-down" aria-hidden="true"></i></a></li>
+                    </ol>
+                </nav>
             </div>
         </section>
+
+        <div class="modules-areas">
+            <div class="container">
+                <span id="inteligencia-negocios" class="modules-anchor" aria-hidden="true"></span>
+                <span id="contabilidad-legal" class="modules-anchor" aria-hidden="true"></span>
+
+                <section id="sri" class="module-area" aria-labelledby="area-sri">
+                    <div class="module-area-head">
+                        <h2 id="area-sri">SRI y facturación electrónica</h2>
+                        <p>Lo primero que necesita una empresa en Ecuador: comprobantes autorizados y declaraciones que cuadren con lo que registraste. Es lo que mejor conocemos.</p>
+                        <a class="modules-wa" href="https://wa.me/593993267418?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20facturaci%C3%B3n%20electr%C3%B3nica%20y%20SRI%20en%20LSoft" target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Preguntar por WhatsApp</a>
+                    </div>
+                    <ul class="module-list">
+                        <li class="module-item module-item--feature">
+                            <h3><i data-lucide="file-check" aria-hidden="true"></i>Comprobantes electrónicos</h3>
+                            <p>Emite tus comprobantes autorizados por el SRI desde el mismo sistema donde vendes y compras. Cada documento queda con su XML y su RIDE, listo para enviar a tu cliente.</p>
+                            <ul class="module-points">
+                                <li><i data-lucide="check" aria-hidden="true"></i>Facturas y notas de crédito</li>
+                                <li><i data-lucide="check" aria-hidden="true"></i>Comprobantes de retención</li>
+                                <li><i data-lucide="check" aria-hidden="true"></i>Guías de remisión</li>
+                                <li><i data-lucide="check" aria-hidden="true"></i>XML y RIDE de cada documento</li>
+                            </ul>
+                        </li>
+                        <li class="module-item module-item--wide">
+                            <h3><i data-lucide="file-text" aria-hidden="true"></i>Tributario</h3>
+                            <p>Prepara los formularios 103 y 104 y el anexo transaccional (ATS) con la información que ya registraste en compras, ventas y retenciones.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="gestion-financiera" class="module-area" aria-labelledby="area-finanzas">
+                    <div class="module-area-head">
+                        <h2 id="area-finanzas">Contabilidad y finanzas</h2>
+                        <p>Tu contador trabaja con la misma información que registran ventas, compras y tesorería, sin pasar datos de un sistema a otro.</p>
+                        <a class="modules-wa" href="https://wa.me/593993267418?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20contabilidad%20y%20finanzas%20en%20LSoft" target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Preguntar por WhatsApp</a>
+                    </div>
+                    <ul class="module-list">
+                        <li class="module-item">
+                            <h3><i data-lucide="calculator" aria-hidden="true"></i>Contabilidad</h3>
+                            <p>Plan de cuentas, asientos y estados financieros, con el documento que originó cada registro.</p>
+                        </li>
+                        <li class="module-item">
+                            <h3><i data-lucide="wallet" aria-hidden="true"></i>Caja</h3>
+                            <p>Ingresos y egresos de efectivo, con el saldo de cada caja a la vista.</p>
+                        </li>
+                        <li class="module-item">
+                            <h3><i data-lucide="landmark" aria-hidden="true"></i>Bancos</h3>
+                            <p>Conciliaciones bancarias, transferencias y el saldo de cada cuenta.</p>
+                        </li>
+                        <li class="module-item">
+                            <h3><i data-lucide="archive" aria-hidden="true"></i>Activos fijos</h3>
+                            <p>Registro de los bienes de tu empresa, su depreciación y su valor en libros.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="ciclo-comercial" class="module-area" aria-labelledby="area-comercial">
+                    <div class="module-area-head">
+                        <h2 id="area-comercial">Ventas, compras e inventario</h2>
+                        <p>El día a día del negocio: lo que vendes, lo que compras, lo que tienes en bodega y lo que te deben.</p>
+                        <a class="modules-wa" href="https://wa.me/593993267418?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ventas%2C%20compras%20e%20inventario%20en%20LSoft" target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Preguntar por WhatsApp</a>
+                    </div>
+                    <ul class="module-list">
+                        <li class="module-item">
+                            <h3><i data-lucide="shopping-cart" aria-hidden="true"></i>Ventas</h3>
+                            <p>Del pedido a la factura electrónica, con el historial de cada cliente.</p>
+                        </li>
+                        <li class="module-item">
+                            <h3><i data-lucide="package" aria-hidden="true"></i>Inventario</h3>
+                            <p>Existencias por bodega, kardex y transferencias entre bodegas.</p>
+                        </li>
+                        <li class="module-item">
+                            <h3><i data-lucide="shopping-bag" aria-hidden="true"></i>Compras</h3>
+                            <p>Órdenes de compra, recepción de mercadería y facturas de tus proveedores.</p>
+                        </li>
+                        <li class="module-item">
+                            <h3><i data-lucide="badge-dollar-sign" aria-hidden="true"></i>Cuentas por cobrar</h3>
+                            <p>Cuánto te debe cada cliente, qué está vencido y qué ya cobraste.</p>
+                        </li>
+                        <li class="module-item module-item--wide">
+                            <h3><i data-lucide="receipt-text" aria-hidden="true"></i>Cuentas por pagar</h3>
+                            <p>Cuánto le debes a cada proveedor y cuándo vence cada pago.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="nomina-activos" class="module-area" aria-labelledby="area-nomina">
+                    <div class="module-area-head">
+                        <h2 id="area-nomina">Nómina</h2>
+                        <p>Todo lo laboral de tu equipo en un solo lugar, con los rubros que exige la ley ecuatoriana.</p>
+                        <a class="modules-wa" href="https://wa.me/593993267418?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20m%C3%B3dulo%20de%20n%C3%B3mina%20de%20LSoft" target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Preguntar por WhatsApp</a>
+                    </div>
+                    <ul class="module-list">
+                        <li class="module-item module-item--feature">
+                            <h3><i data-lucide="users-round" aria-hidden="true"></i>Nómina</h3>
+                            <p>Calcula los roles de pago de tu personal y lleva sus beneficios, vacaciones y novedades del mes sin hojas de cálculo aparte.</p>
+                            <ul class="module-points">
+                                <li><i data-lucide="check" aria-hidden="true"></i>Roles de pago</li>
+                                <li><i data-lucide="check" aria-hidden="true"></i>Décimo tercero y décimo cuarto</li>
+                                <li><i data-lucide="check" aria-hidden="true"></i>Fondos de reserva y vacaciones</li>
+                                <li><i data-lucide="check" aria-hidden="true"></i>Planillas del IESS</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="produccion-operaciones" class="module-area" aria-labelledby="area-produccion">
+                    <div class="module-area-head">
+                        <h2 id="area-produccion">Producción y servicios</h2>
+                        <p>Para empresas que fabrican o trabajan por orden y necesitan saber cuánto les cuesta cada una.</p>
+                        <a class="modules-wa" href="https://wa.me/593993267418?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20producci%C3%B3n%20y%20%C3%B3rdenes%20de%20trabajo%20en%20LSoft" target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i>Preguntar por WhatsApp</a>
+                    </div>
+                    <ul class="module-list">
+                        <li class="module-item">
+                            <h3><i data-lucide="factory" aria-hidden="true"></i>Producción</h3>
+                            <p>Planificación, centros de producción y el costo de lo que fabricas.</p>
+                        </li>
+                        <li class="module-item">
+                            <h3><i data-lucide="clipboard-list" aria-hidden="true"></i>Órdenes de trabajo</h3>
+                            <p>Cada servicio u orden con sus tareas y los costos asociados.</p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
     </main>
 
     <!-- CTA Final -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content fade-in">
-                <h2>¿Listo para ordenar la gestión de tu empresa?</h2>
-                <p>Escríbenos y te mostramos cómo LSoft se adapta a cada área de tu empresa.</p>
-                <a href="index.html#contacto" class="btn btn-accent btn-large">Solicitar Información</a>
+                <h2>Cuéntanos cómo trabaja tu empresa</h2>
+                <p>En la demostración vemos qué módulos necesitas para empezar. Casos urgentes de soporte: respuesta en menos de 4 horas hábiles.</p>
+                <div class="cta-actions">
+                    <a href="index.html#contacto" class="btn btn-accent btn-large">Agendar demostración</a>
+                    <a href="https://wa.me/593993267418?text=Hola%2C%20quiero%20agendar%20una%20demostraci%C3%B3n%20de%20LSoft" target="_blank" rel="noopener" class="btn btn-outline btn-large"><i data-lucide="message-circle" aria-hidden="true"></i>Escribir por WhatsApp</a>
+                </div>
+                <p class="cta-fsoft">¿Tu empresa usa FSoft? <a href="https://wa.me/593993267418?text=Hola%2C%20uso%20FSoft%20y%20quiero%20pasar%20a%20LSoft" target="_blank" rel="noopener">Escríbenos y te ayudamos a pasar a LSoft</a>.</p>
             </div>
         </div>
     </section>
