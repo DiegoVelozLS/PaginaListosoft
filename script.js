@@ -237,6 +237,32 @@ function initializeApp() {
         if (!el.classList.contains('visible')) observer.observe(el);
     });
 
+    // Respaldo: si el observador se salta un bloque (scroll muy rápido o pestaña
+    // en segundo plano), todo lo que ya pasó por pantalla se muestra igual.
+    if (!prefersReducedMotion) {
+        let revealTicking = false;
+        const revealPassed = () => {
+            revealTicking = false;
+            let pending = 0;
+            fadeElements.forEach(el => {
+                if (el.classList.contains('visible')) return;
+                pending++;
+                if (el.getBoundingClientRect().top < window.innerHeight) {
+                    el.classList.add('visible');
+                    observer.unobserve(el);
+                }
+            });
+            if (!pending) window.removeEventListener('scroll', onRevealScroll);
+        };
+        const onRevealScroll = () => {
+            if (!revealTicking) {
+                revealTicking = true;
+                requestAnimationFrame(revealPassed);
+            }
+        };
+        window.addEventListener('scroll', onRevealScroll, { passive: true });
+    }
+
     // 3.5. Video de YouTube - Reproducción automática cuando aparece
     const videoContainer = document.getElementById('video-container');
     const youtubeVideo = document.getElementById('youtube-video');

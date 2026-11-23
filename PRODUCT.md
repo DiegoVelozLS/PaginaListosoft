@@ -48,7 +48,7 @@ LSoft lets Ecuadorian small and medium businesses run accounting, finance, payro
 ## Evidence on Hand
 
 - **Experience:** 25 years (FSoft launched 2001). Copy saying "24 años" / "+24" is outdated.
-- **Support response (business hours, Mon–Fri 8:30–17:30):** urgente < 4 h, normal < 24 h, baja prioridad < 48 h (`soporte.html`). Only claim "menos de 4 horas" for urgent cases.
+- **Support response (business hours, Mon–Fri 9:00–17:30):** urgente < 4 h, normal < 24 h, baja prioridad < 48 h (`soporte.html`). Only claim "menos de 4 horas" for urgent cases.
 - **Customers:** "cientos de empresas" usan LSoft; there is **no verified exact number**. The "500+" counter is not real and must not be used or replaced with another invented figure.
 - **FSoft history** (`fsoft.html`, already published): created by Julio Veloz; 1.5.0 (15 mar 2001) to 5.4.00 (7 nov 2026); more than 1,400 versions; more than a thousand companies in 40 cities; LSoft has run alongside it for 10+ years; 160 companies with FSoft licenses also use LSoft. These figures describe FSoft, not LSoft.
 - Client logos: `LogosClientes/` (real customers, ~19 files).

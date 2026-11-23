@@ -1,237 +1,147 @@
 {
   "summary": {
-    "health_score": 56,
+    "health_score": 82,
+    "previous_health_score": 56,
     "business_type": "B2B SaaS / Local ERP Software (Ecuador)",
     "top_findings": [
-      "https://listosoft.com/robots.txt returns HTTP 404 (robots.root.txt not deployed to domain root) and /sitemap.xml is 404",
-      "Domain root https://listosoft.com/ returns HTTP 200 with meta refresh + JS redirect instead of a server-side 301 to /Inicio/",
-      "og:image, twitter:image, and Organization.logo JSON-LD all point to a broken 404 URL (assets/IsotipoListosoft.png)",
-      "Navbar and footer are injected 100% client-side via fetch() with cache: 'no-store', hiding navigation from non-JS bots and causing CLS",
-      "Internal links across HTML pages and components.js use .html extensions, triggering unnecessary 301 redirects on every hop"
+      "Zero Critical and zero High issues remaining in live production",
+      "Core commercial/support pages (332-483 words) can be enriched with FAQs, testimonials, and implementation process for higher E-E-A-T and GEO citability",
+      "Font Awesome CSS and Lucide JS are both loaded; client logos are PNG/JPG rather than WebP",
+      "Custom 404 HTML body not served by Apache on /Inicio/no-existe-test-404 (status 404 is correct)",
+      "Footer column headings use h4 after h2 sections (minor heading hierarchy skip)"
     ],
     "quick_wins": [
-      "Deploy robots.root.txt to /var/www/html/robots.txt with Sitemap: https://listosoft.com/Inicio/sitemap.xml",
-      "Create/fix OG image (1200x630) and point Organization.logo to an existing 200 OK PNG",
-      "Replace root meta refresh with an Apache 301 redirect to https://listosoft.com/Inicio/",
-      "Remove .html extensions from all internal hrefs in HTML files and components.js",
-      "Enable ErrorDocument 404 /Inicio/404.html, add security headers in .htaccess, and add defer to scripts + lazy/dimensions to images"
+      "Submit https://listosoft.com/Inicio/sitemap.xml in Google Search Console and request indexing of https://listosoft.com/Inicio/",
+      "Run PageSpeed Insights on https://listosoft.com/Inicio/ to benchmark real mobile/desktop CWV",
+      "Optionally add an FAQ section with FAQPage JSON-LD and 2-3 client testimonials (Phase 5)"
     ]
   },
   "categories": [
     {
       "name": "Technical SEO",
-      "score": 48,
+      "score": 92,
       "what_works": [
-        "HTTP to HTTPS 301 redirect active on listosoft.com",
-        "Clean extensionless URLs return 200 OK across all main pages",
-        "Gzip compression and browser caching rules configured in .htaccess",
-        "Valid XML sitemap at /Inicio/sitemap.xml excluding noindex pages"
+        "Root https://listosoft.com/ returns real HTTP 301 to https://listosoft.com/Inicio/",
+        "https://listosoft.com/robots.txt returns 200 OK declaring Sitemap and AI crawler rules",
+        "All 5 HTTP security headers active (HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy)",
+        "Zero internal .html links (zero internal 301 hops) and pre-rendered navbar/footer in raw HTML",
+        "Internal folders (server-root/, scripts/) return 403 Forbidden"
       ],
       "findings": [
         {
-          "title": "Root robots.txt returns HTTP 404",
-          "severity": "Critical",
-          "description": "GET https://listosoft.com/robots.txt returns 404 while only /Inicio/robots.txt returns 200. Crawlers only check the domain root.",
-          "recommendation": "Deploy robots.root.txt to /var/www/html/robots.txt declaring Sitemap: https://listosoft.com/Inicio/sitemap.xml."
-        },
-        {
-          "title": "Soft meta-refresh redirect on domain root",
-          "severity": "Critical",
-          "description": "https://listosoft.com/ returns HTTP 200 with <meta http-equiv='refresh' content='0; url=/Inicio/'> and window.location.replace.",
-          "recommendation": "Configure a server-side HTTP 301 redirect in /var/www/html/.htaccess from / to https://listosoft.com/Inicio/."
-        },
-        {
-          "title": "Internal links trigger 301 redirects (.html suffix)",
-          "severity": "High",
-          "description": "HTML files and components.js link to *.html URLs even though .htaccess 301-redirects them to extensionless URLs.",
-          "recommendation": "Update all internal links in HTML and components.js to clean extensionless paths."
-        },
-        {
-          "title": "Client-side only navbar and footer injection",
-          "severity": "High",
-          "description": "components.js fetches navbar.html and footer.html with cache: 'no-store' after DOMContentLoaded, leaving raw HTML without navigation links.",
-          "recommendation": "Pre-render navbar and footer directly into the static HTML pages."
-        },
-        {
-          "title": "Missing HTTP security headers and disabled custom 404",
-          "severity": "High",
-          "description": "No HSTS, CSP, X-Content-Type-Options, X-Frame-Options, or Referrer-Policy headers; ErrorDocument 404 is commented out in .htaccess.",
-          "recommendation": "Add standard security headers and uncomment ErrorDocument 404 /Inicio/404.html in .htaccess."
+          "title": "Custom 404 body not rendered by Apache",
+          "severity": "Low",
+          "description": "GET /Inicio/no-existe-test-404 returns HTTP 404 but without the branded 404.html content.",
+          "recommendation": "Verify AllowOverride All/FileInfo in Apache VirtualHost so ErrorDocument 404 /Inicio/404.html takes effect."
         }
       ]
     },
     {
       "name": "Content Quality",
-      "score": 62,
+      "score": 66,
       "what_works": [
         "Clear Ecuador-focused value proposition (SRI, IESS, IVA, 25 years since 2001)",
-        "Strong brand story in fsoft.html (1,074 words) and complete privacy policy (1,515 words)"
+        "Strong editorial storytelling on fsoft (1,074 words) and complete privacy policy (1,609 words)"
       ],
       "findings": [
         {
-          "title": "Thin content on core commercial and support pages",
+          "title": "Moderate content depth on commercial/support pages",
           "severity": "Medium",
-          "description": "soporte.html (233 words), recursos.html (338 words), Sobre-nosotros.html (371 words), and index.html (389 words) lack depth for competitive ERP queries.",
-          "recommendation": "Uncomment/refine the implementation process section, add FAQs, and expand product/compliance explanations."
-        },
-        {
-          "title": "Missing customer testimonials and local trust details",
-          "severity": "Medium",
-          "description": "Client logos are shown without quotes/case studies, and Sobre-nosotros.html lacks street address, RUC, and leadership profiles.",
-          "recommendation": "Add 2-3 verified client testimonials and complete Guayaquil office/company trust details."
+          "description": "soporte (332 words), recursos (435), Sobre-nosotros (465), and Inicio (483) lack FAQs, testimonials, and local company verification details.",
+          "recommendation": "Optionally enable #proceso, add FAQ block, and include 2-3 client testimonials when ready for visual updates."
         }
       ]
     },
     {
       "name": "On-Page SEO",
-      "score": 64,
+      "score": 90,
       "what_works": [
-        "Homepage title (54 chars) and meta description (143 chars) are well-sized",
-        "Self-referencing canonical tags present on all main pages",
-        "Single H1 per content page and lang='es' set consistently"
+        "Optimized titles (50-62 chars) and meta descriptions (132-153 chars) across all main pages",
+        "Complete Open Graph and Twitter Cards with valid 200 OK 1200x630 og-listosoft.png on all pages",
+        "Single H1 per page and clean self-referencing canonicals"
       ],
       "findings": [
         {
-          "title": "Broken og:image and twitter:image (404)",
-          "severity": "Critical",
-          "description": "https://listosoft.com/Inicio/assets/IsotipoListosoft.png returns HTTP 404 across all pages using OG/Twitter tags.",
-          "recommendation": "Create a 1200x630 OG image in assets/ and update og:image and twitter:image across all pages."
-        },
-        {
-          "title": "Short titles, over-long description, and missing OG on Sobre-nosotros",
-          "severity": "Medium",
-          "description": "Titles on fsoft (14), modulos (19), recursos (20), Sobre-nosotros (26), soporte (29) are too short; modulos description is 203 chars; Sobre-nosotros lacks OG/Twitter tags.",
-          "recommendation": "Rewrite titles to 50-60 chars with target keywords, trim modulos description to <=155 chars, and add OG/Twitter tags to Sobre-nosotros.html."
-        },
-        {
-          "title": "Heading level skips (h1 -> h3) and missing H1 on 404",
+          "title": "Minor h2 -> h4 heading skip in footer",
           "severity": "Low",
-          "description": "recursos.html, soporte.html, and versiones/*.html jump from h1 directly to h3; 404.html has no h1 or noindex tag.",
-          "recommendation": "Restore sequential h1 -> h2 -> h3 hierarchy and add h1 + noindex to 404.html."
+          "description": "Footer column titles use h4 directly following h2 sections.",
+          "recommendation": "Optional: use styled <p> or <h3> for footer column titles."
         }
       ]
     },
     {
       "name": "Schema / Structured Data",
-      "score": 55,
+      "score": 88,
       "what_works": [
-        "Valid SoftwareApplication and Organization JSON-LD on index.html",
-        "Valid BreadcrumbList JSON-LD on inner pages"
+        "Zero JSON-LD errors across all pages",
+        "Complete WebSite, SoftwareApplication, and Organization graph on homepage with valid logo and sameAs",
+        "AboutPage, ContactPage, Article, and BreadcrumbList schemas active on inner pages"
       ],
       "findings": [
         {
-          "title": "Organization.logo points to 404 image",
-          "severity": "Critical",
-          "description": "index.html JSON-LD references https://listosoft.com/Inicio/assets/IsotipoListosoft.png which returns 404.",
-          "recommendation": "Point Organization.logo to an existing 200 OK logo PNG and add trailing slash to Organization.url."
-        },
-        {
-          "title": "Incomplete Organization/SoftwareApplication properties and missing page schemas",
-          "severity": "Medium",
-          "description": "Missing sameAs social links, foundingDate, email, featureList, softwareVersion, WebSite, AboutPage, ContactPage, and Article schemas.",
-          "recommendation": "Enrich index.html JSON-LD and add page-specific schemas across inner pages."
+          "title": "Optional FAQPage and LocalBusiness expansion",
+          "severity": "Low",
+          "description": "Adding FAQPage when FAQs are published can unlock richer SERP/AI snippets.",
+          "recommendation": "Pair future FAQ content with FAQPage JSON-LD."
         }
       ]
     },
     {
       "name": "Performance (CWV)",
-      "score": 58,
+      "score": 80,
       "what_works": [
-        "Total local asset footprint is compact (0.55 MB)",
-        "Preconnect hints present for Google Fonts"
+        "Zero render-blocking scripts across all 12 HTML pages (all deferred)",
+        "Pre-rendered navbar/footer eliminates fetch CLS; explicit width/height on all images",
+        "Logo-ListosoftBlanco.png reduced by 95% (175 KB -> 8.5 KB)"
       ],
       "findings": [
         {
-          "title": "Render-blocking synchronous scripts and duplicate icon libraries",
-          "severity": "High",
-          "description": "index.html loads Font Awesome CSS + Lucide JS + tsParticles + EmailJS + 3 local scripts without defer/async.",
-          "recommendation": "Add defer to scripts, remove duplicate icon library, and defer or lazy-init tsParticles."
-        },
-        {
-          "title": "Layout shift (CLS) from dynamic navbar and unsized images",
-          "severity": "High",
-          "description": "Navbar loads asynchronously with cache: 'no-store' and 16-18 images lack width/height attributes.",
-          "recommendation": "Inline/pre-render navbar and add explicit width and height attributes to all images."
+          "title": "Dual icon libraries (Font Awesome + Lucide)",
+          "severity": "Medium",
+          "description": "Both Font Awesome CSS and Lucide JS are loaded across pages.",
+          "recommendation": "Consolidate to a single icon system in a future refactor."
         }
       ]
     },
     {
       "name": "AI Search Readiness",
-      "score": 42,
+      "score": 76,
       "what_works": [
-        "Clear factual claims (25 years, Ecuador, SRI, Guayaquil) in body copy"
+        "https://listosoft.com/llms.txt live (200 OK, structured Markdown)",
+        "Explicit Allow rules for OAI-SearchBot, GPTBot, ClaudeBot, PerplexityBot in root robots.txt",
+        "Full navigation and links visible in raw HTML without JS execution"
       ],
       "findings": [
         {
-          "title": "Missing llms.txt and root robots.txt AI crawler policy",
+          "title": "Add direct Q&A passages for answer-engine citation",
           "severity": "Medium",
-          "description": "Both /llms.txt and /Inicio/llms.txt return 404, and /robots.txt is 404.",
-          "recommendation": "Publish https://listosoft.com/llms.txt and explicit Allow rules for search/AI crawlers in root robots.txt."
-        },
-        {
-          "title": "JS-injected navigation and lack of structured Q&A passages",
-          "severity": "Medium",
-          "description": "Non-JS AI crawlers cannot see site navigation from raw HTML, and pages lack direct Q&A blocks for answer-engine citation.",
-          "recommendation": "Pre-render navigation links in HTML and add concise Q&A sections covering ERP features, SRI compliance, and implementation."
+          "description": "Concise Q&A blocks improve direct citation rates in ChatGPT, Perplexity, and Google AI Overviews.",
+          "recommendation": "Add structured Q&A sections on homepage and modulos in Phase 5."
         }
       ]
     },
     {
       "name": "Images",
-      "score": 60,
+      "score": 88,
       "what_works": [
-        "All <img> tags on index.html and Sobre-nosotros.html include descriptive alt text"
+        "100% of images have descriptive alt text, explicit width/height, and lazy loading below the fold",
+        "Zero broken 404 images; white logo compressed by 95%"
       ],
       "findings": [
         {
-          "title": "Oversized white logo PNG and missing WebP/lazy loading",
-          "severity": "Medium",
-          "description": "assets/Logo-ListosoftBlanco.png is 171.4 KB (10.6x larger than Logo-Listosoft.png); below-the-fold client logos lack loading='lazy' and WebP.",
-          "recommendation": "Optimize Logo-ListosoftBlanco.png (or convert to SVG/WebP) and convert client logos to WebP with loading='lazy' and explicit dimensions."
+          "title": "Client logos still in PNG/JPG",
+          "severity": "Low",
+          "description": "Converting client logos to WebP can shave extra kilobytes.",
+          "recommendation": "Optional WebP conversion with <picture> fallback."
         }
       ]
     }
   ],
   "action_plan": {
     "phases": [
-      {
-        "name": "Phase 1: Critical Fixes",
-        "timeframe": "Week 1",
-        "items": [
-          "Deploy robots.root.txt to /var/www/html/robots.txt",
-          "Replace root meta-refresh with Apache 301 redirect to /Inicio/",
-          "Fix 404 og:image, twitter:image, and Organization.logo",
-          "Enable ErrorDocument 404 /Inicio/404.html and add H1 + noindex to 404.html"
-        ]
-      },
-      {
-        "name": "Phase 2: High-Impact Improvements",
-        "timeframe": "Weeks 2-3",
-        "items": [
-          "Remove .html extensions from all internal links and components.js",
-          "Pre-render navbar and footer in static HTML and drop cache: 'no-store'",
-          "Add HTTP security headers in .htaccess and remove wildcard HTML CORS",
-          "Add defer to scripts, remove duplicate icon library, optimize Logo-ListosoftBlanco.png, add lazy loading & image dimensions",
-          "Optimize titles, meta descriptions, OG tags on Sobre-nosotros, and heading hierarchy"
-        ]
-      },
-      {
-        "name": "Phase 3: Content & Authority",
-        "timeframe": "Month 2",
-        "items": [
-          "Enrich JSON-LD (Organization sameAs/foundingDate, SoftwareApplication featureList, WebSite, AboutPage, ContactPage, Article)",
-          "Expand thin pages, reactivate #proceso section, add FAQ section with FAQPage schema, add client testimonials",
-          "Publish https://listosoft.com/llms.txt for AI search readiness"
-        ]
-      },
-      {
-        "name": "Phase 4: Monitoring & Iteration",
-        "timeframe": "Ongoing",
-        "items": [
-          "Verify domain property in Google Search Console and submit /Inicio/sitemap.xml",
-          "Keep sitemap lastmod dates synced on deploy and monitor CrUX Core Web Vitals monthly"
-        ]
-      }
+      {"name": "Completed: Phases 1-4 (Technical, On-Page, Schema, Performance)", "timeframe": "Done", "items": ["All Critical and High issues resolved and verified live"]},
+      {"name": "Next: Google Search Console & Field Data", "timeframe": "This Week", "items": ["Submit /Inicio/sitemap.xml in GSC", "Benchmark mobile/desktop CWV in PageSpeed Insights"]},
+      {"name": "Optional: Phase 5 Content & GEO Expansion", "timeframe": "Month 2", "items": ["Add FAQ section + FAQPage schema", "Add 2-3 client testimonials", "Optionally reactivate #proceso section"]}
     ]
   },
   "artifacts": {

@@ -34,100 +34,304 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="styles.css?v=20261121j">
+    <link rel="stylesheet" href="styles.css?v=20261122a">
     <link rel="stylesheet" href="Estilos/mockup.css">
     <!-- Reutilizamos estilos de módulos para consistencia en grids y headers -->
     <link rel="stylesheet" href="Estilos/modulos.css">
     <link rel="icon" href="assets/IsotipoListosoft.ico" type="image/x-icon">
 
     <style>
-        /* Estilos específicos para la página de soporte (inline por ahora para no ensuciar styles.css global innecesariamente) */
-        .support-hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--white);
+        /* Estilos específicos de la página de soporte */
+        main p,
+        .support-intro p,
+        .support-steps p,
+        .support-info p {
+            text-wrap: pretty;
         }
 
-        .contact-method-card {
-            background: var(--white);
-            padding: 1.5rem 1.2rem 1.4rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            border-top: 1px solid var(--border-color);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
+        .section .support-steps li,
+        .section .support-help-list li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .support-intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+            gap: 56px;
             align-items: center;
-            height: 100%;
-            box-sizing: border-box;
+            padding-top: 24px;
         }
 
-        .support-benefits-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            border-top: none;
+        .support-intro .section-header {
+            margin-bottom: 32px;
         }
 
-        @media (max-width: 900px) {
-            .support-benefits-grid {
+        .support-intro .btn-accent {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 58px;
+            padding: 16px 34px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        .support-intro .btn-accent svg {
+            width: 22px !important;
+            height: 22px !important;
+            margin-right: 0 !important;
+        }
+
+        @media (max-width: 560px) {
+            .support-intro .btn-accent {
+                width: 100%;
+            }
+        }
+
+        .support-intro .btn-accent:hover,
+        .support-intro .btn-accent:focus-visible {
+            background: #d7b354;
+            color: #111c3a;
+        }
+
+        .support-ticket-note {
+            margin-top: 14px;
+            color: #4a5872;
+            font-size: 0.95rem;
+        }
+
+        .support-ticket-note strong {
+            color: var(--primary-color);
+        }
+
+        .support-guide {
+            padding: 28px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-light);
+            color: #3a4560;
+        }
+
+        .support-guide h2 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 650;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+        }
+
+        .section .support-guide li {
+            display: flex;
+            gap: 12px;
+            margin: 0;
+            padding: 12px 0;
+            list-style: none;
+            border-top: 1px solid var(--border-color);
+            color: #3a4560;
+            line-height: 1.55;
+        }
+
+        .support-guide ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .support-guide li svg {
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            color: #8a6514;
+            flex-shrink: 0;
+        }
+
+        .support-guide strong {
+            color: var(--primary-color);
+        }
+
+        .section .support-guide li.support-guide-urgent {
+            margin-top: 6px;
+            padding: 14px 16px;
+            border: 1px solid #e8d59f;
+            border-radius: 8px;
+            background: #fbf6e8;
+        }
+
+        .section .support-guide li.support-guide-urgent + li,
+        .support-guide-urgent {
+            border-top-color: #e8d59f;
+        }
+
+        .support-steps-title {
+            margin: 0 0 32px;
+            color: var(--primary-color);
+            font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+            font-weight: 650;
+            letter-spacing: -0.035em;
+        }
+
+        .support-steps {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .support-steps h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 8px;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            font-weight: 650;
+        }
+
+        .support-step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .support-steps p {
+            margin: 0;
+            color: #4a5872;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .support-info {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 56px;
+        }
+
+        .support-info h2 {
+            margin: 0 0 20px;
+            color: var(--primary-color);
+            font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+            font-weight: 650;
+            letter-spacing: -0.03em;
+        }
+
+        .support-times {
+            margin: 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .support-times div {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .support-times dt {
+            color: #3a4560;
+        }
+
+        .support-times dd {
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+        }
+
+        .support-times-note {
+            margin-top: 14px;
+            color: #4a5872;
+            font-size: 0.9rem;
+        }
+
+        .support-help-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .support-help-list a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .support-help-list a span {
+            display: block;
+            margin-top: 2px;
+            color: #4a5872;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .support-help-list a svg {
+            width: 18px;
+            height: 18px;
+            color: #8a6514;
+            flex-shrink: 0;
+            transition: transform 160ms ease-out;
+        }
+
+        .support-help-list a:hover svg {
+            transform: translateX(3px);
+        }
+
+        .support-help-list a:hover strong {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .support-help-list a:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 1100px) {
+            .support-steps {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
-        @media (max-width: 640px) {
-            .support-benefits-grid {
+        @media (max-width: 960px) {
+            .support-intro,
+            .support-info {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
 
-        .contact-method-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent-color);
-        }
+        @media (max-width: 560px) {
+            .support-steps {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
 
-        .contact-icon-large {
-            width: 80px;
-            height: 80px;
-            background: #eff6ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--accent-color);
-        }
-
-        .contact-icon-large i {
-            width: 40px;
-            height: 40px;
-        }
-
-        .resource-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-top: 1rem;
-        }
-
-        .resource-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .resource-item:last-child {
-            border-bottom: none;
-        }
-
-        .resource-item i {
-            width: 18px;
-            height: 18px;
-            color: var(--accent-color);
+            .support-guide {
+                padding: 22px;
+            }
         }
 
         .cta-section {
@@ -162,6 +366,109 @@
             font-size: clamp(2.2rem, 4vw, 3.75rem);
             color: var(--primary-color);
             margin-bottom: 15px;
+            text-wrap: balance;
+        }
+
+        .support-h1-line {
+            display: block;
+        }
+
+        /* =========================================================
+           Movimiento (misma familia que el inicio)
+           Entrada única: el titular se descubre por líneas, luego
+           texto y botón; la guía sube y sus puntos se marcan uno a uno.
+           Todo termina en ~1 s y el botón es usable desde el primer frame.
+           ========================================================= */
+        @media (prefers-reduced-motion: no-preference) {
+            .support-h1-line {
+                animation: lhReveal 800ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+            }
+
+            .support-h1-line + .support-h1-line {
+                animation-delay: 120ms;
+            }
+
+            .support-intro .section-header p,
+            .support-intro .btn-accent,
+            .support-ticket-note {
+                animation: lhFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+            }
+
+            .support-intro .section-header p { animation-delay: 240ms; }
+            .support-intro .btn-accent { animation-delay: 320ms; }
+            .support-ticket-note { animation-delay: 400ms; }
+
+            .support-guide {
+                animation: spCard 800ms cubic-bezier(0.16, 1, 0.3, 1) 200ms backwards;
+            }
+
+            .support-guide li {
+                animation: lhFadeUp 500ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+            }
+
+            .support-guide li:nth-child(1) { animation-delay: 420ms; }
+            .support-guide li:nth-child(2) { animation-delay: 500ms; }
+            .support-guide li:nth-child(3) { animation-delay: 580ms; }
+            .support-guide li:nth-child(4) { animation-delay: 700ms; }
+
+            /* Cada check se dibuja cuando llega su fila */
+            .support-guide li svg.lucide-check path {
+                stroke-dasharray: 20;
+                animation: spDraw 420ms cubic-bezier(0.65, 0, 0.35, 1) backwards;
+            }
+
+            .support-guide li:nth-child(1) svg path { animation-delay: 560ms; }
+            .support-guide li:nth-child(2) svg path { animation-delay: 640ms; }
+            .support-guide li:nth-child(3) svg path { animation-delay: 720ms; }
+
+            /* Pasos: aparecen en orden cuando entra la lista */
+            .js-reveal .support-steps li {
+                opacity: 0;
+                transform: translateY(8px);
+                transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .js-reveal .support-steps.visible li {
+                opacity: 1;
+                transform: none;
+            }
+
+            .js-reveal .support-steps.visible li:nth-child(2) { transition-delay: 80ms; }
+            .js-reveal .support-steps.visible li:nth-child(3) { transition-delay: 160ms; }
+            .js-reveal .support-steps.visible li:nth-child(4) { transition-delay: 240ms; }
+
+            .js-reveal .support-steps .support-step-num {
+                transform: scale(0.6);
+                transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+                transition-delay: inherit;
+            }
+
+            .js-reveal .support-steps.visible .support-step-num {
+                transform: none;
+            }
+        }
+
+        @keyframes spCard {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+                box-shadow: 0 0 0 rgba(17, 28, 58, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+                box-shadow: 0 18px 44px rgba(17, 28, 58, 0.07);
+            }
+        }
+
+        .support-guide {
+            box-shadow: 0 18px 44px rgba(17, 28, 58, 0.07);
+        }
+
+        @keyframes spDraw {
+            from { stroke-dashoffset: 20; }
+            to { stroke-dashoffset: 0; }
         }
     </style>
     <script type="application/ld+json">
@@ -283,134 +590,80 @@
 
     <!-- Sistema de Tickets -->
     <section class="section content-page-section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h1>Centro de soporte técnico de LSoft</h1>
-                <p>Trabajamos exclusivamente con un sistema de tickets para darte la mejor atención y seguimiento en tus solicitudes.</p>
-            </div>
+        <div class="container support-intro">
+            <div>
+                <div class="section-header">
+                    <h1><span class="support-h1-line">Centro de soporte</span> <span class="support-h1-line">técnico de LSoft</span></h1>
+                    <p>Todas las solicitudes se atienden por ticket: tu caso queda registrado, llega al desarrollador o especialista contable y tributario indicado, y puedes seguir su avance hasta resolverlo.</p>
+                </div>
 
-            <!-- CTA Principal para abrir ticket -->
-            <div style="text-align: center; margin-bottom: 60px;" class="fade-in">
-                <a href="https://soporte.listosoft.com/crear-ticket-publico.php" target="_blank" class="btn btn-accent btn-large">
-                    <i data-lucide="ticket" style="width: 20px; height: 20px; margin-right: 8px;"></i>
+                <!-- CTA Principal para abrir ticket -->
+                <a href="https://soporte.listosoft.com/crear-ticket-publico.php" target="_blank" rel="noopener" class="btn btn-accent btn-large">
+                    <i data-lucide="ticket" style="width: 20px; height: 20px; margin-right: 8px;" aria-hidden="true"></i>
                     Abrir Nuevo Ticket
                 </a>
-                <p style="margin-top: 15px; color: var(--text-muted);">Respuesta en menos de 24 horas hábiles</p>
+                <p class="support-ticket-note"><strong>Urgente:</strong> respuesta en menos de 4 horas hábiles · <strong>Normal:</strong> menos de 24</p>
             </div>
 
-            <!-- Beneficios del sistema de tickets -->
-            <h2 class="sr-only">Beneficios del sistema de tickets</h2>
-            <div class="cards-grid support-benefits-grid fade-in">
-                <div class="contact-method-card">
-                    <div class="contact-icon-large">
-                        <i data-lucide="clock"></i>
-                    </div>
-                    <h3>Seguimiento en Tiempo Real</h3>
-                    <p>Consulta el estado de tu ticket en cualquier momento y revisa el historial completo de tu caso.</p>
-                </div>
-
-                <div class="contact-method-card">
-                    <div class="contact-icon-large">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <h3>Equipo Especializado</h3>
-                    <p>Tu ticket se asigna al técnico más capacitado según el tipo de problema reportado.</p>
-                </div>
-
-                <div class="contact-method-card">
-                    <div class="contact-icon-large">
-                        <i data-lucide="file-text"></i>
-                    </div>
-                    <h3>Historial Completo</h3>
-                    <p>Mantén un registro organizado de todas tus solicitudes y soluciones anteriores.</p>
-                </div>
-            </div>
+            <aside class="support-guide" aria-labelledby="soporte-guia">
+                <h2 id="soporte-guia">Para resolverlo más rápido, incluye en tu ticket</h2>
+                <ul>
+                    <li><i data-lucide="check" aria-hidden="true"></i><span>El <strong>módulo y la pantalla</strong> donde ocurre, por ejemplo Facturación o Nómina.</span></li>
+                    <li><i data-lucide="check" aria-hidden="true"></i><span><strong>Qué intentabas hacer</strong> y qué pasó en su lugar.</span></li>
+                    <li><i data-lucide="check" aria-hidden="true"></i><span>El <strong>mensaje de error</strong> tal como aparece en pantalla.</span></li>
+                    <li class="support-guide-urgent"><i data-lucide="alert-triangle" aria-hidden="true"></i><span><strong>Si tu operación está detenida</strong>, como no poder facturar o emitir comprobantes al SRI, indícalo en el ticket: lo atendemos como urgente.</span></li>
+                </ul>
+            </aside>
         </div>
     </section>
 
-    <!-- Cómo funciona -->
+    <!-- Cómo atendemos -->
     <section class="section bg-light">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>¿Cómo funciona?</h2>
-                <p>Un proceso simple para resolver tus consultas</p>
-            </div>
-
-            <div class="modulo-grid fade-in">
-                <div class="modulo-card">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                        <div
-                            style="width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
-                            1</div>
-                        <h3 style="margin: 0;">Abre un ticket</h3>
-                    </div>
-                    <p>Entra al sistema de tickets y describe tu problema o consulta con el mayor detalle posible.</p>
-                </div>
-
-                <div class="modulo-card">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                        <div
-                            style="width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
-                            2</div>
-                        <h3 style="margin: 0;">Asignación Automática</h3>
-                    </div>
-                    <p>El sistema asigna tu ticket al técnico más adecuado según la categoría y la prioridad.</p>
-                </div>
-
-                <div class="modulo-card">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                        <div
-                            style="width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
-                            3</div>
-                        <h3 style="margin: 0;">Recibe atención</h3>
-                    </div>
-                    <p>Nuestro equipo trabaja en tu caso y te mantiene informado del progreso.</p>
-                </div>
-
-                <div class="modulo-card">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                        <div
-                            style="width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
-                            4</div>
-                        <h3 style="margin: 0;">Solución y Cierre</h3>
-                    </div>
-                    <p>Una vez resuelto, recibes la solución detallada y puedes calificar el servicio.</p>
-                </div>
-            </div>
+            <h2 class="support-steps-title fade-in">Cómo atendemos tu ticket</h2>
+            <ol class="support-steps fade-in">
+                <li>
+                    <h3><span class="support-step-num" aria-hidden="true">1</span>Abres un ticket</h3>
+                    <p>Describe el problema y el módulo donde ocurre, con el mayor detalle posible.</p>
+                </li>
+                <li>
+                    <h3><span class="support-step-num" aria-hidden="true">2</span>Lo toma un especialista</h3>
+                    <p>Un desarrollador o un especialista contable y tributario revisa tu caso según su tema y prioridad.</p>
+                </li>
+                <li>
+                    <h3><span class="support-step-num" aria-hidden="true">3</span>Sigues el avance</h3>
+                    <p>Consulta el estado de tu ticket y el historial de tu caso en cualquier momento.</p>
+                </li>
+                <li>
+                    <h3><span class="support-step-num" aria-hidden="true">4</span>Solución y cierre</h3>
+                    <p>Recibes la solución detallada y puedes calificar la atención.</p>
+                </li>
+            </ol>
         </div>
     </section>
 
-    <!-- Información adicional -->
+    <!-- Horario y autoayuda -->
     <section class="section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Información Importante</h2>
+        <div class="container support-info">
+            <div class="fade-in">
+                <h2>Horario y tiempos de respuesta</h2>
+                <dl class="support-times">
+                    <div><dt>Lunes a viernes</dt><dd>9:00 a 17:30</dd></div>
+                    <div><dt>Urgente</dt><dd>4 horas hábiles</dd></div>
+                    <div><dt>Normal</dt><dd>24 horas hábiles</dd></div>
+                    <div><dt>Baja prioridad</dt><dd>48 horas hábiles</dd></div>
+                </dl>
+                <p class="support-times-note">Los tickets recibidos fuera de horario se atienden el siguiente día hábil.</p>
             </div>
 
-            <div class="modulo-grid fade-in" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div class="modulo-card">
-                    <h3><i data-lucide="calendar" style="width: 20px; height: 20px; margin-right: 8px;"></i>Horario de
-                        Atención</h3>
-                    <p><strong>Lunes a Viernes:</strong> 8:30 AM - 5:30 PM</p>
-                    <p style="margin-top: 10px; color: var(--text-muted); font-size: 0.9rem;">Los tickets recibidos
-                        fuera de horario serán atendidos el siguiente día hábil.</p>
-                </div>
-
-                <div class="modulo-card">
-                    <h3><i data-lucide="zap" style="width: 20px; height: 20px; margin-right: 8px;"></i>Tiempo de
-                        Respuesta</h3>
-                    <p><strong>Urgente:</strong> 4 horas hábiles</p>
-                    <p><strong>Normal:</strong> 24 horas hábiles</p>
-                    <p><strong>Baja prioridad:</strong> 48 horas hábiles</p>
-                </div>
-
-                <div class="modulo-card">
-                    <h3><i data-lucide="phone" style="width: 20px; height: 20px; margin-right: 8px;"></i>Soporte de
-                        Emergencia</h3>
-                    <p>Para problemas críticos que afecten la operación:</p>
-                    <p style="margin-top: 10px;"><strong>WhatsApp:</strong> <a href="https://wa.me/593993267418"
-                            target="_blank" style="color: var(--accent-color);">+593 99-326-7418</a></p>
-                </div>
+            <div class="fade-in">
+                <h2>Antes de abrir un ticket</h2>
+                <ul class="support-help-list">
+                    <li><a href="recursos"><div><strong>Manuales y videos</strong><span>Ingreso al sistema, reportes, saldos iniciales y más.</span></div><i data-lucide="arrow-right" aria-hidden="true"></i></a></li>
+                    <li><a href="recursos#preguntas-frecuentes"><div><strong>Preguntas frecuentes</strong><span>Anular facturas, permisos de usuarios, presupuestos.</span></div><i data-lucide="arrow-right" aria-hidden="true"></i></a></li>
+                    <li><a href="versiones/2.1.61"><div><strong>Novedades de la última versión</strong><span>Qué cambió en cada actualización de LSoft.</span></div><i data-lucide="arrow-right" aria-hidden="true"></i></a></li>
+                    <li><a href="fsoft"><div><strong>¿Venías de FSoft?</strong><span>Cómo continúa tu trabajo en LSoft.</span></div><i data-lucide="arrow-right" aria-hidden="true"></i></a></li>
+                </ul>
             </div>
         </div>
     </section>
@@ -420,8 +673,8 @@
         <div class="container">
             <div class="cta-content fade-in">
                 <h2>¿Necesitas ayuda ahora?</h2>
-                <p>Abre un ticket y nuestro equipo te atenderá lo antes posible.</p>
-                <a href="https://soporte.listosoft.com/crear-ticket-publico.php" target="_blank"
+                <p>Abre un ticket y nuestro equipo toma tu caso. Si es urgente, respondemos en menos de 4 horas hábiles.</p>
+                <a href="https://soporte.listosoft.com/crear-ticket-publico.php" target="_blank" rel="noopener"
                     class="btn btn-accent btn-large">Abrir Ticket de Soporte</a>
             </div>
         </div>
@@ -496,7 +749,7 @@
 
     <!-- Scripts -->
     <script src="components.js?v=20261121" defer></script>
-    <script src="script.js?v=20261121d" defer></script>
+    <script src="script.js?v=20261122a" defer></script>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@0.460.0" defer></script>

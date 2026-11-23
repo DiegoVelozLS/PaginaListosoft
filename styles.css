@@ -2814,6 +2814,11 @@ body {
     color: #66748d;
 }
 
+/* El footer es oscuro: el gris de arriba no alcanza contraste ahí */
+footer .contact-info>p {
+    color: #cbd5e1;
+}
+
 .card:nth-child(odd) {
     border-right-color: #dfe5ee;
 }
@@ -3120,7 +3125,7 @@ body {
     background: var(--accent-color);
     color: #172554;
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -4562,8 +4567,9 @@ input[type="checkbox"] {
         border-left: 0;
     }
 
+    /* En teléfono el hero queda solo con el mensaje y los botones */
     #inicio.hero-lsoft .lh-statement {
-        padding: 22px 18px 16px;
+        display: none;
     }
 
     #inicio.hero-lsoft .lh-statement-head {
